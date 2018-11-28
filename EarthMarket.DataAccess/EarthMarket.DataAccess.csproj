@@ -69,6 +69,22 @@
     <Compile Include="Migrations\201811280735427_trying associations.Designer.cs">
       <DependentUpon>201811280735427_trying associations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811280747153_trying associations for cart and order.cs" />
+    <Compile Include="Migrations\201811280747153_trying associations for cart and order.Designer.cs">
+      <DependentUpon>201811280747153_trying associations for cart and order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280753284_trying associations for cart and order 1.cs" />
+    <Compile Include="Migrations\201811280753284_trying associations for cart and order 1.Designer.cs">
+      <DependentUpon>201811280753284_trying associations for cart and order 1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280757113_trying associations for cart and order 2.cs" />
+    <Compile Include="Migrations\201811280757113_trying associations for cart and order 2.Designer.cs">
+      <DependentUpon>201811280757113_trying associations for cart and order 2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280800156_trying associations for cart and order and user.cs" />
+    <Compile Include="Migrations\201811280800156_trying associations for cart and order and user.Designer.cs">
+      <DependentUpon>201811280800156_trying associations for cart and order and user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,6 +95,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811280735427_trying associations.resx">
       <DependentUpon>201811280735427_trying associations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280747153_trying associations for cart and order.resx">
+      <DependentUpon>201811280747153_trying associations for cart and order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280753284_trying associations for cart and order 1.resx">
+      <DependentUpon>201811280753284_trying associations for cart and order 1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280757113_trying associations for cart and order 2.resx">
+      <DependentUpon>201811280757113_trying associations for cart and order 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280800156_trying associations for cart and order and user.resx">
+      <DependentUpon>201811280800156_trying associations for cart and order and user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

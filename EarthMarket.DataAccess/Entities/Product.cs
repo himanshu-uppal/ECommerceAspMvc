@@ -17,10 +17,16 @@ namespace EarthMarket.DataAccess.Entities
 
         public virtual ICollection<ProductCategory> ProductCatgories { get; set; }
 
+        public virtual ICollection<CartProduct> CartProducts { get; set; }
+
+        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+
         public Product()
         {
             this.ProductCatgories = new HashSet<ProductCategory>();
             this.ProductVariants = new HashSet<ProductVariant>();
+            this.CartProducts = new HashSet<CartProduct>();
+            this.OrderProducts = new HashSet<OrderProduct>();
         }
     }
 }

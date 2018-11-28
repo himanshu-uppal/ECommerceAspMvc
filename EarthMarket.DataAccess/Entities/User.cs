@@ -15,9 +15,14 @@ namespace EarthMarket.DataAccess.Entities
 
         public virtual ICollection<UserRole> UserRoles { get; set; }
 
+        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
+
         public User()
         {
             this.UserRoles = new HashSet<UserRole>();
+            this.Carts = new HashSet<Cart>();
+            this.Orders = new HashSet<Order>();
 
         }
     }
