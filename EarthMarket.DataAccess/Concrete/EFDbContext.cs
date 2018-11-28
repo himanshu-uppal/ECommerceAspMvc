@@ -13,6 +13,10 @@ namespace EarthMarket.DataAccess.Concrete
         public EFDbContext() : base("EarthMarket")
         {           
         }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
         public IDbSet<User> Users { get; set; }
         public IDbSet<Role> Roles { get; set; }
         public IDbSet<UserRole> UserRoles { get; set; }

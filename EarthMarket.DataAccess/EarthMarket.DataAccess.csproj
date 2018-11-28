@@ -51,25 +51,36 @@
     <Compile Include="Abstract\IEntity.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Entities\Attribute.cs" />
-    <Compile Include="Entities\AttributeValue.cs" />
     <Compile Include="Entities\Cart.cs" />
-    <Compile Include="Entities\CartProduct.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\OrderProduct.cs" />
     <Compile Include="Entities\Product.cs" />
-    <Compile Include="Entities\ProductCategory.cs" />
     <Compile Include="Entities\ProductVariant.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\UserRole.cs" />
     <Compile Include="Entities\Value.cs" />
-    <Compile Include="Entities\VariantAttributeValue.cs" />
+    <Compile Include="Migrations\201811271746397_Tried adding Product Category attributes.cs" />
+    <Compile Include="Migrations\201811271746397_Tried adding Product Category attributes.Designer.cs">
+      <DependentUpon>201811271746397_Tried adding Product Category attributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811280446288_Tried Association in Product and Category.cs" />
+    <Compile Include="Migrations\201811280446288_Tried Association in Product and Category.Designer.cs">
+      <DependentUpon>201811280446288_Tried Association in Product and Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201811271746397_Tried adding Product Category attributes.resx">
+      <DependentUpon>201811271746397_Tried adding Product Category attributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811280446288_Tried Association in Product and Category.resx">
+      <DependentUpon>201811280446288_Tried Association in Product and Category.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

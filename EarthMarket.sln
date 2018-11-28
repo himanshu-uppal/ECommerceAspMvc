@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthMarket.DataAccess", "EarthMarket.DataAccess\EarthMarket.DataAccess.csproj", "{248EC884-6374-4F5F-94DC-0DEA2B3F01D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthMarket.Presentation", "EarthMarket.Presentation\EarthMarket.Presentation.csproj", "{F0319EA4-8424-4268-A363-4691202C9B52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{248EC884-6374-4F5F-94DC-0DEA2B3F01D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{248EC884-6374-4F5F-94DC-0DEA2B3F01D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{248EC884-6374-4F5F-94DC-0DEA2B3F01D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0319EA4-8424-4268-A363-4691202C9B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0319EA4-8424-4268-A363-4691202C9B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0319EA4-8424-4268-A363-4691202C9B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0319EA4-8424-4268-A363-4691202C9B52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

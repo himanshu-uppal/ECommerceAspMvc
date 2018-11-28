@@ -12,5 +12,14 @@ namespace EarthMarket.DataAccess.Entities
     {
         [Key]
         public Guid Key { get; set; }
+
+        public string Name { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
+
+        public Category()
+        {
+            Products = new HashSet<Product>();
+        }
     }
 }

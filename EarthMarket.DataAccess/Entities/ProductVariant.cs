@@ -12,5 +12,13 @@ namespace EarthMarket.DataAccess.Entities
     {
         [Key]
         public Guid Key { get; set; }
+
+        public virtual Product Product { get; set; }
+
+        public ProductVariant()
+        {
+            Product = new Product();
+        }
+    
     }
 }
