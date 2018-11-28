@@ -7,18 +7,18 @@ namespace EarthMarket.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class TriedAssociationinProductandCategory : IMigrationMetadata
+    public sealed partial class tryingassociations : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TriedAssociationinProductandCategory));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tryingassociations));
         
         string IMigrationMetadata.Id
         {
-            get { return "201811280446288_Tried Association in Product and Category"; }
+            get { return "201811280735427_trying associations"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return null; }
+            get { return Resources.GetString("Source"); }
         }
         
         string IMigrationMetadata.Target
