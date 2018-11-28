@@ -50,15 +50,6 @@
   <ItemGroup>
     <Compile Include="Abstract\IEntity.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
-    <Compile Include="Entities\Attribute.cs" />
-    <Compile Include="Entities\Cart.cs" />
-    <Compile Include="Entities\Category.cs" />
-    <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\Product.cs" />
-    <Compile Include="Entities\ProductVariant.cs" />
-    <Compile Include="Entities\Role.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\Value.cs" />
     <Compile Include="Migrations\201811271746397_Tried adding Product Category attributes.cs" />
     <Compile Include="Migrations\201811271746397_Tried adding Product Category attributes.Designer.cs">
       <DependentUpon>201811271746397_Tried adding Product Category attributes.cs</DependentUpon>
@@ -81,6 +72,9 @@
     <EmbeddedResource Include="Migrations\201811280446288_Tried Association in Product and Category.resx">
       <DependentUpon>201811280446288_Tried Association in Product and Category.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
