@@ -9,34 +9,38 @@ namespace EarthMarket.Presentation.Models
 {
     public static class CategoryExtensions
     {
-
         public static CategoryDto ToCategoryDto(this Category category)
         {
-            IEnumerable<Product> categoryProducts;
-
-            categoryProducts = category.ProductCategories.Select(productCategory => productCategory.Product);
-            HashSet<ProductDto> categoryProductDtos = new HashSet<ProductDto>();
-            foreach(var product in categoryProducts)
-            {
-                categoryProductDtos.Add(product.ToProductDto());
-            }
-
             return new CategoryDto
             {
                 Key = category.Key,
                 Name = category.Name,
-                Products = categoryProductDtos,
+                Products = category.ProductCategories.Select(cp=> cp.Product).Select(p => p.ToProductDto())
             };
         }
 
-        internal static HomePageCategoryDto ToHomePageCategoryDto(this CategoryDto categoryDto, bool isTopSelling)
-        {          
+        internal static HomePageCategoryDto ToHomePageCategoryDto(this Category category, bool isTopSelling)
+        {
+            IEnumerable<ProductDto> ProductDtos;
+            
+            if (isTopSelling)
+            {
+                ProductDtos = category.ProductCategories.Select(cp => cp.Product)
+                    .Select(p => p.ToProductDto())
+                    .OrderByDescending(p => p.ProductCountSold).Take(3);
+            }
+            else
+            {
+                ProductDtos = category.ProductCategories.Select(cp => cp.Product)
+                    .Select(p => p.ToProductDto())
+                    .OrderByDescending(p => p.ProductCountSold).Take(5); 
+            }
 
             return new HomePageCategoryDto
             {
-                Key = categoryDto.Key,
-                Name = categoryDto.Name,
-                Products = categoryDto.Products,
+                Key = category.Key,
+                Name = category.Name,
+                Products = ProductDtos,
                 isTopSelling = isTopSelling
             };
         }

@@ -41,9 +41,15 @@ namespace EarthMarket.DataAccess.Migrations
             Product product13 = new Product { Key = Guid.NewGuid(), Name = "product13", ProductCountSold = 3 };
             Product product14 = new Product { Key = Guid.NewGuid(), Name = "product14", ProductCountSold = 4 };
             Product product15 = new Product { Key = Guid.NewGuid(), Name = "product15", ProductCountSold = 5 };
-            
+
+            Product product16 = new Product { Key = Guid.NewGuid(), Name = "product16", ProductCountSold = 1 };
+            Product product17 = new Product { Key = Guid.NewGuid(), Name = "product17", ProductCountSold = 1 };
+            Product product18 = new Product { Key = Guid.NewGuid(), Name = "product18", ProductCountSold = 2 };
+            Product product19 = new Product { Key = Guid.NewGuid(), Name = "product19", ProductCountSold = 4 };
+            Product product20 = new Product { Key = Guid.NewGuid(), Name = "product20", ProductCountSold = 5 };
+
             context.Products.AddOrUpdate(product => product.Name, product1, product2, product3, product4, product5, product6, product7, product8, product9,
-                product10, product11, product12, product13, product14, product15);
+                product10, product11, product12, product13, product14, product15, product16, product17, product18, product19, product20);
 
             product1.ProductCatgories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product1, Category = category1 });
             product2.ProductCatgories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product2, Category = category2 });
@@ -62,6 +68,12 @@ namespace EarthMarket.DataAccess.Migrations
             product13.ProductCatgories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product13, Category = category3 });
             product14.ProductCatgories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product14, Category = category4 });
             product15.ProductCatgories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product15, Category = category5 });
+
+            product16.ProductCatgories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product16, Category = category1 });
+            product17.ProductCatgories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product17, Category = category1 });
+            product18.ProductCatgories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product18, Category = category2 });
+            product19.ProductCatgories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product19, Category = category4 });
+            product20.ProductCatgories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product20, Category = category5 });
 
         }
     }

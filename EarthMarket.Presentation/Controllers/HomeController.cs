@@ -20,7 +20,6 @@ namespace EarthMarket.Presentation.Controllers
         }
         public string Index()
         {
-
             string allCategories = "";
             var categories = _marketService.GetCategories(1,10).OrderByDescending(c => c.ProductCountSold).Take(3);
             var topCategories = categories;
@@ -32,7 +31,7 @@ namespace EarthMarket.Presentation.Controllers
             {
                 CategoryDto categoryDto = category.ToCategoryDto();
                 categoriesDtos.Add(categoryDto);
-                homePageCategoriesDto.HomePageCategories.Add(categoryDto.ToHomePageCategoryDto(true));
+                homePageCategoriesDto.HomePageCategories.Add(category.ToHomePageCategoryDto(true));
                 
                 //allCategories = allCategories + "top Category = " + category.Name + "--";
 
@@ -42,7 +41,7 @@ namespace EarthMarket.Presentation.Controllers
                 CategoryDto categoryDto = category.ToCategoryDto();
                 categoriesDtos.Add(categoryDto);
                 
-                homePageCategoriesDto.HomePageCategories.Add(categoryDto.ToHomePageCategoryDto(false));
+                homePageCategoriesDto.HomePageCategories.Add(category.ToHomePageCategoryDto(false));
 
                 //allCategories = allCategories + "other Category = " + category.Name + "--";
             }

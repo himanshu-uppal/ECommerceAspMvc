@@ -9,14 +9,14 @@ namespace EarthMarket.Presentation.Models
 {
     public static class ProductExtensions
     {
-
         public static ProductDto ToProductDto(this Product product)
         {        
 
             return new ProductDto
             {
                 Key = product.Key,
-                Name = product.Name
+                Name = product.Name,
+                ProductCountSold = product.ProductCountSold
             };
         }
     }
