@@ -13,6 +13,10 @@ namespace EarthMarket.DataAccess.Entities
         [Key]
         public Guid Key { get; set; }
 
+        public string Name { get; set; }
+
+        public int ProductCountSold { get; set; }
+
         public virtual ICollection<ProductVariant> ProductVariants { get; set; }
 
         public virtual ICollection<ProductCategory> ProductCatgories { get; set; }

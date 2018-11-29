@@ -93,6 +93,14 @@
     <Compile Include="Migrations\201811281332159_added category attribute name.Designer.cs">
       <DependentUpon>201811281332159_added category attribute name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811290527167_added count attribute to category and product entity.cs" />
+    <Compile Include="Migrations\201811290527167_added count attribute to category and product entity.Designer.cs">
+      <DependentUpon>201811290527167_added count attribute to category and product entity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811290540279_added name attribute product entity.cs" />
+    <Compile Include="Migrations\201811290540279_added name attribute product entity.Designer.cs">
+      <DependentUpon>201811290540279_added name attribute product entity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMarketService.cs" />
@@ -120,6 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811281332159_added category attribute name.resx">
       <DependentUpon>201811281332159_added category attribute name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290527167_added count attribute to category and product entity.resx">
+      <DependentUpon>201811290527167_added count attribute to category and product entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811290540279_added name attribute product entity.resx">
+      <DependentUpon>201811290540279_added name attribute product entity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

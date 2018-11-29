@@ -15,6 +15,8 @@ namespace EarthMarket.DataAccess.Entities
 
         public string Name { get; set; }
 
+        public int ProductCountSold { get; set; }
+
         public virtual ICollection<ProductCategory> ProductCategories { get; set; }
         public Category()
         {
