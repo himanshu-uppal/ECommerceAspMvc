@@ -15,6 +15,7 @@ namespace EarthMarket.Presentation
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             EFConfig.Initialize();
+            AutofacConfig.Initialize();
         }
     }
 }

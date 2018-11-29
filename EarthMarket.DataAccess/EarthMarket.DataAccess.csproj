@@ -49,7 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IEntity.cs" />
+    <Compile Include="Abstract\IEntityRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Concrete\EntityRepository.cs" />
+    <Compile Include="Core\PaginatedList.cs" />
     <Compile Include="Entities\Attribute.cs" />
     <Compile Include="Entities\AttributeValue.cs" />
     <Compile Include="Entities\Cart.cs" />
@@ -65,6 +68,7 @@
     <Compile Include="Entities\UserRole.cs" />
     <Compile Include="Entities\Value.cs" />
     <Compile Include="Entities\VariantAttributeValue.cs" />
+    <Compile Include="Extensions\IQueryableExtension.cs" />
     <Compile Include="Migrations\201811280735427_trying associations.cs" />
     <Compile Include="Migrations\201811280735427_trying associations.Designer.cs">
       <DependentUpon>201811280735427_trying associations.cs</DependentUpon>
@@ -85,8 +89,14 @@
     <Compile Include="Migrations\201811280800156_trying associations for cart and order and user.Designer.cs">
       <DependentUpon>201811280800156_trying associations for cart and order and user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811281332159_added category attribute name.cs" />
+    <Compile Include="Migrations\201811281332159_added category attribute name.Designer.cs">
+      <DependentUpon>201811281332159_added category attribute name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IMarketService.cs" />
+    <Compile Include="Services\MarketService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -107,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811280800156_trying associations for cart and order and user.resx">
       <DependentUpon>201811280800156_trying associations for cart and order and user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281332159_added category attribute name.resx">
+      <DependentUpon>201811281332159_added category attribute name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
