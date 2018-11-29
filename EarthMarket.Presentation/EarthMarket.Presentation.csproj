@@ -111,6 +111,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryExtensions.cs" />
+    <Compile Include="Models\ProductExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,13 +127,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EarthMarket.DataAccess\EarthMarket.DataAccess.csproj">
       <Project>{248ec884-6374-4f5f-94dc-0dea2b3f01d8}</Project>
       <Name>EarthMarket.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EarthMarket.Shared\EarthMarket.Shared.csproj">
+      <Project>{6c861e05-f4eb-476f-b812-b1dd5ac8f8df}</Project>
+      <Name>EarthMarket.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

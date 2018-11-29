@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthMarket.DataAccess", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthMarket.Presentation", "EarthMarket.Presentation\EarthMarket.Presentation.csproj", "{F0319EA4-8424-4268-A363-4691202C9B52}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EarthMarket.Shared", "EarthMarket.Shared\EarthMarket.Shared.csproj", "{6C861E05-F4EB-476F-B812-B1DD5AC8F8DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F0319EA4-8424-4268-A363-4691202C9B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0319EA4-8424-4268-A363-4691202C9B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0319EA4-8424-4268-A363-4691202C9B52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C861E05-F4EB-476F-B812-B1DD5AC8F8DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C861E05-F4EB-476F-B812-B1DD5AC8F8DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C861E05-F4EB-476F-B812-B1DD5AC8F8DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C861E05-F4EB-476F-B812-B1DD5AC8F8DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
