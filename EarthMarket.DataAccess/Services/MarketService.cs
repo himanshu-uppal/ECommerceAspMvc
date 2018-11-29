@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EarthMarket.DataAccess.Abstract;
+using EarthMarket.DataAccess.Core;
 using EarthMarket.DataAccess.Entities;
 using EarthMarket.DataAccess.Extensions;
 
@@ -16,18 +17,11 @@ namespace EarthMarket.DataAccess.Services
         {
             this._categoryRepository = categoryRepository;
         }
-        public string GetCategories()
-        {
-            string result = "";
-            var categories = _categoryRepository.GetAll();
-            
-            foreach(var category in categories)
-            {
-                result = result + category.Name;
+        public PaginatedList<Category> GetCategories(int pageIndex, int pageSize)
+        {           
+            var categories = _categoryRepository.Paginate(pageIndex, pageSize, x => x.Key);          
 
-            }
-
-            return result;
+            return categories;
         }
     }
 }

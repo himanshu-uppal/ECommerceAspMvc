@@ -10,6 +10,6 @@ namespace EarthMarket.DataAccess.Services
 {
    public  interface IMarketService
     {
-        string GetCategories();
+        PaginatedList<Category> GetCategories(int pageIndex,int pageSize);
     }
 }

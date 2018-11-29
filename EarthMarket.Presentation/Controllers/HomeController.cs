@@ -18,12 +18,14 @@ namespace EarthMarket.Presentation.Controllers
         }
         public string Index()
         {
-            string allCategories = _marketService.GetCategories();
+            string allCategories = "";
+            var categories = _marketService.GetCategories(1,3).Select(category=> new {
+            category.Name});
             //var categories = _marketService.GetCategories();
-            //foreach(Category category in categories)
-            //{
-            //    allCategories = allCategories + category.Name;
-            //}
+            foreach(var category in categories)
+            {
+                allCategories = allCategories + category.Name;
+            }
             return allCategories;
         }
     }
