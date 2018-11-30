@@ -22,28 +22,27 @@ namespace EarthMarket.Presentation.Controllers
         public ViewResult Index()
         {            
             var categories = _marketService.GetAllCategories().OrderByDescending(c => c.ProductCountSold).Take(3);
-            var topCategories = categories.Select(c => c.ToCategoryDto());
-            var otherCategories = _marketService.GetAllCategories().Except(categories).Select(c => c.ToCategoryDto());
-            var HomePageTopCategoriesDtos = topCategories.Select(c => c.ToHomePageCategoryDto(true));
-            var HomePageOtherCategoriesDtos = topCategories.Select(c => c.ToHomePageCategoryDto(false));
-            ICollection<HomePageCategoryDto> homePageCategoryDtos = new HashSet<HomePageCategoryDto>();
-            homePageCategoryDtos.Union(HomePageTopCategoriesDtos);
-            homePageCategoryDtos.Union(HomePageOtherCategoriesDtos);
+            var topCategories = categories;
+            var otherCategories = _marketService.GetAllCategories().Except(categories);
+          
+            ICollection<HomePageCategoryDto> homePageCategoriesDtos = new HashSet<HomePageCategoryDto>();
+            
+            foreach (var category in topCategories)
+            {
+                homePageCategoriesDtos.Add(category.ToCategoryDto().ToHomePageCategoryDto(true));
 
+            }
+            foreach (var category in otherCategories)
+            {
+                homePageCategoriesDtos.Add(category.ToCategoryDto().ToHomePageCategoryDto(false));
+            }
             HomePageCategoriesWithProductsListViewModel homePageCategoriesWithProductsListViewModel = new HomePageCategoriesWithProductsListViewModel
             {
-                HomePageCategoriesWithProducts = homePageCategoryDtos
+                HomePageCategoriesWithProducts = homePageCategoriesDtos
 
             };
 
             return View(homePageCategoriesWithProductsListViewModel);
-
-
-
-
-
-
-
 
         }
     }
