@@ -1,0 +1,19 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.ProductDetailsViewModel
+
+@{
+    ViewBag.Title = "GetProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetProduct</h2>
+
+<div>
+    <strong>@Model.Name</strong>
+    <div>@Model.ProductCountSold</div>
+    <div>@foreach (var category in Model.Categories)
+    {
+        <div class="text-success">@category</div>
+    }
+    </>
+</div>
+

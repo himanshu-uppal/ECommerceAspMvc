@@ -19,31 +19,31 @@ namespace EarthMarket.Presentation.Models
             };
         }
 
-        internal static HomePageCategoryDto ToHomePageCategoryDto(this Category category, bool isTopSelling)
-        {
-            IEnumerable<ProductDto> ProductDtos;
+        //internal static HomePageCategoryDto ToHomePageCategoryDto(this Category category, bool isTopSelling)
+        //{
+        //    IEnumerable<ProductDto> ProductDtos;
             
-            if (isTopSelling)
-            {
-                ProductDtos = category.ProductCategories.Select(cp => cp.Product)
-                    .Select(p => p.ToProductDto())
-                    .OrderByDescending(p => p.ProductCountSold).Take(3);
-            }
-            else
-            {
-                ProductDtos = category.ProductCategories.Select(cp => cp.Product)
-                    .Select(p => p.ToProductDto())
-                    .OrderByDescending(p => p.ProductCountSold).Take(5); 
-            }
+        //    if (isTopSelling)
+        //    {
+        //        ProductDtos = category.ProductCategories.Select(cp => cp.Product)
+        //            .Select(p => p.ToProductDto())
+        //            .OrderByDescending(p => p.ProductCountSold).Take(3);
+        //    }
+        //    else
+        //    {
+        //        ProductDtos = category.ProductCategories.Select(cp => cp.Product)
+        //            .Select(p => p.ToProductDto())
+        //            .OrderByDescending(p => p.ProductCountSold).Take(5); 
+        //    }
 
-            return new HomePageCategoryDto
-            {
-                Key = category.Key,
-                Name = category.Name,
-                Products = ProductDtos,
-                isTopSelling = isTopSelling
-            };
-        }
+        //    return new HomePageCategoryDto
+        //    {
+        //        Key = category.Key,
+        //        Name = category.Name,
+        //        Products = ProductDtos,
+        //        isTopSelling = isTopSelling
+        //    };
+        //}
 
         internal static HomePageCategoryDto ToHomePageCategoryDto(this CategoryDto category, bool isTopSelling)
         {

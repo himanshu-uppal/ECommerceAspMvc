@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace EarthMarket.Shared.DTOs
+namespace EarthMarket.Presentation.Models.ViewModels
 {
-    public class ProductDto
+    public class ProductDetailsViewModel
     {
         public Guid Key { get; set; }
         public string Name { get; set; }
         public int ProductCountSold { get; set; }
         public IEnumerable<string> Categories { get; set; }
+
+       // public virtual ICollection<ProductVariantDto> ProductVariants { get; set; }
     }
 }

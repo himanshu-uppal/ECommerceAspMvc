@@ -137,6 +137,7 @@
     <Compile Include="Models\ProductExtensions.cs" />
     <Compile Include="Models\ViewModels\CategoryListViewModel.cs" />
     <Compile Include="Models\ViewModels\HomePageCategoriesWithProductsListViewModel.cs" />
+    <Compile Include="Models\ViewModels\ProductDetailsViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -150,6 +151,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SideNav\CategoriesMenu.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Product\GetProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

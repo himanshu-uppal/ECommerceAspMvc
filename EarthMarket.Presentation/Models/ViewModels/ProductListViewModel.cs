@@ -9,5 +9,6 @@ namespace EarthMarket.Presentation.Models.ViewModels
     public class ProductListViewModel
     {
         public IEnumerable<ProductDto> Products { get; set; } 
+
     }
 }

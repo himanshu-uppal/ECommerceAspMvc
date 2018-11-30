@@ -48,5 +48,12 @@ namespace EarthMarket.DataAccess.Services
         {
             return _productRepository.GetAllProductsByCategory(_productCategoryRepository,categories);
         }
+        public Product GetProduct(Guid Key)
+        {
+            var product = _productRepository.GetSingle(Key);
+
+            return product;
+
+        }
     }
 }

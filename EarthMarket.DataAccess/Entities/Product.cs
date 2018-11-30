@@ -19,7 +19,7 @@ namespace EarthMarket.DataAccess.Entities
 
         public virtual ICollection<ProductVariant> ProductVariants { get; set; }
 
-        public virtual ICollection<ProductCategory> ProductCatgories { get; set; }
+        public virtual ICollection<ProductCategory> ProductCategories { get; set; }
 
         public virtual ICollection<CartProduct> CartProducts { get; set; }
 
@@ -27,7 +27,7 @@ namespace EarthMarket.DataAccess.Entities
 
         public Product()
         {
-            this.ProductCatgories = new HashSet<ProductCategory>();
+            this.ProductCategories = new HashSet<ProductCategory>();
             this.ProductVariants = new HashSet<ProductVariant>();
             this.CartProducts = new HashSet<CartProduct>();
             this.OrderProducts = new HashSet<OrderProduct>();

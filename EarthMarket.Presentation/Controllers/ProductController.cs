@@ -18,12 +18,21 @@ namespace EarthMarket.Presentation.Controllers
 
         }
         // GET: Product
-        public ActionResult Index()
+        public ViewResult GetProduct() //pass Key here
         {
-            return View();
+            Guid Key = new Guid("A3D8A875-8520-4CED-9E9D-0383C6262E7B");
+            var product = _marketService.GetProduct(Key).ToProductDto();
+            ProductDetailsViewModel productDetailsViewModel = new ProductDetailsViewModel
+            {
+                Key = product.Key,
+                Name = product.Name,
+                ProductCountSold = product.ProductCountSold,
+                Categories = product.Categories
+            };
+            return View(productDetailsViewModel);
         }
 
-        public ViewResult List(string id)
+        public ViewResult List(string id) //change id to category
         {
 
             var productsDtos = _marketService.GetAllProductsByCategory(new HashSet<string>{ id}).Select(p=>p.ToProductDto());
