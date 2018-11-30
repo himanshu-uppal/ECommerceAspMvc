@@ -1,0 +1,11 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.CategoryListViewModel
+
+
+
+    <div> 
+        @foreach(var category in Model.Categories)
+        {
+            @category.Name
+        }
+    </div>
+

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EarthMarket.Presentation.Models.ViewModels;
 
 namespace EarthMarket.Presentation.Controllers
 {
@@ -18,55 +19,32 @@ namespace EarthMarket.Presentation.Controllers
         {
             this._marketService = marketService;
         }
-        public string Index()
-        {
-            string allCategories = "";
-            var categories = _marketService.GetCategories(1,10).OrderByDescending(c => c.ProductCountSold).Take(3);
-            var topCategories = categories;
-            var otherCategories = _marketService.GetCategories(1, 10).Except(topCategories);
-            HomePageCategoriesDto homePageCategoriesDto = new HomePageCategoriesDto();
-            ICollection<CategoryDto> categoriesDtos = new HashSet<CategoryDto>();
-            homePageCategoriesDto.HomePageCategories = new HashSet<HomePageCategoryDto>();
-            foreach (var category in topCategories)
+        public ViewResult Index()
+        {            
+            var categories = _marketService.GetAllCategories().OrderByDescending(c => c.ProductCountSold).Take(3);
+            var topCategories = categories.Select(c => c.ToCategoryDto());
+            var otherCategories = _marketService.GetAllCategories().Except(categories).Select(c => c.ToCategoryDto());
+            var HomePageTopCategoriesDtos = topCategories.Select(c => c.ToHomePageCategoryDto(true));
+            var HomePageOtherCategoriesDtos = topCategories.Select(c => c.ToHomePageCategoryDto(false));
+            ICollection<HomePageCategoryDto> homePageCategoryDtos = new HashSet<HomePageCategoryDto>();
+            homePageCategoryDtos.Union(HomePageTopCategoriesDtos);
+            homePageCategoryDtos.Union(HomePageOtherCategoriesDtos);
+
+            HomePageCategoriesWithProductsListViewModel homePageCategoriesWithProductsListViewModel = new HomePageCategoriesWithProductsListViewModel
             {
-                CategoryDto categoryDto = category.ToCategoryDto();
-                categoriesDtos.Add(categoryDto);
-                homePageCategoriesDto.HomePageCategories.Add(category.ToHomePageCategoryDto(true));
-                
-                //allCategories = allCategories + "top Category = " + category.Name + "--";
+                HomePageCategoriesWithProducts = homePageCategoryDtos
 
-            }
-            foreach (var category in otherCategories)
-            {
-                CategoryDto categoryDto = category.ToCategoryDto();
-                categoriesDtos.Add(categoryDto);
-                
-                homePageCategoriesDto.HomePageCategories.Add(category.ToHomePageCategoryDto(false));
+            };
 
-                //allCategories = allCategories + "other Category = " + category.Name + "--";
-            }
-
-            foreach(var category in homePageCategoriesDto.HomePageCategories)
-            {
-                if (category.isTopSelling)
-                {
-                    allCategories = allCategories + "Top Category = ";
-                }
-                else
-                {
-                    allCategories = allCategories + "Category = ";
-                }
-
-                allCategories = allCategories +  category.Name + "Products = ";
-
-                foreach(var product in category.Products)
-                {
-                    allCategories = allCategories + product.Name + " -- " ;
-                }
-            }
+            return View(homePageCategoriesWithProductsListViewModel);
 
 
-            return allCategories;
+
+
+
+
+
+
         }
     }
 }

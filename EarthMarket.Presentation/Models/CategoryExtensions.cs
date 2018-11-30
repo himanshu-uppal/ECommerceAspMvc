@@ -44,5 +44,29 @@ namespace EarthMarket.Presentation.Models
                 isTopSelling = isTopSelling
             };
         }
+
+        internal static HomePageCategoryDto ToHomePageCategoryDto(this CategoryDto category, bool isTopSelling)
+        {
+            IEnumerable<ProductDto> ProductDtos;
+
+            if (isTopSelling)
+            {
+                ProductDtos = category.Products                    
+                    .OrderByDescending(p => p.ProductCountSold).Take(3);
+            }
+            else
+            {
+                ProductDtos = category.Products
+                   .OrderByDescending(p => p.ProductCountSold).Take(5);
+            }
+
+            return new HomePageCategoryDto
+            {
+                Key = category.Key,
+                Name = category.Name,
+                Products = ProductDtos,
+                isTopSelling = isTopSelling
+            };
+        }
     }
 }

@@ -1,0 +1,21 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.HomePageCategoriesWithProductsListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    @foreach (var category in Model.HomePageCategoriesWithProducts)
+    {
+    <div>
+        <h3>@category.Name</h3>
+        <div>
+            @foreach (var product in category.Products)
+            {
+            <strong>@product.Name</strong> 
+            }
+            </div>
+    </div>
+    }
+</div>
+

@@ -11,5 +11,6 @@ namespace EarthMarket.DataAccess.Services
    public  interface IMarketService
     {
         PaginatedList<Category> GetCategories(int pageIndex,int pageSize);
+        IEnumerable<Category> GetAllCategories();
     }
 }

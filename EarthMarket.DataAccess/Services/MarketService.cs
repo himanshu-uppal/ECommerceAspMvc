@@ -17,6 +17,13 @@ namespace EarthMarket.DataAccess.Services
         {
             this._categoryRepository = categoryRepository;
         }
+        public IEnumerable<Category> GetAllCategories()
+        {
+            var categories = _categoryRepository.All;
+
+            return categories;
+
+        }
         public PaginatedList<Category> GetCategories(int pageIndex, int pageSize)
         {           
             var categories = _categoryRepository.Paginate(pageIndex, pageSize, x => x.Key);          
