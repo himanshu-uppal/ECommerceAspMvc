@@ -1,0 +1,15 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.ProductListViewModel
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Products List</h2>
+<div>
+    @foreach (var product in Model.Products)
+    {
+        <strong>@product.Name  </strong>
+    }
+</div>
+
+

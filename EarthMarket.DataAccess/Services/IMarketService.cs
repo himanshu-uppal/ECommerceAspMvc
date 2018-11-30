@@ -12,5 +12,9 @@ namespace EarthMarket.DataAccess.Services
     {
         PaginatedList<Category> GetCategories(int pageIndex,int pageSize);
         IEnumerable<Category> GetAllCategories();
-    }
+
+        IEnumerable<Product> GetAllProducts();
+
+        IEnumerable<Product> GetAllProductsByCategory(IEnumerable<string> categories);
+       }
 }

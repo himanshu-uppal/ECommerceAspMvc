@@ -13,9 +13,15 @@ namespace EarthMarket.DataAccess.Services
     public class MarketService : IMarketService
     {
         private readonly IEntityRepository<Category> _categoryRepository;
-        public MarketService(IEntityRepository<Category> categoryRepository)
+        private readonly IEntityRepository<Product> _productRepository;
+        private readonly IEntityRepository<ProductCategory> _productCategoryRepository;
+        public MarketService(IEntityRepository<Category> categoryRepository, 
+            IEntityRepository<Product> productRepository,
+            IEntityRepository<ProductCategory> productCategoryRepository)
         {
             this._categoryRepository = categoryRepository;
+            this._productRepository = productRepository;
+            this._productCategoryRepository = productCategoryRepository;
         }
         public IEnumerable<Category> GetAllCategories()
         {
@@ -29,6 +35,18 @@ namespace EarthMarket.DataAccess.Services
             var categories = _categoryRepository.Paginate(pageIndex, pageSize, x => x.Key);          
 
             return categories;
+        }
+        public IEnumerable<Product> GetAllProducts()
+        {
+            var products = _productRepository.All;
+
+            return products;
+
+        }
+
+        public IEnumerable<Product> GetAllProductsByCategory(IEnumerable<string> categories)
+        {
+            return _productRepository.GetAllProductsByCategory(_productCategoryRepository,categories);
         }
     }
 }

@@ -69,6 +69,7 @@
     <Compile Include="Entities\Value.cs" />
     <Compile Include="Entities\VariantAttributeValue.cs" />
     <Compile Include="Extensions\IQueryableExtension.cs" />
+    <Compile Include="Extensions\ProductRepositoryExtensions.cs" />
     <Compile Include="Migrations\201811280735427_trying associations.cs" />
     <Compile Include="Migrations\201811280735427_trying associations.Designer.cs">
       <DependentUpon>201811280735427_trying associations.cs</DependentUpon>
