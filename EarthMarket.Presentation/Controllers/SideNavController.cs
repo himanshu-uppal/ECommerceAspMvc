@@ -9,29 +9,22 @@ using System.Web.Mvc;
 
 namespace EarthMarket.Presentation.Controllers
 {
-    public class CategoryController : Controller
+    public class SideNavController : Controller
     {
         private readonly IMarketService _marketService;
-        public CategoryController(IMarketService marketService)
+        public SideNavController(IMarketService marketService)
         {
             this._marketService = marketService;
         }
-
-        public ViewResult Index()
+        // GET: SideNav
+        public PartialViewResult CategoriesMenu()
         {
             var categoriesDtos = _marketService.GetAllCategories().Select(c => c.ToCategoryDto());
             CategoryListViewModel categoryListViewModel = new CategoryListViewModel
             {
                 Categories = categoriesDtos
             };
-            return View(categoryListViewModel);
+            return PartialView(categoryListViewModel);
         }
-
-            
-
-        
-            
     }
-    
-    
 }

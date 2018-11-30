@@ -27,7 +27,20 @@
     </div>
 
     <div class="container body-content">
-        @RenderBody()
+
+        
+            <div class="row">
+                <div class="col-6">
+                   @Html.Action("CategoriesMenu","SideNav")
+                </div>
+                <div class="col-6">
+                    @RenderBody()
+
+                </div>
+
+            </div>
+
+       
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
