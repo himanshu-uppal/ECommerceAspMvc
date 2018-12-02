@@ -16,4 +16,18 @@
     }
     </>
 </div>
+    <div><h3>Product Variants</h3>
+        @foreach(var productVariant in Model.ProductVariants)
+        {
+         <div class="bg-light">
+             <h5 class="text-success">Product Variant</h5>
+             @foreach (var productVariantAttributeValue in productVariant.ProductVariantAttributeValues)
+             {
+             <div>@productVariantAttributeValue.Key - @productVariantAttributeValue.Value</div>
+                
+             }
+
+         </div>
+        }
+    </div>
 

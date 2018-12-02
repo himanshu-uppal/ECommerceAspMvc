@@ -45,6 +45,7 @@
     <Compile Include="DTOs\HomePageCategoriesDto.cs" />
     <Compile Include="DTOs\HomePageCategoryDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
+    <Compile Include="DTOs\ProductVariantDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
