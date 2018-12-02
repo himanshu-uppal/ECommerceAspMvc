@@ -18,10 +18,10 @@ namespace EarthMarket.Presentation.Controllers
 
         }
         // GET: Product
-        public ViewResult GetProduct() //pass Key here
+        public ViewResult GetProduct(Guid productKey) //pass Key here
         {
-            Guid Key = new Guid("597D4AC4-A020-46F3-AFBB-8301C0407A54");
-            var product = _marketService.GetProduct(Key).ToProductDto();
+            //Guid productKey = new Guid("597D4AC4-A020-46F3-AFBB-8301C0407A54");
+            var product = _marketService.GetProduct(productKey).ToProductDto();
             ProductDetailsViewModel productDetailsViewModel = new ProductDetailsViewModel
             {
                 Key = product.Key,
@@ -33,10 +33,10 @@ namespace EarthMarket.Presentation.Controllers
             return View(productDetailsViewModel);
         }
 
-        public ViewResult List(string id) //change id to category
+        public ViewResult List(string category) //change id to category
         {
 
-            var productsDtos = _marketService.GetAllProductsByCategory(new HashSet<string>{ id}).Select(p=>p.ToProductDto());
+            var productsDtos = _marketService.GetAllProductsByCategory(new HashSet<string>{ category }).Select(p=>p.ToProductDto());
             ProductListViewModel productListViewModel = new ProductListViewModel
             {
                 Products = productsDtos

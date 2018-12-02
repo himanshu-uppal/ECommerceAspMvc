@@ -2,10 +2,11 @@
 
 
 
-    <div> 
-        @foreach(var category in Model.Categories)
-        {
-            @category.Name
-        }
-    </div>
+<div>
+    @foreach (var category in Model.Categories)
+    {
+        @Html.RouteLink(category.Name, new { Controller = "Product", Action = "List", category = category.Name })
+    }
+</div>
+
 

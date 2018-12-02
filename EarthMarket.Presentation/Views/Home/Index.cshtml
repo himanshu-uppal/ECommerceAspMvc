@@ -12,7 +12,7 @@
         <div>
             @foreach (var product in category.Products)
             {
-            <strong>@product.Name</strong> 
+            @Html.RouteLink(product.Name,new { Controller="Product",Action="GetProduct", productKey = product.Key})
             }
             </div>
     </div>
