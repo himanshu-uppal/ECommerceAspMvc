@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace EarthMarket.DataAccess.Entities
 {
-    public class CartProduct:IEntity
+    public class CartProductVariant:IEntity
     {
         [Key]
         public Guid Key { get; set; }
 
        
         public virtual Cart Cart { get; set; }
-        public virtual Product Product { get; set; }
+        public virtual ProductVariant ProductVariant { get; set; }
 
 
     }

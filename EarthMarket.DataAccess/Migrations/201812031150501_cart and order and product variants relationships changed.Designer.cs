@@ -7,13 +7,13 @@ namespace EarthMarket.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class addedsomeproductsandcategories : IMigrationMetadata
+    public sealed partial class cartandorderandproductvariantsrelationshipschanged : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedsomeproductsandcategories));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(cartandorderandproductvariantsrelationshipschanged));
         
         string IMigrationMetadata.Id
         {
-            get { return "201811290932395_added some products and categories"; }
+            get { return "201812031150501_cart and order and product variants relationships changed"; }
         }
         
         string IMigrationMetadata.Source

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace EarthMarket.DataAccess.Entities
 {
-    public class OrderProduct:IEntity
+    public class OrderProductVariant:IEntity
     {
         [Key]
         public Guid Key { get; set; }
-        public virtual Product Product { get; set; }
+        public virtual ProductVariant ProductVariant { get; set; }
         public virtual Order Order { get; set; }
 
     }

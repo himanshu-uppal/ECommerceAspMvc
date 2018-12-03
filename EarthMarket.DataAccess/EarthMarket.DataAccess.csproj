@@ -56,10 +56,10 @@
     <Compile Include="Entities\Attribute.cs" />
     <Compile Include="Entities\AttributeValue.cs" />
     <Compile Include="Entities\Cart.cs" />
-    <Compile Include="Entities\CartProduct.cs" />
+    <Compile Include="Entities\CartProductVariant.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\OrderProduct.cs" />
+    <Compile Include="Entities\OrderProductVariant.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductCategory.cs" />
     <Compile Include="Entities\ProductVariant.cs" />
@@ -102,9 +102,9 @@
     <Compile Include="Migrations\201811290540279_added name attribute product entity.Designer.cs">
       <DependentUpon>201811290540279_added name attribute product entity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811290932395_added some products and categories.cs" />
-    <Compile Include="Migrations\201811290932395_added some products and categories.Designer.cs">
-      <DependentUpon>201811290932395_added some products and categories.cs</DependentUpon>
+    <Compile Include="Migrations\201812031150501_cart and order and product variants relationships changed.cs" />
+    <Compile Include="Migrations\201812031150501_cart and order and product variants relationships changed.Designer.cs">
+      <DependentUpon>201812031150501_cart and order and product variants relationships changed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,8 +140,8 @@
     <EmbeddedResource Include="Migrations\201811290540279_added name attribute product entity.resx">
       <DependentUpon>201811290540279_added name attribute product entity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811290932395_added some products and categories.resx">
-      <DependentUpon>201811290932395_added some products and categories.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812031150501_cart and order and product variants relationships changed.resx">
+      <DependentUpon>201812031150501_cart and order and product variants relationships changed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

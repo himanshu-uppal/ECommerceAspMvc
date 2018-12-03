@@ -13,13 +13,13 @@ namespace EarthMarket.DataAccess.Entities
         [Key]
         public Guid Key { get; set; }
 
-        public virtual ICollection<CartProduct> CartProducts { get; set; }
+        public virtual ICollection<CartProductVariant> CartProductVariants { get; set; }
 
         public virtual User User { get; set; }
 
         public Cart()
         {
-            this.CartProducts = new HashSet<CartProduct>();
+            this.CartProductVariants = new HashSet<CartProductVariant>();
         }
     }
 }

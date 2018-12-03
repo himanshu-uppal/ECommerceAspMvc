@@ -17,9 +17,15 @@ namespace EarthMarket.DataAccess.Entities
 
         public virtual ICollection<VariantAttributeValue> ProductVariantAttributeValues { get; set; }
 
+        public virtual ICollection<OrderProductVariant> OrderProductVariants { get; set; }
+
+        public virtual ICollection<CartProductVariant> CartProductVariants { get; set; }
+
         public ProductVariant()
         {
             this.ProductVariantAttributeValues = new HashSet<VariantAttributeValue>();
+            this.OrderProductVariants = new HashSet<OrderProductVariant>();
+            this.CartProductVariants = new HashSet<CartProductVariant>();
         }
     }
 }
