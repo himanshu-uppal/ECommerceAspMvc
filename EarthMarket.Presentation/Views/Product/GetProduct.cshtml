@@ -23,8 +23,13 @@
              <h5 class="text-success">Product Variant</h5>
              @foreach (var productVariantAttributeValue in productVariant.ProductVariantAttributeValues)
              {
-             <div>@productVariantAttributeValue.Key - @productVariantAttributeValue.Value</div>
-                
+                 <div>@productVariantAttributeValue.Key - @productVariantAttributeValue.Value</div>
+
+             }
+             @Html.BeginForm("AddToCart", "Cart"){
+             @Html.Hidden("productVariantKey", productVariant.Key)
+             @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+             <input class="btn-primary" type="submit" value="Add to Cart" />
              }
 
          </div>

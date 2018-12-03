@@ -14,14 +14,18 @@ namespace EarthMarket.DataAccess.Services
     {
         private readonly IEntityRepository<Category> _categoryRepository;
         private readonly IEntityRepository<Product> _productRepository;
+        private readonly IEntityRepository<ProductVariant> _productVariantRepository;
         private readonly IEntityRepository<ProductCategory> _productCategoryRepository;
         public MarketService(IEntityRepository<Category> categoryRepository, 
             IEntityRepository<Product> productRepository,
-            IEntityRepository<ProductCategory> productCategoryRepository)
+            IEntityRepository<ProductCategory> productCategoryRepository,
+            IEntityRepository<ProductVariant> productVariantRepository
+            )
         {
             this._categoryRepository = categoryRepository;
             this._productRepository = productRepository;
             this._productCategoryRepository = productCategoryRepository;
+            this._productVariantRepository = productVariantRepository;
         }
         public IEnumerable<Category> GetAllCategories()
         {
@@ -53,6 +57,22 @@ namespace EarthMarket.DataAccess.Services
             var product = _productRepository.GetSingle(Key);
 
             return product;
+
+        }
+
+        public IEnumerable<ProductVariant> GetAllProductVariants()
+        {
+            var productVariants = _productVariantRepository.All;
+
+            return productVariants;
+
+        }
+
+        public ProductVariant GetProductVariant(Guid Key)
+        {
+            var productVariant = _productVariantRepository.GetSingle(Key);
+
+            return productVariant;
 
         }
     }

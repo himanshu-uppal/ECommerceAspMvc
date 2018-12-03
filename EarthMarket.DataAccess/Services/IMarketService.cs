@@ -16,5 +16,8 @@ namespace EarthMarket.DataAccess.Services
         IEnumerable<Product> GetAllProducts();
         Product GetProduct(Guid Key);
         IEnumerable<Product> GetAllProductsByCategory(IEnumerable<string> categories);
-       }
+
+        IEnumerable<ProductVariant> GetAllProductVariants();
+        ProductVariant GetProductVariant(Guid Key);
+    }
 }

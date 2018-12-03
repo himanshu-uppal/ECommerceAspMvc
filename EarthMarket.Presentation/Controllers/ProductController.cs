@@ -18,9 +18,9 @@ namespace EarthMarket.Presentation.Controllers
 
         }
         // GET: Product
-        public ViewResult GetProduct(Guid productKey) //pass Key here
+        public ViewResult GetProduct() //pass Key here -Guid productKey
         {
-            //Guid productKey = new Guid("597D4AC4-A020-46F3-AFBB-8301C0407A54");
+            Guid productKey = new Guid("597D4AC4-A020-46F3-AFBB-8301C0407A54");
             var product = _marketService.GetProduct(productKey).ToProductDto();
             ProductDetailsViewModel productDetailsViewModel = new ProductDetailsViewModel
             {
