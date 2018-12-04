@@ -13,5 +13,7 @@ namespace EarthMarket.Shared.DTOs
         public IEnumerable<CartProductVariantDto> CartProductVariants { get; set; }
 
         public UserDto User { get; set; }
+
+
     }
 }

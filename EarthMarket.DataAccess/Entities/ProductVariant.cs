@@ -21,6 +21,8 @@ namespace EarthMarket.DataAccess.Entities
 
         public virtual ICollection<CartProductVariant> CartProductVariants { get; set; }
 
+        public float Price { get; set; }
+
         public ProductVariant()
         {
             this.ProductVariantAttributeValues = new HashSet<VariantAttributeValue>();

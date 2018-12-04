@@ -113,11 +113,11 @@ namespace EarthMarket.DataAccess.Migrations
             //    );
 
             ////Adding Product Variant           
-            //ProductVariant productVariant1 = new ProductVariant { Key = Guid.NewGuid(), Product = product7 };
-            //ProductVariant productVariant2 = new ProductVariant { Key = Guid.NewGuid(), Product = product7 };
-            //ProductVariant productVariant3 = new ProductVariant { Key = Guid.NewGuid(), Product = product7 };
-            //ProductVariant productVariant4 = new ProductVariant { Key = Guid.NewGuid(), Product = product8 };
-            //ProductVariant productVariant5 = new ProductVariant { Key = Guid.NewGuid(), Product = product9 };
+            //ProductVariant productVariant1 = new ProductVariant { Key = Guid.NewGuid(), Product = product7 ,Price=100};
+            //ProductVariant productVariant2 = new ProductVariant { Key = Guid.NewGuid(), Product = product7, Price = 200 };
+            //ProductVariant productVariant3 = new ProductVariant { Key = Guid.NewGuid(), Product = product7, Price = 100 };
+            //ProductVariant productVariant4 = new ProductVariant { Key = Guid.NewGuid(), Product = product8, Price = 200 };
+            //ProductVariant productVariant5 = new ProductVariant { Key = Guid.NewGuid(), Product = product9, Price = 100 };
 
             //context.ProductVariants.AddOrUpdate(productVariant1, productVariant2, productVariant3, productVariant4, productVariant5);
 

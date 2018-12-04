@@ -16,6 +16,7 @@ namespace EarthMarket.DataAccess.Entities
        
         public virtual Cart Cart { get; set; }
         public virtual ProductVariant ProductVariant { get; set; }
+        public int ProductVariantCount { get; set; }
 
 
     }

@@ -149,7 +149,7 @@ namespace EarthMarket.DataAccess.Services
 
                 //add the product variant in the cart
                 cartProductVariant = new CartProductVariant
-                { Key = Guid.NewGuid(), Cart = cart, ProductVariant = productVariant };
+                { Key = Guid.NewGuid(), Cart = cart, ProductVariant = productVariant,ProductVariantCount=1 };
 
                 _cartProductVariantRepository.Add(cartProductVariant); //save CartProductVariant
 
@@ -159,7 +159,7 @@ namespace EarthMarket.DataAccess.Services
                 // increment count for the product variant in cart
                 cartProductVariant = _cartProductVariantRepository.
                     GetCartProductVariant(cart.Key, productVariant.Key);
-
+                cartProductVariant.ProductVariantCount = cartProductVariant.ProductVariantCount + 1;
                 _cartProductVariantRepository.Edit(cartProductVariant); //modify CartProductVariant
 
 
