@@ -14,7 +14,7 @@
     {
         <div class="text-success">@category</div>
     }
-    </>
+   </div>
 </div>
     <div><h3>Product Variants</h3>
         @foreach(var productVariant in Model.ProductVariants)
@@ -26,13 +26,14 @@
                  <div>@productVariantAttributeValue.Key - @productVariantAttributeValue.Value</div>
 
              }
-             @Html.BeginForm("AddToCart", "Cart"){
+             @using (Html.BeginForm("AddToCart", "Cart"))
+             {
              @Html.Hidden("productVariantKey", productVariant.Key)
              @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
              <input class="btn-primary" type="submit" value="Add to Cart" />
              }
 
          </div>
-        }
+             }
     </div>
 

@@ -20,13 +20,6 @@ namespace EarthMarket.Presentation.Models
 
         }
 
-        public static CartProductVariantDto ToCartProductVariantDto(this CartProductVariant cartProductVariant)
-        {
-            return new CartProductVariantDto
-            {
-                Key = cartProductVariant.Key,
-                ProductVariant = cartProductVariant.ProductVariant.ToProductVariantDto()
-            };
-        }
+       
     }
 }

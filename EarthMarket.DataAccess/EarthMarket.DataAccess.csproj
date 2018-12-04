@@ -68,6 +68,7 @@
     <Compile Include="Entities\UserRole.cs" />
     <Compile Include="Entities\Value.cs" />
     <Compile Include="Entities\VariantAttributeValue.cs" />
+    <Compile Include="Extensions\CartProductVariantRepositoryExtensions.cs" />
     <Compile Include="Extensions\CartRepositoryExtensions.cs" />
     <Compile Include="Extensions\IQueryableExtension.cs" />
     <Compile Include="Extensions\ProductRepositoryExtensions.cs" />

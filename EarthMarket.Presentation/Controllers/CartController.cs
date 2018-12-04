@@ -19,27 +19,33 @@ namespace EarthMarket.Presentation.Controllers
         {
             this._marketService = marketService;
         }
-        public ViewResult Index(Cart cart, string returnUrl)
+        public ViewResult Index( string returnUrl)
         {
-            return View();
-            //return View(new CartIndexViewModel
-            //{
-            //    Cart = cart,
-            //    ReturnUrl = returnUrl
-            //});
+            Cart cart = GetCart();
+            CartDto cartDto = cart.ToCartDto();
+            //return View();
+            return View(new CartViewModel
+            {
+                Key = cartDto.Key,
+                User = cartDto.User,
+                CartProductVariants = cartDto.CartProductVariants
+                //ReturnUrl = returnUrl
+            });
         }
-        public RedirectToRouteResult AddToCart(CartDto cartDto,Guid productVariantKey,string returnUrl)
+        public RedirectToRouteResult AddToCart(Guid productVariantKey,string returnUrl)
         {
+            Cart cart = GetCart();
             ProductVariant productVariant = _marketService.GetProductVariant(productVariantKey);
             if(productVariant != null)
             {
-                //add product variant to cart using CartProducts/CartProductVariants Property
+                _marketService.AddProductVariantToCart(productVariant, cart);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        public RedirectToRouteResult RemoveFromCart(CartDto cartDto, Guid productVariantKey, string returnUrl)
+        public RedirectToRouteResult RemoveFromCart( Guid productVariantKey, string returnUrl)
         {
+            Cart cart = GetCart();
             ProductVariant productVariant = _marketService.GetProductVariant(productVariantKey);
             if (productVariant != null)
             {
@@ -47,17 +53,59 @@ namespace EarthMarket.Presentation.Controllers
             }
             return RedirectToAction("Index", new { returnUrl });
         }
-        private CartDto GetCart()  // use Guid userKey
+        //private Cart GetCart()  // use Guid userKey
+        //{
+        //    Guid userKey = new Guid("4F4AD3C7-16AD-41A0-A73C-61204B9E9C69");
+        //    Cart cart = null;
+        //    User user = _marketService.GetUser(userKey);
+        //    if (user != null)
+        //    {
+        //        cart = (Cart)Session["Cart"];
+
+        //        if (cart == null)  // no cart in session
+        //        {
+        //            //check in database
+        //            Cart cartDatabase = _marketService.GetCartByUser(userKey);
+        //            if (cartDatabase == null) //no cart in database
+        //            {
+        //                //create a new empty cart
+        //                cart = new Cart { User = user };
+        //                var cartUpdateResult = _marketService.AddCart(cart.User.Key, cart);
+        //                if (cartUpdateResult.IsSuccess == false)
+        //                {
+        //                    // send response of error while update
+        //                }
+        //                cart = cartUpdateResult.Entity;
+        //                //add it into database
+        //                Session["Cart"] = cart;
+
+        //            }
+        //            else  //cart is present in database
+        //            {
+        //                cart = cartDatabase;
+        //                Session["Cart"] = cart;
+        //            }
+
+        //        }
+
+        //    }
+        //    else
+        //    {
+        //        //No valid user
+        //    }
+
+        //    return cart;
+        //}
+        private Cart GetCart()  // use Guid userKey
         {
-            Guid userKey = new Guid("BE1E6AA3-2B36-479F-8DFA-4E977BF1FB9D");
+            Guid userKey = new Guid("4F4AD3C7-16AD-41A0-A73C-61204B9E9C69");
             Cart cart = null;
             User user = _marketService.GetUser(userKey);
             if (user != null)
             {
-                cart = (Cart)Session["Cart"];
+              
 
-                if (cart == null)  // no cart in session
-                {
+               
                     //check in database
                     Cart cartDatabase = _marketService.GetCartByUser(userKey);
                     if(cartDatabase == null) //no cart in database
@@ -71,16 +119,16 @@ namespace EarthMarket.Presentation.Controllers
                         }
                         cart = cartUpdateResult.Entity;
                         //add it into database
-                        Session["Cart"] = cart;
+                        
 
                     }
                     else  //cart is present in database
                     {
                         cart = cartDatabase;
-                        Session["Cart"] = cart;
+                        
                     }        
                     
-                }               
+                              
 
             }
             else
@@ -88,11 +136,11 @@ namespace EarthMarket.Presentation.Controllers
                 //No valid user
             }
           
-            return cart.ToCartDto();
+            return cart;
         }
         public PartialViewResult Summary()
         {
-            CartDto cartDto = GetCart();
+            CartDto cartDto = GetCart().ToCartDto();
             var cartViewModel = new CartViewModel
             {
                 Key = cartDto.Key,

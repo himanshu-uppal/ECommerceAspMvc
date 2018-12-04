@@ -1,0 +1,19 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.CartViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<h1>@Model.Key</h1>Cart for User - <h3>@Model.User.Name</h3>
+
+<h4>Products are :-</h4>
+@foreach(var cartProductVariant in Model.CartProductVariants)
+{
+    <div>
+        <h5>@cartProductVariant.Key</h5> 
+    </div>
+}
+

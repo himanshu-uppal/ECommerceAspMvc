@@ -129,7 +129,7 @@ namespace EarthMarket.DataAccess.Migrations
             //product8.ProductVariants.Add(productVariant4);
             //product9.ProductVariants.Add(productVariant5);
 
-
+            //context.Products.AddOrUpdate(product7, product8, product9);
 
             ////Adding Relationship in ProductVariant and AttributValue
             //productVariant1.ProductVariantAttributeValues.
@@ -156,6 +156,8 @@ namespace EarthMarket.DataAccess.Migrations
             //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue1SizeMedium });
             //productVariant5.ProductVariantAttributeValues.
             //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue5MaterialCotton });
+
+            //context.ProductVariants.AddOrUpdate(productVariant1, productVariant2, productVariant3, productVariant4, productVariant5);
 
 
             ////Adding User

@@ -10,9 +10,10 @@ namespace EarthMarket.DataAccess.Concrete
 {
     public class EFDbContext:DbContext
     {
+        
         public EFDbContext() : base("EarthMarket")
-        {           
-        }
+        {
+                    }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
