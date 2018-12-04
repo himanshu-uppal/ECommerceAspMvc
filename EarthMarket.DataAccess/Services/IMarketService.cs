@@ -22,7 +22,8 @@ namespace EarthMarket.DataAccess.Services
 
         User GetUser(Guid Key);
 
-        bool AddCart(Cart cart);
+        OperationResult<Cart> AddCart(Guid userKey,Cart cart);
+        
         Cart GetCartByUser(Guid userKey);
     }
 }

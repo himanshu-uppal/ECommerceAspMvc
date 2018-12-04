@@ -29,8 +29,8 @@ namespace EarthMarket.DataAccess.Concrete
         public IDbSet<Value> Values { get; set; }
         public IDbSet<Order> Orders { get; set; }
         public IDbSet<Cart> Carts { get; set; }
-        public IDbSet<CartProductVariant> CartProducts { get; set; }
-        public IDbSet<OrderProductVariant> OrderProduct { get; set; }
+        public IDbSet<CartProductVariant> CartProductVariants { get; set; }
+        public IDbSet<OrderProductVariant> OrderProductVariants { get; set; }
         public IDbSet<VariantAttributeValue> VariantAttributeValues { get; set; }
     }
 }

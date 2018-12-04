@@ -133,9 +133,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartExtensions.cs" />
     <Compile Include="Models\CategoryExtensions.cs" />
     <Compile Include="Models\ProductExtensions.cs" />
     <Compile Include="Models\ProductVariantExtensions.cs" />
+    <Compile Include="Models\UserExtensions.cs" />
+    <Compile Include="Models\ViewModels\CartViewModel.cs" />
     <Compile Include="Models\ViewModels\CategoryListViewModel.cs" />
     <Compile Include="Models\ViewModels\HomePageCategoriesWithProductsListViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductDetailsViewModel.cs" />
@@ -153,6 +156,7 @@
     <Content Include="Views\SideNav\CategoriesMenu.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Product\GetProduct.cshtml" />
+    <Content Include="Views\Cart\Summary.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -162,7 +166,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EarthMarket.DataAccess\EarthMarket.DataAccess.csproj">

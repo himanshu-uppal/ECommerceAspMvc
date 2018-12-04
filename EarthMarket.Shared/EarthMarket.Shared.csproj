@@ -41,11 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\CartDto.cs" />
+    <Compile Include="DTOs\CartProductVariantDto.cs" />
     <Compile Include="DTOs\CategoryDto.cs" />
     <Compile Include="DTOs\HomePageCategoriesDto.cs" />
     <Compile Include="DTOs\HomePageCategoryDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
     <Compile Include="DTOs\ProductVariantDto.cs" />
+    <Compile Include="DTOs\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

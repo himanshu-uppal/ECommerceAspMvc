@@ -1,0 +1,17 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.CartViewModel
+
+<h2>Summary</h2>
+
+<div class="navbar-right">
+    @Html.ActionLink("Checkout", "Index", "Cart",
+    new { returnUrl = Request.Url.PathAndQuery },
+    new { @class = "btn btn-default navbar-btn" })
+</div>
+<div class="navbar-text navbar-right">
+    <b>Hi @Model.User.Name, Your cart:</b>
+
+@foreach(var cartProductVariant in Model.CartProductVariants)
+{
+    <div>Product Variant  - @cartProductVariant.Key</div>
+}
+</div>

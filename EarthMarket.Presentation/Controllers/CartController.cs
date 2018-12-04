@@ -1,5 +1,8 @@
 ﻿using EarthMarket.DataAccess.Entities;
 using EarthMarket.DataAccess.Services;
+using EarthMarket.Presentation.Models;
+using EarthMarket.Presentation.Models.ViewModels;
+using EarthMarket.Shared.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +28,7 @@ namespace EarthMarket.Presentation.Controllers
             //    ReturnUrl = returnUrl
             //});
         }
-        public RedirectToRouteResult AddToCart(Cart cart,Guid productVariantKey,string returnUrl)
+        public RedirectToRouteResult AddToCart(CartDto cartDto,Guid productVariantKey,string returnUrl)
         {
             ProductVariant productVariant = _marketService.GetProductVariant(productVariantKey);
             if(productVariant != null)
@@ -35,7 +38,7 @@ namespace EarthMarket.Presentation.Controllers
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        public RedirectToRouteResult RemoveFromCart(Cart cart, Guid productVariantKey, string returnUrl)
+        public RedirectToRouteResult RemoveFromCart(CartDto cartDto, Guid productVariantKey, string returnUrl)
         {
             ProductVariant productVariant = _marketService.GetProductVariant(productVariantKey);
             if (productVariant != null)
@@ -44,8 +47,9 @@ namespace EarthMarket.Presentation.Controllers
             }
             return RedirectToAction("Index", new { returnUrl });
         }
-        private Cart GetCart(Guid userKey)
+        private CartDto GetCart()  // use Guid userKey
         {
+            Guid userKey = new Guid("BE1E6AA3-2B36-479F-8DFA-4E977BF1FB9D");
             Cart cart = null;
             User user = _marketService.GetUser(userKey);
             if (user != null)
@@ -59,7 +63,13 @@ namespace EarthMarket.Presentation.Controllers
                     if(cartDatabase == null) //no cart in database
                     {
                         //create a new empty cart
-                        cart = new Cart { Key=Guid.NewGuid(),User = user};
+                        cart = new Cart { User = user};
+                        var cartUpdateResult = _marketService.AddCart(cart.User.Key,cart);
+                        if(cartUpdateResult.IsSuccess == false)
+                        {
+                            // send response of error while update
+                        }
+                        cart = cartUpdateResult.Entity;
                         //add it into database
                         Session["Cart"] = cart;
 
@@ -68,11 +78,9 @@ namespace EarthMarket.Presentation.Controllers
                     {
                         cart = cartDatabase;
                         Session["Cart"] = cart;
-                    }
-                   
+                    }        
                     
-                }
-               
+                }               
 
             }
             else
@@ -80,11 +88,19 @@ namespace EarthMarket.Presentation.Controllers
                 //No valid user
             }
           
-            return cart;
+            return cart.ToCartDto();
         }
-        public PartialViewResult Summary(Cart cart)
+        public PartialViewResult Summary()
         {
-            return PartialView(cart);
+            CartDto cartDto = GetCart();
+            var cartViewModel = new CartViewModel
+            {
+                Key = cartDto.Key,
+                User = cartDto.User,
+                CartProductVariants = cartDto.CartProductVariants
+            };
+            
+            return PartialView(cartViewModel);
         }
        
 

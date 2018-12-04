@@ -94,6 +94,29 @@ namespace EarthMarket.DataAccess.Services
 
             return cart;
 
+        }      
+        public OperationResult<Cart> AddCart(Guid userKey,Cart cart)
+        {
+            var user = _userRepository.GetSingle(userKey);
+            if(user == null)
+            {
+                return new OperationResult<Cart>(false);
+            }
+            if(cart.Key == null)  //if there is no previous cart in database
+            {
+                cart.Key = Guid.NewGuid();
+                _cartRepository.Add(cart);
+            }
+            else   //if there is previous cart in database
+            {
+                _cartRepository.Edit(cart);
+            }
+            
+            _cartRepository.Save();
+            return new OperationResult<Cart>(true)
+            {
+                Entity = cart
+            };
         }
     }
 }

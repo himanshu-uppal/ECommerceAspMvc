@@ -158,10 +158,33 @@ namespace EarthMarket.DataAccess.Migrations
             //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue5MaterialCotton });
 
 
-            //Adding User
-            User user1 = new User { Key = Guid.NewGuid(), Name = "user1" };
+            ////Adding User
+            //User user1 = new User { Key = Guid.NewGuid(), Name = "user1" };
 
-            context.Users.AddOrUpdate(user1);
+            //context.Users.AddOrUpdate(user1);
+
+            ////Adding cart
+
+            //Cart cart1 = new Cart { Key = Guid.NewGuid(), User = user1 };
+
+            //context.Carts.AddOrUpdate(cart1);
+
+            ////Adding CartProductVariant 
+
+            //CartProductVariant cartProductVariant1 = new CartProductVariant
+            //{
+            //    Key = Guid.NewGuid(),
+            //    Cart = cart1,
+            //    ProductVariant = productVariant1
+            //};
+            //CartProductVariant cartProductVariant2 = new CartProductVariant
+            //{
+            //    Key = Guid.NewGuid(),
+            //    Cart = cart1,
+            //    ProductVariant = productVariant2
+            //};
+
+            //context.CartProductVariants.AddOrUpdate(cartProductVariant1, cartProductVariant2);
 
 
         }
