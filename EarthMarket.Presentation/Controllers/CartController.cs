@@ -44,14 +44,42 @@ namespace EarthMarket.Presentation.Controllers
             }
             return RedirectToAction("Index", new { returnUrl });
         }
-        private Cart GetCart()
+        private Cart GetCart(Guid userKey)
         {
-            Cart cart = (Cart)Session["Cart"];
-            if (cart == null)
+            Cart cart = null;
+            User user = _marketService.GetUser(userKey);
+            if (user != null)
             {
-                cart = new Cart();
-                Session["Cart"] = cart;
+                cart = (Cart)Session["Cart"];
+
+                if (cart == null)  // no cart in session
+                {
+                    //check in database
+                    Cart cartDatabase = _marketService.GetCartByUser(userKey);
+                    if(cartDatabase == null) //no cart in database
+                    {
+                        //create a new empty cart
+                        cart = new Cart { Key=Guid.NewGuid(),User = user};
+                        //add it into database
+                        Session["Cart"] = cart;
+
+                    }
+                    else  //cart is present in database
+                    {
+                        cart = cartDatabase;
+                        Session["Cart"] = cart;
+                    }
+                   
+                    
+                }
+               
+
             }
+            else
+            {
+                //No valid user
+            }
+          
             return cart;
         }
         public PartialViewResult Summary(Cart cart)

@@ -19,5 +19,10 @@ namespace EarthMarket.DataAccess.Services
 
         IEnumerable<ProductVariant> GetAllProductVariants();
         ProductVariant GetProductVariant(Guid Key);
+
+        User GetUser(Guid Key);
+
+        bool AddCart(Cart cart);
+        Cart GetCartByUser(Guid userKey);
     }
 }
