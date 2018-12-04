@@ -21,15 +21,13 @@ namespace EarthMarket.Presentation.Controllers
         }
         public ViewResult Index( string returnUrl)
         {
-            Cart cart = GetCart();
-            CartDto cartDto = cart.ToCartDto();
-            //return View();
-            return View(new CartViewModel
+            Cart cart = GetCart();         
+          
+            return View(new CartIndexViewModel
             {
-                Key = cartDto.Key,
-                User = cartDto.User,
-                CartProductVariants = cartDto.CartProductVariants
-                //ReturnUrl = returnUrl
+                Cart = cart.ToCartDto(),
+                ReturnUrl = returnUrl
+               
             });
         }
         public RedirectToRouteResult AddToCart(Guid productVariantKey,string returnUrl)
@@ -140,15 +138,14 @@ namespace EarthMarket.Presentation.Controllers
         }
         public PartialViewResult Summary()
         {
-            CartDto cartDto = GetCart().ToCartDto();
-            var cartViewModel = new CartViewModel
+            Cart cart = GetCart();
+
+            return PartialView(new CartSummaryViewModel
             {
-                Key = cartDto.Key,
-                User = cartDto.User,
-                CartProductVariants = cartDto.CartProductVariants
-            };
+                Cart = cart.ToCartDto()             
+
+            });
             
-            return PartialView(cartViewModel);
         }
        
 

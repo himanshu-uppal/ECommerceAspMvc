@@ -10,5 +10,6 @@ namespace EarthMarket.Shared.DTOs
     {
         public Guid Key { get; set; }
         public IDictionary<string,string> ProductVariantAttributeValues { get; set; }
+        public float ProductVariantPrice { get; set; }
     }
 }

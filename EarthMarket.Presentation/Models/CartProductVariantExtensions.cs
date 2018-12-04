@@ -14,7 +14,7 @@ namespace EarthMarket.Presentation.Models
             return new CartProductVariantDto
             {
                 Key = cartProductVariant.Key,
-                //ProductVariant = cartProductVariant.ProductVariant
+                ProductVariant = cartProductVariant.ProductVariant.ToProductVariantDto(),
                 ProductVariantCount = cartProductVariant.ProductVariantCount
             };
         }

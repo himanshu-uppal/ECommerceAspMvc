@@ -23,7 +23,8 @@ namespace EarthMarket.Presentation.Models
             return new ProductVariantDto
             {
                 Key = productVariant.Key,
-                ProductVariantAttributeValues = aDictionaryOfAttributeAndValue
+                ProductVariantAttributeValues = aDictionaryOfAttributeAndValue,
+                ProductVariantPrice = productVariant.Price
             };
         }
     }

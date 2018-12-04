@@ -1,4 +1,4 @@
-﻿@*@model EarthMarket.Presentation.Models.ViewModels.CartViewModel
+﻿@*@model EarthMarket.Presentation.Models.ViewModels.CartSummaryViewModel
 
 <h2>Summary</h2>
 
@@ -8,10 +8,12 @@
     new { @class = "btn btn-default navbar-btn" })
 </div>
 <div class="navbar-text navbar-right">
-    <b>Hi @Model.User.Name, Your cart:</b>
+    <b>Hi @Model.Cart.User.Name, Your cart:</b>
 
-@foreach(var cartProductVariant in Model.CartProductVariants)
-{
-    <div>Product Variant  - @cartProductVariant.Key</div>
-}
+    @foreach (var cartProductVariant in Model.Cart.CartProductVariants)
+    {
+        <span>[@cartProductVariant.Key - @cartProductVariant.ProductVariantCount] ==> @cartProductVariant.ProductVariant.ProductVariantPrice</span>
+
+    }
+    <h1>Total Price - @Model.Cart.ComputeTotalPrice()</h1>
 </div>*@

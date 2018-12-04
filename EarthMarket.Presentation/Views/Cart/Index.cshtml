@@ -1,4 +1,4 @@
-﻿@model EarthMarket.Presentation.Models.ViewModels.CartViewModel
+﻿@model EarthMarket.Presentation.Models.ViewModels.CartIndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -7,13 +7,13 @@
 
 <h2>Index</h2>
 
-<h1>@Model.Key</h1>Cart for User - <h3>@Model.User.Name</h3>
-
+<h1>@Model.Cart.Key</h1>Cart for User - <h3>@Model.Cart.User.Name</h3>
+<h2>Total price - @Model.Cart.ComputeTotalPrice()</h2>
 <h4>Products are :-</h4>
-@foreach(var cartProductVariant in Model.CartProductVariants)
+@foreach(var cartProductVariant in Model.Cart.CartProductVariants)
 {
     <div>
-        <h5>@cartProductVariant.Key - @cartProductVariant.ProductVariantCount</h5> 
+        <span>[@cartProductVariant.Key - @cartProductVariant.ProductVariantCount] ==> @cartProductVariant.ProductVariant.ProductVariantPrice</span> 
     </div>
 }
 
