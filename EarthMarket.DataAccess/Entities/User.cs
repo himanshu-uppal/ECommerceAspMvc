@@ -13,6 +13,11 @@ namespace EarthMarket.DataAccess.Entities
         [Key]
         public Guid Key { get; set; }
         public string Name { get; set; }
+        public string Email { get; set; }
+        public string HashedPassword { get; set; }
+        public string salt { get; set; }
+        public bool IsLocked { get; set; }
+
 
         public virtual ICollection<UserRole> UserRoles { get; set; }
 

@@ -116,6 +116,10 @@
     <Compile Include="Migrations\201812041321262_added count in cart and price in product variant.Designer.cs">
       <DependentUpon>201812041321262_added count in cart and price in product variant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812050548353_added attributes for user and roles for authentication.cs" />
+    <Compile Include="Migrations\201812050548353_added attributes for user and roles for authentication.Designer.cs">
+      <DependentUpon>201812050548353_added attributes for user and roles for authentication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMarketService.cs" />
@@ -160,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812041321262_added count in cart and price in product variant.resx">
       <DependentUpon>201812041321262_added count in cart and price in product variant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812050548353_added attributes for user and roles for authentication.resx">
+      <DependentUpon>201812050548353_added attributes for user and roles for authentication.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

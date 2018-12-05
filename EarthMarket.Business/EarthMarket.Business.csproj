@@ -44,6 +44,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CryptoService.cs" />
     <Compile Include="Services\ICryptoService.cs" />
+    <Compile Include="Services\IMembershipService.cs" />
+    <Compile Include="Services\MembershipService.cs" />
+    <Compile Include="Services\OperationResult.cs" />
+    <Compile Include="Services\OperationResultOfEntity.cs" />
+    <Compile Include="Services\ValidUserContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EarthMarket.DataAccess\EarthMarket.DataAccess.csproj">
+      <Project>{248ec884-6374-4f5f-94dc-0dea2b3f01d8}</Project>
+      <Name>EarthMarket.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EarthMarket.Shared\EarthMarket.Shared.csproj">
+      <Project>{6c861e05-f4eb-476f-b812-b1dd5ac8f8df}</Project>
+      <Name>EarthMarket.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
