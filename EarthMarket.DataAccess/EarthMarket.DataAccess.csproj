@@ -72,6 +72,8 @@
     <Compile Include="Extensions\CartRepositoryExtensions.cs" />
     <Compile Include="Extensions\IQueryableExtension.cs" />
     <Compile Include="Extensions\ProductRepositoryExtensions.cs" />
+    <Compile Include="Extensions\RoleRepositoryExtensions.cs" />
+    <Compile Include="Extensions\UserRepositoryExtensions.cs" />
     <Compile Include="Migrations\201811280735427_trying associations.cs" />
     <Compile Include="Migrations\201811280735427_trying associations.Designer.cs">
       <DependentUpon>201811280735427_trying associations.cs</DependentUpon>

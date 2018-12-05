@@ -11,9 +11,9 @@ namespace EarthMarket.Business.Services
     {
         ValidUserContext ValidateUser(string username, string password);
 
-        OperationResult<UserRole> CreateUser( string username, string email, string password);
-        OperationResult<UserRole> CreateUser( string username, string email, string password, string role);
-        OperationResult<UserRole> CreateUser( string username, string email, string password, string[] roles);
+        OperationResult<UserWithRoles> CreateUser( string username, string email, string password);
+        OperationResult<UserWithRoles> CreateUser( string username, string email, string password, string role);
+        OperationResult<UserWithRoles> CreateUser( string username, string email, string password, string[] roles);
 
         UserRole UpdateUser( User user, string username, string email);
 

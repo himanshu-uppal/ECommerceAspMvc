@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using EarthMarket.Business.Services;
 using EarthMarket.DataAccess.Abstract;
 using EarthMarket.DataAccess.Concrete;
 using EarthMarket.DataAccess.Services;
@@ -45,6 +46,14 @@ namespace EarthMarket.Presentation.App_Start
             
             builder.RegisterType<MarketService>()
             .As<IMarketService>()
+            .InstancePerRequest();
+
+            builder.RegisterType<MembershipService>()
+            .As<IMembershipService>()
+            .InstancePerRequest();
+
+            builder.RegisterType<CryptoService>()
+            .As<ICryptoService>()
             .InstancePerRequest();
 
             // Set the MVC dependency resolver to use Autofac

@@ -15,7 +15,7 @@ namespace EarthMarket.DataAccess.Entities
         public string Name { get; set; }
         public string Email { get; set; }
         public string HashedPassword { get; set; }
-        public string salt { get; set; }
+        public string Salt { get; set; }
         public bool IsLocked { get; set; }
 
 

@@ -188,6 +188,14 @@ namespace EarthMarket.DataAccess.Migrations
 
             //context.CartProductVariants.AddOrUpdate(cartProductVariant1, cartProductVariant2);
 
+            ////Adding Roles
+
+            //Role role1 = new Role { Key = Guid.NewGuid(), Name = "role1" };
+            //Role role2 = new Role { Key = Guid.NewGuid(), Name = "role2" };
+
+            //context.Roles.AddOrUpdate(role1, role2);
+
+
 
         }
     }

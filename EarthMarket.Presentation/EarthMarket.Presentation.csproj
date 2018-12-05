@@ -165,6 +165,7 @@
     <Content Include="Views\Cart\Summary.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Authentication\Register.cshtml" />
+    <Content Include="Views\Authentication\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -176,6 +177,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EarthMarket.Business\EarthMarket.Business.csproj">
+      <Project>{5ce5d5e9-7ff3-47a2-935e-8c42a0798ae0}</Project>
+      <Name>EarthMarket.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EarthMarket.DataAccess\EarthMarket.DataAccess.csproj">
       <Project>{248ec884-6374-4f5f-94dc-0dea2b3f01d8}</Project>
       <Name>EarthMarket.DataAccess</Name>

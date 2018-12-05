@@ -48,6 +48,7 @@
     <Compile Include="DTOs\HomePageCategoryDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
     <Compile Include="DTOs\ProductVariantDto.cs" />
+    <Compile Include="DTOs\RoleDto.cs" />
     <Compile Include="DTOs\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
