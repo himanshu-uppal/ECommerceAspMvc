@@ -13,6 +13,9 @@ namespace EarthMarket.DataAccess.Entities
         [Key]
         public Guid Key { get; set; }
 
+        public Guid UserKey { get; set; }
+        public Guid RoleKey { get; set; }
+
         public virtual User User { get; set; }
         public virtual Role Role { get; set; }
     }
