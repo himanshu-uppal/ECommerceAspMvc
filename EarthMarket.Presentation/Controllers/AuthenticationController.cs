@@ -20,18 +20,13 @@ namespace EarthMarket.Presentation.Controllers
         {
             RegisterViewModel registerViewModel = new RegisterViewModel();
             var roles = _membershipService.GetRoles().ToList();
-            for (int i = 0; i < roles.Count; i++)
-            {
-                if (i == 0)
-                    registerViewModel.Roles.Add(new SelectListItem { Value = roles[i].Name.ToString(), Text = roles[i].Name,Selected = true });
-                else
-                    registerViewModel.Roles.Add(new SelectListItem { Value = roles[i].Name.ToString(), Text = roles[i].Name });
-            }
+            //registerViewModel.Roles = roles.Select(r=>r.ToRoleDto());
+            
             return View(registerViewModel);
         }
 
         [HttpPost]
-        public ViewResult Register(RegisterViewModel registerViewModel,string returnUrl)
+        public ActionResult Register(RegisterViewModel registerViewModel,string returnUrl)
         {
             ICollection<string> roles = new List<string>();
             if (ModelState.IsValid)
@@ -45,15 +40,16 @@ namespace EarthMarket.Presentation.Controllers
 
                     return View(registerViewModel);
                 }
-                foreach(var selectListItem in registerViewModel.Roles)
-                {
-                    if(selectListItem.Selected == true)
-                    {
-                        roles.Add(selectListItem.Text);
-                    }
-                }
+                //foreach(var selectListItem in registerViewModel.Roles)
+                //{
+                //    if(selectListItem.Selected == true)
+                //    {
+                //        roles.Add(selectListItem.Text);
+                //    }
+                //}
 
-               var createUserResult =  _membershipService.CreateUser(registerViewModel.Name, registerViewModel.Email, registerViewModel.Password,roles.ToArray());
+               var createUserResult =  _membershipService.CreateUser(
+                   registerViewModel.Name, registerViewModel.Email, registerViewModel.Password,roles.ToArray());
                 if(createUserResult.IsSuccess == false)
                 {
                     ModelState.AddModelError("", "User cannot be created, Verify your credentials");
@@ -64,10 +60,13 @@ namespace EarthMarket.Presentation.Controllers
 
                     return View(registerViewModel);
                 }
-                
+                return RedirectToAction("Login");
+                //return RedirectToAction("Login", createUserResult.Entity.User.Name, createUserResult.Entity.User.HashedPassword);
+
+
             }
-            
-            return View();
+
+            return View(registerViewModel);
         }
 
         [HttpGet]
@@ -77,9 +76,23 @@ namespace EarthMarket.Presentation.Controllers
         }
 
         [HttpPost]
-        public ViewResult Login(LoginViewModel loginViewModel, string returnUrl)
+        public ActionResult Login(LoginViewModel loginViewModel, string returnUrl)
         {
+            if (ModelState.IsValid)
+            {
+                var userContext = _membershipService.ValidateUser(loginViewModel.Username, loginViewModel.Password);
+                if (!userContext.IsValid())
+                {
+                    return RedirectToAction("Login");
+                }
+                return RedirectToAction("Index", "Home", userContext.User);  //pass userWithRoles here
+
+            }
             return View();
         }
+
+       
+
+       
     }
 }

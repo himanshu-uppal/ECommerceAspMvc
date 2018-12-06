@@ -9,5 +9,6 @@ namespace EarthMarket.Shared.DTOs
     public class RoleDto
     {       
         public string Name { get; set; }
+        public bool isSelected { get; set; }
     }
 }

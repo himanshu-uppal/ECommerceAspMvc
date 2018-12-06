@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using EarthMarket.DataAccess.Abstract;
@@ -29,7 +30,27 @@ namespace EarthMarket.Business.Services
         }
         public ValidUserContext ValidateUser(string username, string password)
         {
-            throw new NotImplementedException();
+            var userContext = new ValidUserContext();
+            var user = _userRepository.GetSingleUserByUsername(username);
+            if(user == null)
+            {
+                return userContext;                
+            }
+            if (isPasswordValid(user,password))
+            {
+                var userRoles = GetUserRoles(user.Key);
+                userContext.User = new UserWithRoles()
+                {
+                    User = user,
+                    Roles = userRoles
+                };
+                var identity = new GenericIdentity(user.Name);
+                userContext.Principal = new GenericPrincipal(
+                    identity,
+                    userRoles.Select(ur => ur.Name).ToArray());               
+            }
+
+            return userContext;
         }
 
         public OperationResult<UserWithRoles> CreateUser(string username, string email, string password)
@@ -127,6 +148,12 @@ namespace EarthMarket.Business.Services
         }
         // Private helpers
 
+        private bool isPasswordValid(User user,string password)
+        {
+            var userEnteredPasswordHash = _cryptoService.EncryptPassword(password, user.Salt);
+            return string.Equals(userEnteredPasswordHash, user.HashedPassword);
+        }
+
         private OperationResult<UserRole> addUserToRole(User user, string roleName)
         {
             var role = _roleRepository.GetSingleRoleByRoleName(roleName);
@@ -185,15 +212,7 @@ namespace EarthMarket.Business.Services
         }
 
 
-        private bool isPasswordValid(User user, string password)
-        {
-
-            return string.Equals(
-                    _cryptoService.EncryptPassword(
-                        password, user.Salt), user.HashedPassword);
-        }
-        
-
+       
         private bool isUserValid(User user, string password)
         {
 

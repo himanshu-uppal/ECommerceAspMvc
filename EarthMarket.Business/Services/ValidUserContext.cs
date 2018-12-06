@@ -12,7 +12,7 @@ namespace EarthMarket.Business.Services
     {
 
         public IPrincipal Principal { get; set; }
-        public UserRole User { get; set; }
+        public UserWithRoles User { get; set; }
 
         public bool IsValid()
         {

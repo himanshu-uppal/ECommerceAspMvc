@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EarthMarket.Presentation.Models.ViewModels;
+using EarthMarket.Business.Services;
 
 namespace EarthMarket.Presentation.Controllers
 {
@@ -19,8 +20,16 @@ namespace EarthMarket.Presentation.Controllers
         {
             this._marketService = marketService;
         }
-        public ViewResult Index()
+        public ViewResult Index(UserWithRoles userWithRoles = null)
         {            
+            if(userWithRoles != null)
+            {
+                ModelState.AddModelError("", "There is a user");
+            }
+            else
+            {
+                ModelState.AddModelError("", "There is not any user");
+            }
             var categories = _marketService.GetAllCategories().OrderByDescending(c => c.ProductCountSold).Take(3);
             var topCategories = categories;
             var otherCategories = _marketService.GetAllCategories().Except(categories);

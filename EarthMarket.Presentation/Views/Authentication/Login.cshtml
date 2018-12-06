@@ -4,6 +4,27 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>Login</h2>
+@using (Html.BeginForm("Login", "Authentication"))
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        <label>User Name:</label>
+        @Html.TextBoxFor(lvm => lvm.Username, new { @class = "form-control" })
+    </div>
+    
+    <div class="form-group">
+        <label>Password:</label>
+        @Html.TextBoxFor(lvm => lvm.Password, new { @class = "form-control" })
+    </div>
+    
+   
+    <div class="form-group">
+        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+        <input class="btn-primary" type="submit" value="Login" />
+    </div>
+
+
+
+}
 
