@@ -46,7 +46,7 @@ namespace EarthMarket.Presentation.Controllers
             };
 
 
-            if (userWithRolesTemp.User != null)
+            if (userWithRolesTemp!= null && userWithRolesTemp.User != null)
             {
                 homePageCategoriesWithProductsListViewModel.UserDto = userWithRolesTemp.User.ToUserDto();
             }          

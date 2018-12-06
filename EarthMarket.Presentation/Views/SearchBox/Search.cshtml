@@ -1,0 +1,24 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.ProductListViewModel
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Searched Products</h2>
+
+@if (Model.Products == null)
+{
+    <h2>No products match the search criteria</h2>
+}
+else
+{
+    <div>
+        @foreach (var product in Model.Products)
+        {
+            @Html.RouteLink(product.Name, new { Controller = "Product", Action = "GetProduct", productKey = product.Key })
+        }
+    </div>
+
+}
+
