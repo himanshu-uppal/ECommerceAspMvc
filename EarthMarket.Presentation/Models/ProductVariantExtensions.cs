@@ -12,6 +12,7 @@ namespace EarthMarket.Presentation.Models
         public static ProductVariantDto ToProductVariantDto(this ProductVariant productVariant)
         {
             IDictionary<string, string> aDictionaryOfAttributeAndValue = new Dictionary<string, string>();
+            IEnumerable<string> productVariantImages = null;
             var productVariantAttributeValues = productVariant.ProductVariantAttributeValues.
                 Select(pv=>new {AttributeName = pv.AttributeValue.Attribute.Name,AttributeValue = pv.AttributeValue.Value.Name });
 
@@ -19,12 +20,17 @@ namespace EarthMarket.Presentation.Models
             {
                 aDictionaryOfAttributeAndValue.Add(productVariantAttributeValue.AttributeName, productVariantAttributeValue.AttributeValue);
             }
+            if (null != productVariant.ProductVariantImages)
+            {
+                productVariantImages = productVariant.ProductVariantImages.Select(pvi => pvi.ImagePath);
+            }
 
             return new ProductVariantDto
             {
                 Key = productVariant.Key,
                 ProductVariantAttributeValues = aDictionaryOfAttributeAndValue,
-                ProductVariantPrice = productVariant.Price
+                ProductVariantPrice = productVariant.Price,
+                ProductVariantImages = productVariantImages
             };
         }
     }

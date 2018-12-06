@@ -28,7 +28,7 @@ namespace EarthMarket.DataAccess.Migrations
 
             ////Adding Products
 
-            //Product product1 = new Product { Key = Guid.NewGuid(), Name = "product1",Description="product1 description1", ProductCountSold = 1 };
+            //Product product1 = new Product { Key = Guid.NewGuid(), Name = "product1", Description = "product1 description1", ProductCountSold = 1 };
             //Product product2 = new Product { Key = Guid.NewGuid(), Name = "product2", Description = "product2 description1", ProductCountSold = 2 };
             //Product product3 = new Product { Key = Guid.NewGuid(), Name = "product3", Description = "product3 description1", ProductCountSold = 3 };
             //Product product4 = new Product { Key = Guid.NewGuid(), Name = "product4", Description = "product4 description1", ProductCountSold = 4 };
@@ -195,6 +195,68 @@ namespace EarthMarket.DataAccess.Migrations
 
             //context.Roles.AddOrUpdate(role1, role2);
 
+            ////Adding Product Image
+
+            //ProductImage productImage1 = new ProductImage { Key = Guid.NewGuid(), Product = product1, ImagePath = "~/Images/image1.jpg" };
+            //ProductImage productImage2 = new ProductImage { Key = Guid.NewGuid(), Product = product2, ImagePath = "~/Images/image2.jpg" };
+            //ProductImage productImage3 = new ProductImage { Key = Guid.NewGuid(), Product = product3, ImagePath = "~/Images/image3.jpg" };
+            //ProductImage productImage4 = new ProductImage { Key = Guid.NewGuid(), Product = product4, ImagePath = "~/Images/image4.jpg" };
+            //ProductImage productImage5 = new ProductImage { Key = Guid.NewGuid(), Product = product5, ImagePath = "~/Images/image1.jpg" };
+            //ProductImage productImage6 = new ProductImage { Key = Guid.NewGuid(), Product = product6, ImagePath = "~/Images/image2.jpg" };
+            //ProductImage productImage7 = new ProductImage { Key = Guid.NewGuid(), Product = product7, ImagePath = "~/Images/image3.jpg" };
+            //ProductImage productImage8 = new ProductImage { Key = Guid.NewGuid(), Product = product8, ImagePath = "~/Images/image4.jpg" };
+            //ProductImage productImage9 = new ProductImage { Key = Guid.NewGuid(), Product = product9, ImagePath = "~/Images/image1.jpg" };
+            //ProductImage productImage10 = new ProductImage { Key = Guid.NewGuid(), Product = product10, ImagePath = "~/Images/image2.jpg" };
+            //ProductImage productImage11 = new ProductImage { Key = Guid.NewGuid(), Product = product11, ImagePath = "~/Images/default.jpg" };
+            //ProductImage productImage12 = new ProductImage { Key = Guid.NewGuid(), Product = product12, ImagePath = "~/Images/default.jpg" };
+            //ProductImage productImage13 = new ProductImage { Key = Guid.NewGuid(), Product = product13, ImagePath = "~/Images/default.jpg" };
+            //ProductImage productImage14 = new ProductImage { Key = Guid.NewGuid(), Product = product14, ImagePath = "~/Images/default.jpg" };
+            //ProductImage productImage15 = new ProductImage { Key = Guid.NewGuid(), Product = product15, ImagePath = "~/Images/default.jpg" };
+            //ProductImage productImage16 = new ProductImage { Key = Guid.NewGuid(), Product = product16, ImagePath = "~/Images/default.jpg" };
+            //ProductImage productImage17 = new ProductImage { Key = Guid.NewGuid(), Product = product17, ImagePath = "~/Images/default.jpg" };
+            //ProductImage productImage18 = new ProductImage { Key = Guid.NewGuid(), Product = product18, ImagePath = "~/Images/default.jpg" };
+            //ProductImage productImage19 = new ProductImage { Key = Guid.NewGuid(), Product = product19, ImagePath = "~/Images/default.jpg" };
+            //ProductImage productImage20 = new ProductImage { Key = Guid.NewGuid(), Product = product20, ImagePath = "~/Images/default.jpg" };
+
+            //ProductImage productImage21 = new ProductImage { Key = Guid.NewGuid(), Product = product1, ImagePath = "~/Images/image2.jpg" };
+            //ProductImage productImage22 = new ProductImage { Key = Guid.NewGuid(), Product = product2, ImagePath = "~/Images/image3.jpg" };
+            //ProductImage productImage23 = new ProductImage { Key = Guid.NewGuid(), Product = product3, ImagePath = "~/Images/image4.jpg" };
+            //ProductImage productImage24 = new ProductImage { Key = Guid.NewGuid(), Product = product4, ImagePath = "~/Images/image1.jpg" };
+            //ProductImage productImage25 = new ProductImage { Key = Guid.NewGuid(), Product = product5, ImagePath = "~/Images/image2.jpg" };
+
+
+            //context.ProductImages.AddOrUpdate(productImage1, productImage2, productImage3, productImage4, productImage5, productImage6,
+            //    productImage7, productImage8, productImage17,productImage18, productImage9, productImage10, productImage11, productImage12, 
+            //    productImage13, productImage14, productImage15, productImage16, productImage19, productImage20);
+
+            ////Adding ProductVariantImage
+
+
+            //ProductVariantImage productVariantImage1 = new ProductVariantImage
+            //{ Key = Guid.NewGuid(), ProductVariant = productVariant1, ImagePath = "~/Images/image5.jpg" };
+            //ProductVariantImage productVariantImage2 = new ProductVariantImage
+            //{ Key = Guid.NewGuid(), ProductVariant = productVariant2, ImagePath = "~/Images/image6.jpg" };
+            //ProductVariantImage productVariantImage3 = new ProductVariantImage
+            //{ Key = Guid.NewGuid(), ProductVariant = productVariant3, ImagePath = "~/Images/image7.jpg" };
+            //ProductVariantImage productVariantImage4 = new ProductVariantImage
+            //{ Key = Guid.NewGuid(), ProductVariant = productVariant4, ImagePath = "~/Images/image8.jpg" };
+            //ProductVariantImage productVariantImage5 = new ProductVariantImage
+            //{ Key = Guid.NewGuid(), ProductVariant = productVariant5, ImagePath = "~/Images/default.jpg" };
+
+            //ProductVariantImage productVariantImage6 = new ProductVariantImage
+            //{ Key = Guid.NewGuid(), ProductVariant = productVariant1, ImagePath = "~/Images/image6.jpg" };
+            //ProductVariantImage productVariantImage7 = new ProductVariantImage
+            //{ Key = Guid.NewGuid(), ProductVariant = productVariant2, ImagePath = "~/Images/image7.jpg" };
+            //ProductVariantImage productVariantImage8 = new ProductVariantImage
+            //{ Key = Guid.NewGuid(), ProductVariant = productVariant3, ImagePath = "~/Images/image8.jpg" };
+            //ProductVariantImage productVariantImage9 = new ProductVariantImage
+            //{ Key = Guid.NewGuid(), ProductVariant = productVariant4, ImagePath = "~/Images/image5.jpg" };
+            //ProductVariantImage productVariantImage10 = new ProductVariantImage
+            //{ Key = Guid.NewGuid(), ProductVariant = productVariant5, ImagePath = "~/Images/image5.jpg" };
+
+            //context.ProductVariantImages.AddOrUpdate(productVariantImage1, productVariantImage2, productVariantImage3,
+            //    productVariantImage4, productVariantImage5, productVariantImage6, productVariantImage7,
+            //    productVariantImage8, productVariantImage9, productVariantImage10);
 
 
         }

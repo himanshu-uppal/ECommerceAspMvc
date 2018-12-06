@@ -21,6 +21,8 @@ namespace EarthMarket.DataAccess.Entities
 
         public virtual ICollection<CartProductVariant> CartProductVariants { get; set; }
 
+        public virtual ICollection<ProductVariantImage> ProductVariantImages { get; set; }
+
         public float Price { get; set; }
 
         public ProductVariant()

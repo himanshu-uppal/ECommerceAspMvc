@@ -23,6 +23,8 @@ namespace EarthMarket.DataAccess.Concrete
         public IDbSet<UserRole> UserRoles { get; set; }
         public IDbSet<Product> Products { get; set; }
         public IDbSet<ProductVariant> ProductVariants { get; set; }
+        public IDbSet<ProductImage> ProductImages { get; set; }
+        public IDbSet<ProductVariantImage> ProductVariantImages { get; set; }
         public IDbSet<ProductCategory> ProductCategories { get; set; }
         public IDbSet<Category> Categories { get; set; }
         public IDbSet<EarthMarket.DataAccess.Entities.Attribute> Attributes { get; set; }

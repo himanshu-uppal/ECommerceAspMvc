@@ -62,7 +62,9 @@
     <Compile Include="Entities\OrderProductVariant.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductCategory.cs" />
+    <Compile Include="Entities\ProductImage.cs" />
     <Compile Include="Entities\ProductVariant.cs" />
+    <Compile Include="Entities\ProductVariantImage.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserRole.cs" />
@@ -126,6 +128,14 @@
     <Compile Include="Migrations\201812061214281_added description attribute in product.Designer.cs">
       <DependentUpon>201812061214281_added description attribute in product.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812061711597_added image attributes and tables in product and productvariant table.cs" />
+    <Compile Include="Migrations\201812061711597_added image attributes and tables in product and productvariant table.Designer.cs">
+      <DependentUpon>201812061711597_added image attributes and tables in product and productvariant table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812061714054_edited image attributes and tables in product and productvariant table.cs" />
+    <Compile Include="Migrations\201812061714054_edited image attributes and tables in product and productvariant table.Designer.cs">
+      <DependentUpon>201812061714054_edited image attributes and tables in product and productvariant table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMarketService.cs" />
@@ -176,6 +186,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812061214281_added description attribute in product.resx">
       <DependentUpon>201812061214281_added description attribute in product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812061711597_added image attributes and tables in product and productvariant table.resx">
+      <DependentUpon>201812061711597_added image attributes and tables in product and productvariant table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812061714054_edited image attributes and tables in product and productvariant table.resx">
+      <DependentUpon>201812061714054_edited image attributes and tables in product and productvariant table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
