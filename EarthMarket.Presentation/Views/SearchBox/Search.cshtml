@@ -1,13 +1,20 @@
-﻿@model EarthMarket.Presentation.Models.ViewModels.ProductListViewModel
+﻿@model EarthMarket.Presentation.Models.ViewModels.SearchedProductsListViewModel
 
 @{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Html.Partial("Display", Model.searchBoxContentViewModel)
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <h2>Searched Products</h2>
 
-@if (Model.Products == null)
+@if (Model.Products == null || (Model.Products != null && Model.Products.Count() == 0))
 {
     <h2>No products match the search criteria</h2>
 }

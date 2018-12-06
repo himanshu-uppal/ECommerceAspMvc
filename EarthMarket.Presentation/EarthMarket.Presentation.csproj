@@ -151,6 +151,7 @@
     <Compile Include="Models\ViewModels\ProductListViewModel.cs" />
     <Compile Include="Models\ViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\ViewModels\SearchBoxContentViewModel.cs" />
+    <Compile Include="Models\ViewModels\SearchedProductsListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

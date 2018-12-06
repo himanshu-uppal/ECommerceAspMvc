@@ -19,7 +19,7 @@ namespace EarthMarket.DataAccess.Services
         private readonly IEntityRepository<CartProductVariant> _cartProductVariantRepository;
         private readonly IEntityRepository<User> _userRepository;
         private readonly IEntityRepository<Cart> _cartRepository;
-        public MarketService(IEntityRepository<Category> categoryRepository, 
+        public MarketService(IEntityRepository<Category> categoryRepository,
             IEntityRepository<Product> productRepository,
             IEntityRepository<ProductCategory> productCategoryRepository,
             IEntityRepository<ProductVariant> productVariantRepository,
@@ -44,8 +44,8 @@ namespace EarthMarket.DataAccess.Services
 
         }
         public PaginatedList<Category> GetCategories(int pageIndex, int pageSize)
-        {           
-            var categories = _categoryRepository.Paginate(pageIndex, pageSize, x => x.Key);          
+        {
+            var categories = _categoryRepository.Paginate(pageIndex, pageSize, x => x.Key);
 
             return categories;
         }
@@ -59,7 +59,7 @@ namespace EarthMarket.DataAccess.Services
 
         public IEnumerable<Product> GetAllProductsByCategory(IEnumerable<string> categories)
         {
-            return _productRepository.GetAllProductsByCategory(_productCategoryRepository,categories);
+            return _productRepository.GetAllProductsByCategory(_productCategoryRepository, categories);
         }
         public Product GetProduct(Guid Key)
         {
@@ -68,6 +68,10 @@ namespace EarthMarket.DataAccess.Services
             return product;
 
         }
+
+        public IEnumerable<Product> SearchProducts(string searchText){
+            return _productRepository.GetAllProductsByNameOrDescription(searchText);
+    }
 
         public IEnumerable<ProductVariant> GetAllProductVariants()
         {

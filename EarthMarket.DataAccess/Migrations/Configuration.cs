@@ -28,29 +28,29 @@ namespace EarthMarket.DataAccess.Migrations
 
             ////Adding Products
 
-            //Product product1 = new Product { Key = Guid.NewGuid(), Name = "product1", ProductCountSold = 1 };
-            //Product product2 = new Product { Key = Guid.NewGuid(), Name = "product2", ProductCountSold = 2 };
-            //Product product3 = new Product { Key = Guid.NewGuid(), Name = "product3", ProductCountSold = 3 };
-            //Product product4 = new Product { Key = Guid.NewGuid(), Name = "product4", ProductCountSold = 4 };
-            //Product product5 = new Product { Key = Guid.NewGuid(), Name = "product5", ProductCountSold = 5 };
+            //Product product1 = new Product { Key = Guid.NewGuid(), Name = "product1",Description="product1 description1", ProductCountSold = 1 };
+            //Product product2 = new Product { Key = Guid.NewGuid(), Name = "product2", Description = "product2 description1", ProductCountSold = 2 };
+            //Product product3 = new Product { Key = Guid.NewGuid(), Name = "product3", Description = "product3 description1", ProductCountSold = 3 };
+            //Product product4 = new Product { Key = Guid.NewGuid(), Name = "product4", Description = "product4 description1", ProductCountSold = 4 };
+            //Product product5 = new Product { Key = Guid.NewGuid(), Name = "product5", Description = "product5 description1", ProductCountSold = 5 };
 
-            //Product product6 = new Product { Key = Guid.NewGuid(), Name = "product6", ProductCountSold = 1 };
-            //Product product7 = new Product { Key = Guid.NewGuid(), Name = "product7", ProductCountSold = 2 };
-            //Product product8 = new Product { Key = Guid.NewGuid(), Name = "product8", ProductCountSold = 3 };
-            //Product product9 = new Product { Key = Guid.NewGuid(), Name = "product9", ProductCountSold = 4 };
-            //Product product10 = new Product { Key = Guid.NewGuid(), Name = "product10", ProductCountSold = 5 };
+            //Product product6 = new Product { Key = Guid.NewGuid(), Name = "product6", Description = "product6 description2", ProductCountSold = 1 };
+            //Product product7 = new Product { Key = Guid.NewGuid(), Name = "product7", Description = "product7 description2", ProductCountSold = 2 };
+            //Product product8 = new Product { Key = Guid.NewGuid(), Name = "product8", Description = "product8 description2", ProductCountSold = 3 };
+            //Product product9 = new Product { Key = Guid.NewGuid(), Name = "product9", Description = "product9 description2", ProductCountSold = 4 };
+            //Product product10 = new Product { Key = Guid.NewGuid(), Name = "product10", Description = "product10 description2", ProductCountSold = 5 };
 
-            //Product product11 = new Product { Key = Guid.NewGuid(), Name = "product11", ProductCountSold = 1 };
-            //Product product12 = new Product { Key = Guid.NewGuid(), Name = "product12", ProductCountSold = 2 };
-            //Product product13 = new Product { Key = Guid.NewGuid(), Name = "product13", ProductCountSold = 3 };
-            //Product product14 = new Product { Key = Guid.NewGuid(), Name = "product14", ProductCountSold = 4 };
-            //Product product15 = new Product { Key = Guid.NewGuid(), Name = "product15", ProductCountSold = 5 };
+            //Product product11 = new Product { Key = Guid.NewGuid(), Name = "product11", Description = "product11 description3", ProductCountSold = 1 };
+            //Product product12 = new Product { Key = Guid.NewGuid(), Name = "product12", Description = "product12 description3", ProductCountSold = 2 };
+            //Product product13 = new Product { Key = Guid.NewGuid(), Name = "product13", Description = "product13 description3", ProductCountSold = 3 };
+            //Product product14 = new Product { Key = Guid.NewGuid(), Name = "product14", Description = "product14 description3", ProductCountSold = 4 };
+            //Product product15 = new Product { Key = Guid.NewGuid(), Name = "product15", Description = "product15 description3", ProductCountSold = 5 };
 
-            //Product product16 = new Product { Key = Guid.NewGuid(), Name = "product16", ProductCountSold = 1 };
-            //Product product17 = new Product { Key = Guid.NewGuid(), Name = "product17", ProductCountSold = 1 };
-            //Product product18 = new Product { Key = Guid.NewGuid(), Name = "product18", ProductCountSold = 2 };
-            //Product product19 = new Product { Key = Guid.NewGuid(), Name = "product19", ProductCountSold = 4 };
-            //Product product20 = new Product { Key = Guid.NewGuid(), Name = "product20", ProductCountSold = 5 };
+            //Product product16 = new Product { Key = Guid.NewGuid(), Name = "product16", Description = "product16 description4", ProductCountSold = 1 };
+            //Product product17 = new Product { Key = Guid.NewGuid(), Name = "product17", Description = "product17 description4", ProductCountSold = 1 };
+            //Product product18 = new Product { Key = Guid.NewGuid(), Name = "product18", Description = "product18 description4", ProductCountSold = 2 };
+            //Product product19 = new Product { Key = Guid.NewGuid(), Name = "product19", Description = "product19 description4", ProductCountSold = 4 };
+            //Product product20 = new Product { Key = Guid.NewGuid(), Name = "product20", Description = "product20 description4", ProductCountSold = 5 };
 
             //context.Products.AddOrUpdate(product => product.Name, product1, product2, product3, product4, product5, product6, product7, product8, product9,
             //    product10, product11, product12, product13, product14, product15, product16, product17, product18, product19, product20);
@@ -113,7 +113,7 @@ namespace EarthMarket.DataAccess.Migrations
             //    );
 
             ////Adding Product Variant           
-            //ProductVariant productVariant1 = new ProductVariant { Key = Guid.NewGuid(), Product = product7 ,Price=100};
+            //ProductVariant productVariant1 = new ProductVariant { Key = Guid.NewGuid(), Product = product7, Price = 100 };
             //ProductVariant productVariant2 = new ProductVariant { Key = Guid.NewGuid(), Product = product7, Price = 200 };
             //ProductVariant productVariant3 = new ProductVariant { Key = Guid.NewGuid(), Product = product7, Price = 100 };
             //ProductVariant productVariant4 = new ProductVariant { Key = Guid.NewGuid(), Product = product8, Price = 200 };
@@ -165,28 +165,28 @@ namespace EarthMarket.DataAccess.Migrations
 
             //context.Users.AddOrUpdate(user1);
 
-            ////Adding cart
+            ////////Adding cart
 
-            //Cart cart1 = new Cart { Key = Guid.NewGuid(), User = user1 };
+            //////Cart cart1 = new Cart { Key = Guid.NewGuid(), User = user1 };
 
-            //context.Carts.AddOrUpdate(cart1);
+            //////context.Carts.AddOrUpdate(cart1);
 
-            ////Adding CartProductVariant 
+            ////////Adding CartProductVariant 
 
-            //CartProductVariant cartProductVariant1 = new CartProductVariant
-            //{
-            //    Key = Guid.NewGuid(),
-            //    Cart = cart1,
-            //    ProductVariant = productVariant1
-            //};
-            //CartProductVariant cartProductVariant2 = new CartProductVariant
-            //{
-            //    Key = Guid.NewGuid(),
-            //    Cart = cart1,
-            //    ProductVariant = productVariant2
-            //};
+            //////CartProductVariant cartProductVariant1 = new CartProductVariant
+            //////{
+            //////    Key = Guid.NewGuid(),
+            //////    Cart = cart1,
+            //////    ProductVariant = productVariant1
+            //////};
+            //////CartProductVariant cartProductVariant2 = new CartProductVariant
+            //////{
+            //////    Key = Guid.NewGuid(),
+            //////    Cart = cart1,
+            //////    ProductVariant = productVariant2
+            //////};
 
-            //context.CartProductVariants.AddOrUpdate(cartProductVariant1, cartProductVariant2);
+            //////context.CartProductVariants.AddOrUpdate(cartProductVariant1, cartProductVariant2);
 
             ////Adding Roles
 

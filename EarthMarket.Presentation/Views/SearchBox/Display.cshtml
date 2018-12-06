@@ -4,7 +4,7 @@
 {
     <div class="form-group">
         <label>Search:</label>
-        @Html.TextBoxFor(sbc => sbc.SearchedText, new { @class = "form-control" })
+        @Html.TextBoxFor(sbv=>sbv.SearchedText, new { @class = "form-control"})
     </div>
     <div class="form-group">
         @Html.Hidden("returnUrl", Request.Url.PathAndQuery)

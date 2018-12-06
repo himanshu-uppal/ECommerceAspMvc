@@ -10,7 +10,9 @@ namespace EarthMarket.DataAccess.Extensions
 {
     public static class ProductRepositoryExtensions
     {
-        public static IEnumerable<Product> GetAllProductsByCategory(this IEntityRepository<Product> productRepository, IEntityRepository<ProductCategory> productCategoryRepository,IEnumerable<string> categories)
+        public static IEnumerable<Product> GetAllProductsByCategory(this IEntityRepository<Product> productRepository,
+            IEntityRepository<ProductCategory> productCategoryRepository,
+            IEnumerable<string> categories)
         {
             var productCategoriesMappings = productCategoryRepository.GetAll();
             var allProducts = new HashSet<Product>();
@@ -25,6 +27,13 @@ namespace EarthMarket.DataAccess.Extensions
             }
 
             return allProducts;           
+
+        }
+
+        public static IEnumerable<Product> GetAllProductsByNameOrDescription(this IEntityRepository<Product> productRepository,
+            string searchText)
+        {
+            return productRepository.GetAll().Where(p => p.Name.Contains(searchText) || p.Description.Contains(searchText));
 
         }
     }
