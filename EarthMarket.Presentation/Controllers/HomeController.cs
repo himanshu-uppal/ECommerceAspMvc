@@ -20,16 +20,10 @@ namespace EarthMarket.Presentation.Controllers
         {
             this._marketService = marketService;
         }
-        public ViewResult Index(UserWithRoles userWithRoles = null)
-        {            
-            if(userWithRoles != null)
-            {
-                ModelState.AddModelError("", "There is a user");
-            }
-            else
-            {
-                ModelState.AddModelError("", "There is not any user");
-            }
+        public ViewResult Index()
+        {
+            var userWithRolesTemp = (UserWithRoles)TempData["userWithRoles"];
+            
             var categories = _marketService.GetAllCategories().OrderByDescending(c => c.ProductCountSold).Take(3);
             var topCategories = categories;
             var otherCategories = _marketService.GetAllCategories().Except(categories);
@@ -50,6 +44,12 @@ namespace EarthMarket.Presentation.Controllers
                 HomePageCategoriesWithProducts = homePageCategoriesDtos
 
             };
+
+
+            if (userWithRolesTemp.User != null)
+            {
+                homePageCategoriesWithProductsListViewModel.UserDto = userWithRolesTemp.User.ToUserDto();
+            }          
 
             return View(homePageCategoriesWithProductsListViewModel);
 

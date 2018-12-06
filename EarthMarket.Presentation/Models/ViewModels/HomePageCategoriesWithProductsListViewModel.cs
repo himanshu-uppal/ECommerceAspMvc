@@ -9,5 +9,6 @@ namespace EarthMarket.Presentation.Models.ViewModels
     public class HomePageCategoriesWithProductsListViewModel
     {
         public IEnumerable<HomePageCategoryDto> HomePageCategoriesWithProducts { get; set; }
+        public UserDto UserDto { get; set; }
     }
 }

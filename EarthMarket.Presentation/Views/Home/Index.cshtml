@@ -4,18 +4,24 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@if (Model.UserDto != null)
+{
+    <h2>Hi, @Model.UserDto.Name</h2>
+}
+
 <div>
     @foreach (var category in Model.HomePageCategoriesWithProducts)
     {
-    <div>
-        <h3>@category.Name</h3>
         <div>
-            @foreach (var product in category.Products)
-            {
-            @Html.RouteLink(product.Name,new { Controller="Product",Action="GetProduct", productKey = product.Key})
-            }
+            <h3>@category.Name</h3>
+            <div>
+                @foreach (var product in category.Products)
+                {
+                    @Html.RouteLink(product.Name, new { Controller = "Product", Action = "GetProduct", productKey = product.Key })
+                }
             </div>
-    </div>
+        </div>
     }
 </div>
 

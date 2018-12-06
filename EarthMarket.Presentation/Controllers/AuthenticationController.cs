@@ -76,7 +76,7 @@ namespace EarthMarket.Presentation.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(LoginViewModel loginViewModel, string returnUrl)
+        public RedirectToRouteResult Login(LoginViewModel loginViewModel, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -85,10 +85,11 @@ namespace EarthMarket.Presentation.Controllers
                 {
                     return RedirectToAction("Login");
                 }
-                return RedirectToAction("Index", "Home", userContext.User);  //pass userWithRoles here
+                TempData["userWithRoles"] = userContext.User;
+                return RedirectToAction("Index", "Home" );  //pass userWithRoles here
 
             }
-            return View();
+            return RedirectToAction("Login");
         }
 
        
