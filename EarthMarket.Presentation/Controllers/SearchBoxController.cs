@@ -18,12 +18,12 @@ namespace EarthMarket.Presentation.Controllers
 
         }
         // GET: SearchBox
-        public PartialViewResult Display()
+        public PartialViewResult Display(SearchBoxContentViewModel searchBoxContentViewModel=null)
         {
-            SearchBoxContentViewModel searchBoxContentViewModel = new SearchBoxContentViewModel
+            if (searchBoxContentViewModel == null)
             {
-                SearchedText = ""
-            };
+                searchBoxContentViewModel.SearchedText = "";
+            }
             return PartialView(searchBoxContentViewModel);
         }
 
@@ -38,6 +38,7 @@ namespace EarthMarket.Presentation.Controllers
             }
             searchedProductsListViewModel.searchBoxContentViewModel = searchBoxContentViewModel;
 
+            RedirectToAction("Display", searchBoxContentViewModel);
             return View(searchedProductsListViewModel);
 
         }
