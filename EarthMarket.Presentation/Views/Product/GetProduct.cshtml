@@ -16,11 +16,28 @@
     }
    </div>
 </div>
+<div>
+    Product Images:
+    @foreach (var productImagePath in Model.ProductImages)
+    {
+    <img src="@Url.Content(productImagePath)" alt="Image" width="150px" height="150px" />
+
+    }
+</div>
     <div><h3>Product Variants</h3>
         @foreach(var productVariant in Model.ProductVariants)
         {
          <div class="bg-light">
              <h5 class="text-success">Product Variant</h5>
+             
+             @foreach (var productVariantImagePath in productVariant.ProductVariantImages)
+             {
+                 <img src="@Url.Content(productVariantImagePath)" alt="Image" width="150px" height="150px" />
+
+             }
+
+             
+
              @foreach (var productVariantAttributeValue in productVariant.ProductVariantAttributeValues)
              {
                  <div>@productVariantAttributeValue.Key - @productVariantAttributeValue.Value</div>
@@ -28,9 +45,9 @@
              }
              @using (Html.BeginForm("AddToCart", "Cart"))
              {
-             @Html.Hidden("productVariantKey", productVariant.Key)
-             @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-             <input class="btn-primary" type="submit" value="Add to Cart" />
+                 @Html.Hidden("productVariantKey", productVariant.Key)
+                 @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                 <input class="btn-primary" type="submit" value="Add to Cart" />
              }
 
          </div>

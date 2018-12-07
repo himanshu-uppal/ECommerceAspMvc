@@ -96,7 +96,7 @@ namespace EarthMarket.Presentation.Controllers
         //}
         private Cart GetCart()  // use Guid userKey
         {
-            Guid userKey = new Guid("3911C77F-DE22-4229-A27D-63CC4B0F8674");
+            Guid userKey = new Guid("4FD49181-DAF7-4028-A157-E70E9FE3EAF7");
             Cart cart = null;
             User user = _marketService.GetUser(userKey);
             if (user != null)

@@ -226,8 +226,9 @@ namespace EarthMarket.DataAccess.Migrations
 
 
             //context.ProductImages.AddOrUpdate(productImage1, productImage2, productImage3, productImage4, productImage5, productImage6,
-            //    productImage7, productImage8, productImage17,productImage18, productImage9, productImage10, productImage11, productImage12, 
-            //    productImage13, productImage14, productImage15, productImage16, productImage19, productImage20);
+            //    productImage7, productImage8, productImage17, productImage18, productImage9, productImage10, productImage11, productImage12,
+            //    productImage13, productImage14, productImage15, productImage16, productImage19, productImage20, productImage21, productImage22,
+            //productImage23, productImage24, productImage25);
 
             ////Adding ProductVariantImage
 

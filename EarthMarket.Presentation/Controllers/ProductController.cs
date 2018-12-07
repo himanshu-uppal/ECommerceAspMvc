@@ -18,9 +18,9 @@ namespace EarthMarket.Presentation.Controllers
 
         }
         // GET: Product
-        public ViewResult GetProduct() //pass Key here -
+        public ViewResult GetProduct(Guid productKey) //pass Key here -
         {
-            Guid productKey = new Guid("85852481-A8F4-4671-8411-35F877FDC756");
+           // Guid productKey = new Guid("85852481-A8F4-4671-8411-35F877FDC756");
             var product = _marketService.GetProduct(productKey).ToProductDto();
             ProductDetailsViewModel productDetailsViewModel = new ProductDetailsViewModel
             {
@@ -28,7 +28,8 @@ namespace EarthMarket.Presentation.Controllers
                 Name = product.Name,
                 ProductCountSold = product.ProductCountSold,
                 Categories = product.Categories,
-                ProductVariants = product.ProductVariants
+                ProductVariants = product.ProductVariants,
+                ProductImages = product.ProductImages
             };
             return View(productDetailsViewModel);
         }
