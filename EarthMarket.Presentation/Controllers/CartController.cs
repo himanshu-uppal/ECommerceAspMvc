@@ -47,7 +47,7 @@ namespace EarthMarket.Presentation.Controllers
             ProductVariant productVariant = _marketService.GetProductVariant(productVariantKey);
             if (productVariant != null)
             {
-                //remove product variant from cart using CartProducts/CartProductVariants Property
+                _marketService.RemoveProductVariantFromCart(productVariant, cart);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
@@ -147,7 +147,11 @@ namespace EarthMarket.Presentation.Controllers
             });
             
         }
-       
+        public ViewResult Checkout()
+        {
+            return View();
+        }
+
 
 
     }

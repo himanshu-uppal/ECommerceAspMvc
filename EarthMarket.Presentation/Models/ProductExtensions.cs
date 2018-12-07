@@ -15,7 +15,8 @@ namespace EarthMarket.Presentation.Models
             IEnumerable<string> productImages = null;
             if (null != product.ProductVariants)
             {
-                productVariants = product.ProductVariants.Select(pv => pv.ToProductVariantDto());
+                productVariants = product.ProductVariants.Select(pv => { if (pv != null) { return pv.ToProductVariantDto(); }
+                    else { return new ProductVariantDto(); } });
             }
             if (null != product.ProductImages)
             {

@@ -171,6 +171,7 @@
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Views\SearchBox\Display.cshtml" />
     <Content Include="Views\SearchBox\Search.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

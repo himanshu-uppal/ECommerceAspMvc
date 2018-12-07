@@ -24,6 +24,7 @@ namespace EarthMarket.DataAccess.Services
 
         OperationResult<Cart> AddCart(Guid userKey,Cart cart);
         OperationResult<CartProductVariant> AddProductVariantToCart(ProductVariant productVariant, Cart cart);
+        OperationResult<Cart> RemoveProductVariantFromCart(ProductVariant productVariant, Cart cart);
 
         Cart GetCartByUser(Guid userKey);
 

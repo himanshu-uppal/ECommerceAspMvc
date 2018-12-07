@@ -129,7 +129,7 @@ namespace EarthMarket.DataAccess.Services
                 return new OperationResult<CartProductVariant>(false);
             }
             ProductVariant verifyProductVariant = _productVariantRepository.GetSingle(productVariant.Key);
-            if(productVariant == null)
+            if(verifyProductVariant == null)
             {
                 return new OperationResult<CartProductVariant>(false);
             }
@@ -140,11 +140,13 @@ namespace EarthMarket.DataAccess.Services
             bool newProductVariant = true;
             foreach(var singleProductVariant in productVariants)
             {
-                if(singleProductVariant.Key == productVariant.Key)
-                {
-                    newProductVariant = false;
-                    break;
-                }
+               
+                    if (singleProductVariant.Key == productVariant.Key)
+                    {
+                        newProductVariant = false;
+                        break;
+                    }
+                              
 
             }
             //checking whether the product variant already exists in the cart or not
@@ -180,6 +182,76 @@ namespace EarthMarket.DataAccess.Services
                 Entity = cartProductVariant
 
             };            
+
+        }
+
+        public OperationResult<Cart> RemoveProductVariantFromCart(ProductVariant productVariant, Cart cart)
+        {
+            Cart verifyCart = _cartRepository.GetSingle(cart.Key);
+            if (verifyCart == null)
+            {
+                return new OperationResult<Cart>(false);
+            }
+            ProductVariant verifyProductVariant = _productVariantRepository.GetSingle(productVariant.Key);
+            if (productVariant == null)
+            {
+                return new OperationResult<Cart>(false);
+            }
+            var productVariants = _cartProductVariantRepository.    //fetching all product variants of the cart
+                GetProductVariantsByCart(cart.Key);
+
+            CartProductVariant cartProductVariant = null;
+            bool isCartProductVariant = false;
+            foreach (var singleProductVariant in productVariants)
+            {
+               
+                    //checking whether the product variant exists in the cart or not
+                    if (singleProductVariant.Key == productVariant.Key)
+                    {
+                        isCartProductVariant = true;
+                        break;
+                    }
+                
+            }
+            
+            if (isCartProductVariant == false)
+            {
+                return new OperationResult<Cart>(false);
+            }
+            
+            if (isCartProductVariant)
+            {
+
+                
+                cartProductVariant = _cartProductVariantRepository.
+                    GetCartProductVariant(cart.Key, productVariant.Key);
+
+                if(cartProductVariant.ProductVariantCount > 1)
+                {
+                    //decerement product variant count
+                    cartProductVariant.ProductVariantCount = cartProductVariant.ProductVariantCount - 1;
+                    _cartProductVariantRepository.Edit(cartProductVariant); //modify CartProductVariant
+                }
+                else
+                {
+                    //remove product variant from cart
+                    _cartProductVariantRepository.Delete(cartProductVariant);
+                        
+                }              
+
+            }
+          
+
+            _cartProductVariantRepository.Save();            
+           // _cartRepository.Edit(verifyCart);  //doubt whether to do this or not
+            _cartRepository.Save();      //doubt whether to do this or not
+
+
+            return new OperationResult<Cart>(true)
+            {
+                Entity = verifyCart
+
+            };
 
         }
     }

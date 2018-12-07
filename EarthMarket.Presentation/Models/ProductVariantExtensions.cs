@@ -13,6 +13,10 @@ namespace EarthMarket.Presentation.Models
         {
             IDictionary<string, string> aDictionaryOfAttributeAndValue = new Dictionary<string, string>();
             IEnumerable<string> productVariantImages = null;
+            if (productVariant == null)
+            {
+                return new ProductVariantDto();
+            }
             var productVariantAttributeValues = productVariant.ProductVariantAttributeValues.
                 Select(pv=>new {AttributeName = pv.AttributeValue.Attribute.Name,AttributeValue = pv.AttributeValue.Value.Name });
 
