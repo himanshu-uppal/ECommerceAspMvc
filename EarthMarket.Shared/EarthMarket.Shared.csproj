@@ -46,6 +46,8 @@
     <Compile Include="DTOs\CategoryDto.cs" />
     <Compile Include="DTOs\HomePageCategoriesDto.cs" />
     <Compile Include="DTOs\HomePageCategoryDto.cs" />
+    <Compile Include="DTOs\OrderDto.cs" />
+    <Compile Include="DTOs\OrderProductVariantDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
     <Compile Include="DTOs\ProductVariantDto.cs" />
     <Compile Include="DTOs\RoleDto.cs" />

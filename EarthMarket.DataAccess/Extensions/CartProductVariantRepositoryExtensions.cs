@@ -20,6 +20,15 @@ namespace EarthMarket.DataAccess.Extensions
             return productVariants;
         }
 
+        public static IEnumerable<CartProductVariant> GetCartProductVariantsByCart(
+           this IEntityRepository<CartProductVariant> cartProductVariantRepository, Guid cartKey)
+        {
+            var cartProductVariants = cartProductVariantRepository.GetAll().
+                Where(cpv => cpv.Cart.Key == cartKey);                
+
+            return cartProductVariants;
+        }
+
         public static CartProductVariant GetCartProductVariant(
             this IEntityRepository<CartProductVariant> cartProductVariantRepository,
             Guid cartKey,Guid productVariantKey)

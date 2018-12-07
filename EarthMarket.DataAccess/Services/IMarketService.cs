@@ -25,9 +25,12 @@ namespace EarthMarket.DataAccess.Services
         OperationResult<Cart> AddCart(Guid userKey,Cart cart);
         OperationResult<CartProductVariant> AddProductVariantToCart(ProductVariant productVariant, Cart cart);
         OperationResult<Cart> RemoveProductVariantFromCart(ProductVariant productVariant, Cart cart);
+        bool DeleteCart(Cart cart);
 
         Cart GetCartByUser(Guid userKey);
 
         IEnumerable<Product> SearchProducts(string searchText);
+
+        OperationResult<Order> PlaceOrder(Cart cart, string shippingAddress);
     }
 }

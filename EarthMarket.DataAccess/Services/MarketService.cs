@@ -19,13 +19,17 @@ namespace EarthMarket.DataAccess.Services
         private readonly IEntityRepository<CartProductVariant> _cartProductVariantRepository;
         private readonly IEntityRepository<User> _userRepository;
         private readonly IEntityRepository<Cart> _cartRepository;
+        private readonly IEntityRepository<Order> _orderRepository;
+        private readonly IEntityRepository<OrderProductVariant> _orderProductVariantRepository;
         public MarketService(IEntityRepository<Category> categoryRepository,
             IEntityRepository<Product> productRepository,
             IEntityRepository<ProductCategory> productCategoryRepository,
             IEntityRepository<ProductVariant> productVariantRepository,
             IEntityRepository<User> userRepository,
             IEntityRepository<Cart> cartRepository,
-            IEntityRepository<CartProductVariant> cartProductVariantRepository
+            IEntityRepository<CartProductVariant> cartProductVariantRepository,
+            IEntityRepository<Order> orderRepository,
+            IEntityRepository<OrderProductVariant> orderProductVariantRepository
             )
         {
             this._categoryRepository = categoryRepository;
@@ -35,6 +39,8 @@ namespace EarthMarket.DataAccess.Services
             this._userRepository = userRepository;
             this._cartRepository = cartRepository;
             this._cartProductVariantRepository = cartProductVariantRepository;
+            this._orderRepository = orderRepository;
+            this._orderProductVariantRepository = orderProductVariantRepository;
         }
         public IEnumerable<Category> GetAllCategories()
         {
@@ -193,7 +199,7 @@ namespace EarthMarket.DataAccess.Services
                 return new OperationResult<Cart>(false);
             }
             ProductVariant verifyProductVariant = _productVariantRepository.GetSingle(productVariant.Key);
-            if (productVariant == null)
+            if (verifyProductVariant == null)
             {
                 return new OperationResult<Cart>(false);
             }
@@ -253,6 +259,101 @@ namespace EarthMarket.DataAccess.Services
 
             };
 
+        }
+        public OperationResult<Order> PlaceOrder(Cart cart,string shippingAddress)
+        {
+            //have to update product count sold in product and category when placing order
+           
+            Cart verifyCart = _cartRepository.GetSingle(cart.Key);
+
+            //not valid cart
+            if (verifyCart == null)
+            {
+                return new OperationResult<Order>(false);
+            }
+
+            //invalid user
+            if (GetUser(cart.User.Key)==null)
+            {
+                return new OperationResult<Order>(false);
+            }
+
+            //empty cart
+            if (cart.CartProductVariants.Count() == 0)
+            {
+                return new OperationResult<Order>(false);
+            }
+
+            Order order = new Order
+            {
+                Key = Guid.NewGuid(),
+                User = cart.User
+            };
+            _orderRepository.Add(order);
+            
+
+            ICollection<OrderProductVariant> orderProductVariants = new List<OrderProductVariant>();
+
+            foreach (var cartProductVariant in cart.CartProductVariants)
+            {
+                ProductVariant verifyProductVariant = _productVariantRepository.GetSingle(cartProductVariant.ProductVariant.Key);
+                if (verifyProductVariant != null)
+                {
+                    OrderProductVariant orderProductVariant = new OrderProductVariant
+                    {
+                        Key = Guid.NewGuid(),
+                        ProductVariant = cartProductVariant.ProductVariant,
+                        ProductVariantCount = cartProductVariant.ProductVariantCount,
+                        Order = order
+                    };
+                    orderProductVariants.Add(orderProductVariant);
+                }               
+                
+            }
+
+            //if there are corresponding order product variants then only save product
+            if(orderProductVariants.Count > 0)
+            {
+                _orderRepository.Save();
+            }
+
+            //now save order product variants
+            if (orderProductVariants.Count > 0)
+            {
+                foreach (var orderProductVariant in orderProductVariants)
+                {
+                    _orderProductVariantRepository.Add(orderProductVariant);
+                }
+
+                _orderProductVariantRepository.Save();
+            }
+            
+            return new OperationResult<Order>(true)
+            {
+                Entity = order
+            };
+        }
+
+        public bool DeleteCart(Cart cart)
+        {
+            Cart verifyCart = _cartRepository.GetSingle(cart.Key);
+
+            //not valid cart
+            if (verifyCart == null)
+            {
+                return false;
+            }
+            var cartProductVariants = _cartProductVariantRepository.GetCartProductVariantsByCart(cart.Key);
+
+            //removing associated cart product variants
+            foreach(var cartProductVariant in cartProductVariants)
+            {
+                _cartProductVariantRepository.Delete(cartProductVariant);                
+            }
+            _cartProductVariantRepository.Save();
+            _cartRepository.Delete(cart);
+            _cartRepository.Save();
+            return true;
         }
     }
 }

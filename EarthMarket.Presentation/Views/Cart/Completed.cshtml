@@ -1,0 +1,14 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.OrderDetailsViewModel
+
+@{
+    ViewBag.Title = "Completed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hi, @Model.Order.User.Name . Your Order is :-</h2>
+
+@foreach(var orderProductVariant in Model.Order.OrderProductVariants)
+{
+<div>@orderProductVariant.ProductVariant - @orderProductVariant.ProductVariantCount</div>
+}
+

@@ -16,14 +16,16 @@
         <div>
             <h3>@category.Name</h3>
             <div>
+
                 @foreach (var product in category.Products)
                 {
+                    @Html.RouteLink(product.Name, new { Controller = "Product", Action = "GetProduct", productKey = product.Key })
                     foreach (var productImagePath in product.ProductImages)
                     {
-                        <img src="@Url.Content(productImagePath)" alt="Image"  width="150px" height="150px"/>
+                        <img src="@Url.Content(productImagePath)" alt="Image" width="150px" height="150px" />
 
                     }
-                    @Html.RouteLink(product.Name, new { Controller = "Product", Action = "GetProduct", productKey = product.Key })
+
                 }
             </div>
         </div>

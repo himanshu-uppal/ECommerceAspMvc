@@ -14,6 +14,7 @@ namespace EarthMarket.DataAccess.Entities
         public Guid Key { get; set; }
         public virtual ProductVariant ProductVariant { get; set; }
         public virtual Order Order { get; set; }
+        public int ProductVariantCount { get; set; }
 
     }
 }

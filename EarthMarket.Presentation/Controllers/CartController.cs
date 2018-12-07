@@ -147,10 +147,53 @@ namespace EarthMarket.Presentation.Controllers
             });
             
         }
+        [HttpGet]
         public ViewResult Checkout()
         {
+            return View(new ShippingDetailsViewModel());
+        }
+
+        [HttpPost]
+        public ViewResult Checkout(ShippingDetailsViewModel shippingDetailsViewModel)
+        {
+            Cart cart = GetCart();
+            if(cart.CartProductVariants.Count == 0)
+            {
+                ModelState.AddModelError("", "Hey, It looks like your Cart is Empty!!");
+            }
+            if (ModelState.IsValid)
+            {
+                string shippingAddress = shippingDetailsViewModel.Line1 + shippingDetailsViewModel.Line2 + shippingDetailsViewModel.Line3 +
+                    shippingDetailsViewModel.City + shippingDetailsViewModel.State + shippingDetailsViewModel.Zip + shippingDetailsViewModel.Country;
+                
+                //place order
+                var placeOrderResult = _marketService.PlaceOrder(cart, shippingAddress);
+                if(placeOrderResult.IsSuccess == false)
+                {
+                    ModelState.AddModelError("", "Ooops, Can't place the order. Check your order again!!");
+
+                }
+                if(placeOrderResult.IsSuccess == true)
+                {
+
+                    //clear the cart
+                    _marketService.DeleteCart(cart);
+
+                    OrderDetailsViewModel orderDetailsViewModel = new OrderDetailsViewModel
+                    {
+                        Order = placeOrderResult.Entity.ToOrderDto()
+                    };
+
+                    return View("Completed", orderDetailsViewModel);
+                }               
+            }
+
             return View();
         }
+
+
+
+
 
 
 
