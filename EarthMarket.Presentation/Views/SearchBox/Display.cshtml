@@ -1,13 +1,9 @@
 ﻿@model EarthMarket.Presentation.Models.ViewModels.SearchBoxContentViewModel
 
-@using (Html.BeginForm("Search", "SearchBox"))
-{
-    <div class="form-group">
-        <label>Search:</label>
-        @Html.TextBoxFor(sbv=>sbv.SearchedText, new { @class = "form-control"})
-    </div>
-    <div class="form-group">
+<form class=" form-inline" action="../SearchBox/Search" method="post">
+        @Html.TextBoxFor(sbv => sbv.SearchedText, new { @class = "form-control mr-sm-2", Type = "search" })
         @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-        <input class="btn-primary" type="submit" value="Search" />
-    </div>
-}
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+
