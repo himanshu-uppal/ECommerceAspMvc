@@ -86,6 +86,7 @@ namespace EarthMarket.Presentation.Controllers
                     return RedirectToAction("Login");
                 }
                 TempData["userWithRoles"] = userContext.User;
+                Session["User"] = userContext.User.User; 
                 return RedirectToAction("Index", "Home" );  //pass userWithRoles here
 
             }

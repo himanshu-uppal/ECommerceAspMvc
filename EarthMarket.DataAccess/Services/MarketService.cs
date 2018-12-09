@@ -355,5 +355,10 @@ namespace EarthMarket.DataAccess.Services
             _cartRepository.Save();
             return true;
         }
+
+        public IEnumerable<Order> GetAllOrdersByUser(User user)
+        {
+           return _orderRepository.GetAll().Where(o => o.User.Key == user.Key);
+        }
     }
 }

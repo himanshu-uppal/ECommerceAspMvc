@@ -14,7 +14,7 @@
         <br />
         <div class="container">
             @Html.ActionLink("Earth Market Products", "Index", "Home", new { area = "" }, new { @class = " navbar-brand" })
-           
+            @Html.Action("MyOrdersLink", "Order")
             @Html.Action("Display", "SearchBox")
 
         </div>

@@ -32,5 +32,6 @@ namespace EarthMarket.DataAccess.Services
         IEnumerable<Product> SearchProducts(string searchText);
 
         OperationResult<Order> PlaceOrder(Cart cart, string shippingAddress);
+        IEnumerable<Order> GetAllOrdersByUser(User user);
     }
 }

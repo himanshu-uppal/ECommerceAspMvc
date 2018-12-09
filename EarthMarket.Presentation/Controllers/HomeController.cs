@@ -49,6 +49,7 @@ namespace EarthMarket.Presentation.Controllers
             if (userWithRolesTemp!= null && userWithRolesTemp.User != null)
             {
                 homePageCategoriesWithProductsListViewModel.UserDto = userWithRolesTemp.User.ToUserDto();
+                RedirectToAction("MyOrdersLink", "Order", new { userKey = userWithRolesTemp.User.Key });
             }          
 
             return View(homePageCategoriesWithProductsListViewModel);

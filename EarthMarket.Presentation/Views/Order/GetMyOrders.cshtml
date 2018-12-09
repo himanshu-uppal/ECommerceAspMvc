@@ -1,0 +1,21 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.MyOrdersListViewModel
+
+@{
+    ViewBag.Title = "GetMyOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Hi @Model.User.Name, Your Orders are:-</h2>
+@foreach(var order in Model.Orders)
+{
+    <h3>-----Order details-----</h3>
+    <div>Total Amount Paid - @order.OrderTotalPrice.ToString("c")</div>
+    <div>
+        <h5>Products Ordered</h5>
+        @foreach(var orderProduct in order.OrderProductVariants)
+        {
+            <div>@orderProduct.ProductVariant.Key - @orderProduct.ProductVariantCount</div>
+        }
+
+    </div>
+}
+

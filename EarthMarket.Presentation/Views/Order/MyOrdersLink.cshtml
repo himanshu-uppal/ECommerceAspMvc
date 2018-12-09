@@ -1,0 +1,15 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.MyOrdersLinkViewModel
+
+@{
+    ViewBag.Title = "MyOrdersLink";
+    
+}
+@if (Model.User != null)
+{
+    @Html.ActionLink("My Orders", "GetMyOrders", "Order", new { userKey = Model.User.Key }, new { @class = " navbar-brand" });
+   // @Html.RouteLink("My Orders", new { Controller = "Order", Action = "GetMyOrders", userKey = Model.User.Key })
+
+
+}
+
+
