@@ -13,6 +13,7 @@ namespace EarthMarket.DataAccess.Entities
         [Key]
         public Guid Key { get; set; }
 
+        [Required(ErrorMessage = "Please provide the Product")]
         public virtual Product Product { get; set; }
 
         public virtual ICollection<VariantAttributeValue> ProductVariantAttributeValues { get; set; }
@@ -23,7 +24,9 @@ namespace EarthMarket.DataAccess.Entities
 
         public virtual ICollection<ProductVariantImage> ProductVariantImages { get; set; }
 
-        public float Price { get; set; }
+        [Required(ErrorMessage = "Please provide the Price")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive price")]
+        public double Price { get; set; }
 
         public ProductVariant()
         {

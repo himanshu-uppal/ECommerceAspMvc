@@ -15,11 +15,11 @@ namespace EarthMarket.Shared.DTOs
         public UserDto User { get; set; }
        
 
-        public float ComputeTotalPrice()
+        public double ComputeTotalPrice()
         {
             
 
-            float totalPrice = CartProductVariants.Sum(cpv => cpv.ProductVariant.ProductVariantPrice*cpv.ProductVariantCount);
+            double totalPrice = CartProductVariants.Sum(cpv => cpv.ProductVariant.ProductVariantPrice*cpv.ProductVariantCount);
 
             return totalPrice;
         }

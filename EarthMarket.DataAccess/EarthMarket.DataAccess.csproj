@@ -136,6 +136,10 @@
     <Compile Include="Migrations\201812061714054_edited image attributes and tables in product and productvariant table.Designer.cs">
       <DependentUpon>201812061714054_edited image attributes and tables in product and productvariant table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812101138591_edited constraints to the models.cs" />
+    <Compile Include="Migrations\201812101138591_edited constraints to the models.Designer.cs">
+      <DependentUpon>201812101138591_edited constraints to the models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMarketService.cs" />
@@ -192,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812061714054_edited image attributes and tables in product and productvariant table.resx">
       <DependentUpon>201812061714054_edited image attributes and tables in product and productvariant table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812101138591_edited constraints to the models.resx">
+      <DependentUpon>201812101138591_edited constraints to the models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

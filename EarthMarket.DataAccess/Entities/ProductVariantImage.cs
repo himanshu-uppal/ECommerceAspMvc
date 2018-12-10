@@ -13,8 +13,10 @@ namespace EarthMarket.DataAccess.Entities
         [Key]
         public Guid Key { get; set; }
 
+        [Required(ErrorMessage = "Please provide the product Variant")]
         public virtual ProductVariant ProductVariant { get; set; }
 
+        [Required(ErrorMessage = "Please provide the image path")]
         public string ImagePath { get; set; }
     }
 }

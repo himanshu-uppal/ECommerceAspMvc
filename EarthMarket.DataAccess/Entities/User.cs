@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,17 @@ namespace EarthMarket.DataAccess.Entities
     {
         [Key]
         public Guid Key { get; set; }
+        [Required(ErrorMessage = "Please provide the User name")]
+        [Index(IsUnique = true)]
+        [MaxLength(30)]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Please provide the Email")]
+        [Index(IsUnique = true)]
+        [MaxLength(50)]
         public string Email { get; set; }
+        [Required]
         public string HashedPassword { get; set; }
+        [Required]
         public string Salt { get; set; }
         public bool IsLocked { get; set; }
 

@@ -13,8 +13,9 @@ namespace EarthMarket.DataAccess.Entities
         [Key]
         public Guid Key { get; set; }
 
+        [Required(ErrorMessage = "Please provide the Product name")]
         public string Name { get; set; }
-
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter a positive count")]
         public int ProductCountSold { get; set; }
 
         public virtual ICollection<ProductVariant> ProductVariants { get; set; }
@@ -22,7 +23,7 @@ namespace EarthMarket.DataAccess.Entities
         public virtual ICollection<ProductCategory> ProductCategories { get; set; }
 
         public virtual ICollection<ProductImage> ProductImages { get; set; }
-
+        
         public string Description { get; set; }     
 
         public Product()

@@ -12,8 +12,12 @@ namespace EarthMarket.DataAccess.Entities
     {
         [Key]
         public Guid Key { get; set; }
+        [Required(ErrorMessage = "Please provide the Product Variant")]
         public virtual ProductVariant ProductVariant { get; set; }
+        [Required(ErrorMessage = "Please provide the Order")]
         public virtual Order Order { get; set; }
+        [Required]
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter a positive count")]
         public int ProductVariantCount { get; set; }
 
     }
