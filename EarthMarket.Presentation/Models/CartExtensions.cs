@@ -11,12 +11,15 @@ namespace EarthMarket.Presentation.Models
     {
         public  static CartDto ToCartDto(this Cart cart)
         {
-            return new CartDto
+            CartDto cartDto = new CartDto();
+            if(cart != null)
             {
-                Key = cart.Key,
-                User = cart.User.ToUserDto(),
-                CartProductVariants = cart.CartProductVariants.Select(cpv => cpv.ToCartProductVariantDto())
-            };
+                cartDto.Key = cart.Key;
+                cartDto.User = cart.User.ToUserDto();
+                cartDto.CartProductVariants = cart.CartProductVariants.Select(cpv => cpv.ToCartProductVariantDto());
+            }
+
+            return cartDto;
 
         }
 

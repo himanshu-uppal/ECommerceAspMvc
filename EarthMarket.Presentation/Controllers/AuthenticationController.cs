@@ -51,7 +51,7 @@ namespace EarthMarket.Presentation.Controllers
                    registerViewModel.Name, registerViewModel.Email, registerViewModel.Password,roles.ToArray());
                 if(createUserResult.IsSuccess == false)
                 {
-                    ModelState.AddModelError("", "User cannot be created, Verify your credentials");
+                    ModelState.AddModelError("", "User cannot be created, Verify your credentials - Try changing Username/Email , There are already taken");
                     registerViewModel.Name = "";
                     registerViewModel.Email = "";
                     registerViewModel.Password = "";

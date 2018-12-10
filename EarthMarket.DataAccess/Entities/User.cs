@@ -18,7 +18,7 @@ namespace EarthMarket.DataAccess.Entities
         [MaxLength(30)]
         public string Name { get; set; }
         [Required(ErrorMessage = "Please provide the Email")]
-        [Index(IsUnique = true)]
+        [Index(IsUnique = true)]        
         [MaxLength(50)]
         public string Email { get; set; }
         [Required]

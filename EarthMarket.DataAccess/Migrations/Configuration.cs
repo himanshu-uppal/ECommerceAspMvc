@@ -184,48 +184,48 @@ namespace EarthMarket.DataAccess.Migrations
             //////};
 
             //////context.CartProductVariants.AddOrUpdate(cartProductVariant1, cartProductVariant2);
-            
-          
-           ////Adding User
-           // User user = new User { Key = Guid.NewGuid(), Name = "user" ,
-           //     HashedPassword = "Sgo+n+Q4gOC9DSpi2T4Rqicm2fr3W3A+zsEHDX8OyWM=",Salt= "1nSv3rqWbhVCm8054/MZAg==" };
-
-           // User admin = new User
-           // {
-           //     Key = Guid.NewGuid(),
-           //     Name = "admin",
-           //     HashedPassword = "Sgo+n+Q4gOC9DSpi2T4Rqicm2fr3W3A+zsEHDX8OyWM=",
-           //     Salt = "1nSv3rqWbhVCm8054/MZAg=="
-           // };
-
-           // User both = new User
-           // {
-           //     Key = Guid.NewGuid(),
-           //     Name = "both",
-           //     HashedPassword = "Sgo+n+Q4gOC9DSpi2T4Rqicm2fr3W3A+zsEHDX8OyWM=",
-           //     Salt = "1nSv3rqWbhVCm8054/MZAg=="
-           // };
-
-           // context.Users.AddOrUpdate(user,admin,both);
-
-           // //Adding Roles
-
-           // Role role1 = new Role { Key = Guid.NewGuid(), Name = "user" };
-           // Role role2 = new Role { Key = Guid.NewGuid(), Name = "admin" };
-
-           // context.Roles.AddOrUpdate(role1, role2);
 
 
-           // //Adding Relationship in user and roles
+            //////Adding User
+            //// User user = new User { Key = Guid.NewGuid(), Name = "user" ,
+            ////     HashedPassword = "Sgo+n+Q4gOC9DSpi2T4Rqicm2fr3W3A+zsEHDX8OyWM=",Salt= "1nSv3rqWbhVCm8054/MZAg==" };
 
-           // //Adding userRoles
+            //// User admin = new User
+            //// {
+            ////     Key = Guid.NewGuid(),
+            ////     Name = "admin",
+            ////     HashedPassword = "Sgo+n+Q4gOC9DSpi2T4Rqicm2fr3W3A+zsEHDX8OyWM=",
+            ////     Salt = "1nSv3rqWbhVCm8054/MZAg=="
+            //// };
 
-           // UserRole userRole1 = new UserRole { Key = Guid.NewGuid(),User = user,Role = role1 };
-           // UserRole userRole2 = new UserRole { Key = Guid.NewGuid(), User = admin, Role = role2 };
-           // UserRole userRole3 = new UserRole { Key = Guid.NewGuid(), User = both, Role = role1 };
-           // UserRole userRole4 = new UserRole { Key = Guid.NewGuid(), User = both, Role = role2 };
+            //// User both = new User
+            //// {
+            ////     Key = Guid.NewGuid(),
+            ////     Name = "both",
+            ////     HashedPassword = "Sgo+n+Q4gOC9DSpi2T4Rqicm2fr3W3A+zsEHDX8OyWM=",
+            ////     Salt = "1nSv3rqWbhVCm8054/MZAg=="
+            //// };
 
-           // context.UserRoles.AddOrUpdate(userRole1, userRole2, userRole3, userRole4);
+            //// context.Users.AddOrUpdate(user,admin,both);
+
+            ////Adding Roles
+
+            //Role role1 = new Role { Key = Guid.NewGuid(), Name = "user" };
+            //Role role2 = new Role { Key = Guid.NewGuid(), Name = "admin" };
+
+            //context.Roles.AddOrUpdate(role1, role2);
+
+
+            //// //Adding Relationship in user and roles
+
+            //// //Adding userRoles
+
+            //// UserRole userRole1 = new UserRole { Key = Guid.NewGuid(),User = user,Role = role1 };
+            //// UserRole userRole2 = new UserRole { Key = Guid.NewGuid(), User = admin, Role = role2 };
+            //// UserRole userRole3 = new UserRole { Key = Guid.NewGuid(), User = both, Role = role1 };
+            //// UserRole userRole4 = new UserRole { Key = Guid.NewGuid(), User = both, Role = role2 };
+
+            //// context.UserRoles.AddOrUpdate(userRole1, userRole2, userRole3, userRole4);
 
 
 
