@@ -183,6 +183,7 @@
     <Content Include="Views\Order\MyOrdersLink.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\AuthenticationError.cshtml" />
+    <Content Include="Views\Shared\AuthorizationError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

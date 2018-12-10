@@ -19,6 +19,8 @@ namespace EarthMarket.Presentation.Controllers
 
         }
         // GET: Product
+      //  [UserAuthorizationFilter("admin", "user")]
+      //  [UserAuthorizationFilter("admin", "user")]
         [UserAuthenticationFilter]
         public ViewResult GetProduct(Guid productKey) //pass Key here -
         {
