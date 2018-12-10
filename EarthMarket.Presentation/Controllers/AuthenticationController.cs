@@ -1,4 +1,6 @@
 ﻿using EarthMarket.Business.Services;
+using EarthMarket.DataAccess.Entities;
+using EarthMarket.Presentation.Models;
 using EarthMarket.Presentation.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -19,15 +21,15 @@ namespace EarthMarket.Presentation.Controllers
         public ViewResult Register()
         {
             RegisterViewModel registerViewModel = new RegisterViewModel();
-            var roles = _membershipService.GetRoles().ToList();
-            //registerViewModel.Roles = roles.Select(r=>r.ToRoleDto());
-            
+            var roles = _membershipService.GetAllRoles().ToList();
+            registerViewModel.Roles = roles.Select(r => r.Name );            
             return View(registerViewModel);
         }
 
         [HttpPost]
-        public ActionResult Register(RegisterViewModel registerViewModel,string returnUrl)
+        public ActionResult Register(RegisterViewModel registerViewModel,string returnUrl,string[] rolesChecked)
         {
+            
             ICollection<string> roles = new List<string>();
             if (ModelState.IsValid)
             {
@@ -40,15 +42,12 @@ namespace EarthMarket.Presentation.Controllers
 
                     return View(registerViewModel);
                 }
-                //foreach(var selectListItem in registerViewModel.Roles)
-                //{
-                //    if(selectListItem.Selected == true)
-                //    {
-                //        roles.Add(selectListItem.Text);
-                //    }
-                //}
+                foreach (var role in rolesChecked)
+                {
+                    roles.Add(role);
+                }
 
-               var createUserResult =  _membershipService.CreateUser(
+                var createUserResult =  _membershipService.CreateUser(
                    registerViewModel.Name, registerViewModel.Email, registerViewModel.Password,roles.ToArray());
                 if(createUserResult.IsSuccess == false)
                 {
@@ -93,8 +92,52 @@ namespace EarthMarket.Presentation.Controllers
             return RedirectToAction("Login");
         }
 
-       
+        
+        public RedirectToRouteResult Logout()
+        {
+            Guid userKey = Guid.Empty; 
+            
+            if ((User)Session["User"] != null)
+            {
+                userKey = ((User)Session["User"]).Key;
+
+            }
+
+            var user = _membershipService.GetSingleUser(userKey);
+                if (user !=null)
+                {
+                Session["User"] = null;
+                }
+                
+                return RedirectToAction("Index", "Home");             
+           
+        }
+
+        public PartialViewResult AuthenticationLinks()
+        {
+            AuthenticationCheckViewModel authenticationCheckViewModel = new AuthenticationCheckViewModel
+            {
+                User = null
+            };
+            if ((User)Session["User"] != null)
+            {
+                var sessionUser = (User)Session["User"];
+                if (sessionUser != null)
+                {
+                    authenticationCheckViewModel.User = sessionUser.ToUserDto();
+                }
+
+            }
+
+            return PartialView(authenticationCheckViewModel);
+        }
+
+        
 
        
+
+
+
+
     }
 }

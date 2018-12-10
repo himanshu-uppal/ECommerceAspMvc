@@ -13,11 +13,11 @@ namespace EarthMarket.Presentation.Models.ViewModels
         public string Email { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
-        public ICollection<RoleDto> Roles { get; set; }
+        public IEnumerable<string> Roles { get; set; }
 
         public RegisterViewModel()
         {
-            Roles = new List<RoleDto>();
+            Roles = new List<string>();
         }
     }
 }

@@ -9,13 +9,16 @@ namespace EarthMarket.Presentation.Models
 {
     public static class UserExtensions
     {
-        public static UserDto ToUserDto(this User user)
-        {
+        public static UserDto ToUserDto(this User user, IEnumerable<string> rolesOfUser = null)
+        {          
             return new UserDto
             {
                 Key = user.Key,
-                Name = user.Name
+                Name = user.Name,
+                UserRoles = rolesOfUser
             };
         }
+
+       
     }
 }

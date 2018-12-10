@@ -14,6 +14,7 @@ namespace EarthMarket.Business.Services
         OperationResult<UserWithRoles> CreateUser( string username, string email, string password);
         OperationResult<UserWithRoles> CreateUser( string username, string email, string password, string role);
         OperationResult<UserWithRoles> CreateUser( string username, string email, string password, string[] roles);
+        User GetSingleUser(Guid Key);
 
         UserRole UpdateUser( User user, string username, string email);
 
@@ -24,7 +25,8 @@ namespace EarthMarket.Business.Services
 
         bool RemoveFromRole(string username, string role);
 
-        IEnumerable<Role> GetRoles();
+        IEnumerable<Role> GetAllRoles();
+        IEnumerable<Role> GetAllRolesOfUser(Guid userKey);
         Role GetRole(Guid key);
         Role GetRole(string name);
 

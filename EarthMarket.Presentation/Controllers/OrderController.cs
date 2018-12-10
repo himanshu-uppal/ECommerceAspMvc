@@ -50,7 +50,7 @@ namespace EarthMarket.Presentation.Controllers
 
         public PartialViewResult MyOrdersLink()
         {
-            MyOrdersLinkViewModel myOrdersLinkViewModel = new MyOrdersLinkViewModel
+            AuthenticationCheckViewModel myOrdersLinkViewModel = new AuthenticationCheckViewModel
             {
                 User = null
             };

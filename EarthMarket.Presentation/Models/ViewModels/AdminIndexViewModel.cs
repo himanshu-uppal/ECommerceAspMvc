@@ -6,8 +6,8 @@ using System.Web;
 
 namespace EarthMarket.Presentation.Models.ViewModels
 {
-    public class MyOrdersLinkViewModel
+    public class AdminIndexViewModel
     {
-        public UserDto User { get; set; }
+        public UserDto User { get; set; } 
     }
 }

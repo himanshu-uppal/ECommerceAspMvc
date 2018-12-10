@@ -95,7 +95,12 @@ namespace EarthMarket.Business.Services
             };
         }
 
-        
+        public IEnumerable<Role> GetAllRolesOfUser(Guid userKey)
+        {
+           return _userRoleRepository.GetRolesByUser(userKey);
+        }
+
+
 
         public UserRole UpdateUser(User user, string username, string email)
         {
@@ -121,9 +126,10 @@ namespace EarthMarket.Business.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Role> GetRoles()
+        public IEnumerable<Role> GetAllRoles()
         {
-            return new List<Role> { new Role { Key = Guid.NewGuid(), Name = "role1" }, new Role { Key = Guid.NewGuid(), Name = "role2" } };
+            return _roleRepository.GetAll();
+            
         }
         public Role GetRole(Guid key)
         {
@@ -141,6 +147,12 @@ namespace EarthMarket.Business.Services
         public UserRole GetUser(Guid key)
         {
             throw new NotImplementedException();
+        }
+        public User GetSingleUser(Guid Key)
+        {
+            var user = _userRepository.GetSingle(Key);
+
+            return user;
         }
         public UserRole GetUser(string name)
         {
@@ -171,6 +183,7 @@ namespace EarthMarket.Business.Services
             }
             var userRole = new UserRole()
             {
+                Key = Guid.NewGuid(),
                 RoleKey = role.Key,
                 UserKey = user.Key
             };

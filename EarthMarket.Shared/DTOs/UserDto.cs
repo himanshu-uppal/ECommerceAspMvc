@@ -11,6 +11,11 @@ namespace EarthMarket.Shared.DTOs
         public Guid Key { get; set; }
         public string Name { get; set; }
 
-        //public  ICollection<UserRole> UserRoles { get; set; }        
+        public  IEnumerable<string> UserRoles { get; set; } 
+        
+        public UserDto()
+        {
+            this.UserRoles = new List<string>();
+        }
     }
 }

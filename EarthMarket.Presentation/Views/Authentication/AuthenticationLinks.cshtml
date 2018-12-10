@@ -1,0 +1,15 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.AuthenticationCheckViewModel
+@{
+    ViewBag.Title = "Authentication links";
+
+}
+@if (Model.User == null)
+{
+    @Html.ActionLink("Sign Up", "Register", "Authentication",null, new { @class = " navbar-brand" });
+    @Html.ActionLink("Log In", "Login", "Authentication",null, new { @class = " navbar-brand" });
+
+}
+else
+{
+    @Html.ActionLink("Log Out", "Logout", "Authentication",null, new { @class = " navbar-brand" });
+}

@@ -125,6 +125,7 @@
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\EFConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -143,13 +144,14 @@
     <Compile Include="Models\ProductExtensions.cs" />
     <Compile Include="Models\ProductVariantExtensions.cs" />
     <Compile Include="Models\UserExtensions.cs" />
+    <Compile Include="Models\ViewModels\AdminIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\CartIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\CartSummaryViewModel.cs" />
     <Compile Include="Models\ViewModels\CartViewModel.cs" />
     <Compile Include="Models\ViewModels\CategoryListViewModel.cs" />
     <Compile Include="Models\ViewModels\HomePageCategoriesWithProductsListViewModel.cs" />
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
-    <Compile Include="Models\ViewModels\MyOrdersLinkViewModel.cs" />
+    <Compile Include="Models\ViewModels\AuthenticationCheckViewModel.cs" />
     <Compile Include="Models\ViewModels\MyOrdersListViewModel.cs" />
     <Compile Include="Models\ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductDetailsViewModel.cs" />
@@ -184,6 +186,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\AuthenticationError.cshtml" />
     <Content Include="Views\Shared\AuthorizationError.cshtml" />
+    <Content Include="Views\Authentication\AuthenticationLinks.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -25,22 +25,30 @@
         <label>Confirm Password:</label>
         @Html.TextBoxFor(rvm => rvm.ConfirmPassword, new { @class = "form-control" })
     </div>
-    @*<div class="form-group">
+    <div class="form-group">
         <label>Roles:</label>
-        @if (Model.Roles != null && Model.Roles.Count > 0)
+        @if (Model.Roles != null && Model.Roles.Count() > 0)
         {
-            
-            foreach (var selectListItem in Model.Roles)
+        <table>
+         
+            @foreach (var role in Model.Roles)
             {
-        <label>
-            
-            @Html.CheckBox("roles", new { value = selectListItem.Value, @checked = selectListItem.Selected })@selectListItem.Text
-        </label>
-            }           
-        }
+
+            <tr>
+                
+                <td>@role</td>
+                <td>
+                    <input type="checkbox" name="rolesChecked" value="@role" />
+                </td>
+               
+            </tr>
+
+            }
+        </table>
+                    }
 
 
-    </div>*@
+            </div>
     <div class="form-group">
         @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
         <input class="btn-primary" type="submit" value="Register" />
