@@ -181,6 +181,8 @@
     <Content Include="Views\Cart\Completed.cshtml" />
     <Content Include="Views\Order\GetMyOrders.cshtml" />
     <Content Include="Views\Order\MyOrdersLink.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\AuthenticationError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

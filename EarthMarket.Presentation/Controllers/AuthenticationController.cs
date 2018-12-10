@@ -71,7 +71,7 @@ namespace EarthMarket.Presentation.Controllers
 
         [HttpGet]
         public ViewResult Login()
-        {
+        {           
             return View();
         }
 

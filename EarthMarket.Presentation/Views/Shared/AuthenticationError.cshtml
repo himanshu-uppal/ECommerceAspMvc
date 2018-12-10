@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "AuthenticationError";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AuthenticationError</h2>
+
+<div>!!!! You are not Logged In !!!!</div>
+
+<div>
+    @Html.ActionLink("Sign Up", "Register", "Authentication") &nbsp;&nbsp;
+    @Html.ActionLink("Log In", "Login", "Authentication")
+</div>
+

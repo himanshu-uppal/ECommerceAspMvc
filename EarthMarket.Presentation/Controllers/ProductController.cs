@@ -1,4 +1,5 @@
-﻿using EarthMarket.DataAccess.Services;
+﻿using EarthMarket.Business.Core.Authentication;
+using EarthMarket.DataAccess.Services;
 using EarthMarket.Presentation.Models;
 using EarthMarket.Presentation.Models.ViewModels;
 using System;
@@ -18,6 +19,7 @@ namespace EarthMarket.Presentation.Controllers
 
         }
         // GET: Product
+        [UserAuthenticationFilter]
         public ViewResult GetProduct(Guid productKey) //pass Key here -
         {
            // Guid productKey = new Guid("85852481-A8F4-4671-8411-35F877FDC756");
