@@ -2,8 +2,11 @@
 
 
 <div>
-    @foreach (var category in Model.Categories)
-    {
-        @Html.RouteLink(category.Name, new { Controller = "Product", Action = "List", category = category.Name })
-    }
+    <h3>Categories</h3>
+    <ul class="nav nav-pills nav-stacked">
+        @foreach (var category in Model.Categories)
+        {
+            <li> @Html.RouteLink(category.Name, new { Controller = "Product", Action = "List", category = category.Name })</li>
+        }
+    </ul>
 </div>

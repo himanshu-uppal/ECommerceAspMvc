@@ -3,13 +3,25 @@
     ViewBag.Title = "Authentication links";
 
 }
-@if (Model.User == null)
-{
-    @Html.ActionLink("Sign Up", "Register", "Authentication",null, new { @class = " navbar-brand" });
-    @Html.ActionLink("Log In", "Login", "Authentication",null, new { @class = " navbar-brand" });
 
-}
-else
-{
-    @Html.ActionLink("Log Out", "Logout", "Authentication",null, new { @class = " navbar-brand" });
-}
+
+
+   
+    @if (Model.User == null)
+    {
+    <li>
+        @Html.ActionLink("Sign Up", "Register", "Authentication", null)
+    </li>
+    <li>
+        @Html.ActionLink("Log In", "Login", "Authentication", null)
+    </li>
+
+            }
+            else
+            {
+    <li>
+        @Html.ActionLink("Log Out", "Logout", "Authentication", null)
+    </li>
+            }
+
+  
