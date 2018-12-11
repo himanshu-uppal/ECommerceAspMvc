@@ -291,6 +291,8 @@ namespace EarthMarket.DataAccess.Services
                 OrderTotalPrice = cart.CartProductVariants.Sum(cpv => cpv.ProductVariant.Price * cpv.ProductVariantCount)
         };
             _orderRepository.Add(order);
+
+
             
 
             ICollection<OrderProductVariant> orderProductVariants = new List<OrderProductVariant>();
@@ -308,6 +310,8 @@ namespace EarthMarket.DataAccess.Services
                         Order = order
                     };
                     orderProductVariants.Add(orderProductVariant);
+
+                    
                 }               
                 
             }
@@ -324,9 +328,22 @@ namespace EarthMarket.DataAccess.Services
                 foreach (var orderProductVariant in orderProductVariants)
                 {
                     _orderProductVariantRepository.Add(orderProductVariant);
+                    //incrementing count of products sold in category and product
+                    var orderProduct = orderProductVariant.ProductVariant.Product;
+                    orderProduct.ProductCountSold = orderProduct.ProductCountSold + orderProductVariant.ProductVariantCount;
+                    _productRepository.Edit(orderProduct);
+
+                    foreach(var productCategory in orderProduct.ProductCategories)
+                    {
+                        productCategory.Category.ProductCountSold = productCategory.Category.ProductCountSold + 
+                            orderProductVariant.ProductVariantCount;
+                        _categoryRepository.Edit(productCategory.Category);
+                    }
                 }
 
                 _orderProductVariantRepository.Save();
+                _productRepository.Save();
+                _categoryRepository.Save();
             }
             
             return new OperationResult<Order>(true)

@@ -6,6 +6,19 @@
     <h5>Products Ordered</h5>
     @foreach (var orderProductVariant in Model.Order.OrderProductVariants)
     {
-        @Html.Action("GetOrderIndexProductCard", "Order", new { orderProductVariant = orderProductVariant })
+    <table class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:50%">Product</th>
+                <th style="width:10%">Price</th>
+                <th style="width:8%">Quantity</th>
+                <th style="width:22%" class="text-center">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.Action("GetOrderIndexProductCard", "Order", new { orderProductVariant = orderProductVariant })
+        </tbody>
+    </table>
+
     }
 </div>
