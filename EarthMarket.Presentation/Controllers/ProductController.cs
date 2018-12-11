@@ -1,4 +1,5 @@
 ﻿using EarthMarket.Business.Core.Authentication;
+using EarthMarket.DataAccess.Entities;
 using EarthMarket.DataAccess.Services;
 using EarthMarket.Presentation.Models;
 using EarthMarket.Presentation.Models.ViewModels;
@@ -47,6 +48,16 @@ namespace EarthMarket.Presentation.Controllers
                 Products = productsDtos
             };
             return View(productListViewModel);
+        }
+        public PartialViewResult GetSingleProductCard(Guid productKey)
+        {
+            var product = _marketService.GetProduct(productKey);
+            ProductCardViewModel productCardViewModel = new ProductCardViewModel();
+            if(product!= null)
+            {
+                productCardViewModel.Product = product.ToProductDto();
+            }
+            return PartialView(productCardViewModel);
         }
     }
 }

@@ -18,7 +18,7 @@ else
     <div>
         @foreach (var product in Model.Products)
         {
-            @Html.RouteLink(product.Name, new { Controller = "Product", Action = "GetProduct", productKey = product.Key })
+            @Html.Action("GetSingleProductCard", "Product", new { productKey = product.Key });
         }
     </div>
 
