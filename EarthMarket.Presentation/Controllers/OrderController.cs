@@ -1,4 +1,5 @@
-﻿using EarthMarket.DataAccess.Entities;
+﻿using EarthMarket.Business.Core.Authentication;
+using EarthMarket.DataAccess.Entities;
 using EarthMarket.DataAccess.Services;
 using EarthMarket.Presentation.Models;
 using EarthMarket.Presentation.Models.ViewModels;
@@ -10,6 +11,7 @@ using System.Web.Mvc;
 
 namespace EarthMarket.Presentation.Controllers
 {
+    
     public class OrderController : Controller
     {
         private readonly IMarketService _marketService;
@@ -19,10 +21,12 @@ namespace EarthMarket.Presentation.Controllers
             this._marketService = marketService;
         }
         // GET: Order
+        [UserAuthenticationFilter]
         public ActionResult Index()
         {
             return View();
         }
+        [UserAuthenticationFilter]
         public ActionResult GetMyOrders()
         {
             MyOrdersListViewModel myOrdersListViewModel = new MyOrdersListViewModel

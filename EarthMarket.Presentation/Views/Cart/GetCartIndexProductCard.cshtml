@@ -1,0 +1,54 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.CartIndexProductCardViewModel
+<tr>
+    <td data-th="Product">
+        <div class="row">
+            <div class="col-sm-2 hidden-xs">
+                <img class="img-responsive" src="@Url.Content(Model.CartProductVariant.ProductVariant.ProductVariantImages.First())" alt="Product Image" width="100%">                
+            </div>
+            <div class="col-sm-10">
+                <h4 class="nomargin">@Model.CartProductVariant.ProductVariant.ProductVariantName</h4>
+                
+            </div>
+        </div>
+    </td>
+    <td data-th="Price">@Model.CartProductVariant.ProductVariant.ProductVariantPrice.ToString("c")</td>
+    <td data-th="Quantity">
+        @Model.CartProductVariant.ProductVariantCount
+    </td>
+    <td data-th="Subtotal" class="text-center">@Model.CartProductVariant.GetCartProductSubTotal().ToString("c")</td>
+    <td class="actions" data-th="">
+        @using (Html.BeginForm("RemoveFromCart", "Cart"))
+        {
+            @Html.Hidden("productVariantKey", Model.CartProductVariant.ProductVariant.Key)
+            @Html.HiddenFor(x => x.ReturnUrl)
+            <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash-o"></i></button>
+            
+        }
+       
+    </td>
+</tr>
+
+@*<h2>Index</h2>
+
+    Cart for User - <h3>@Model.Cart.User.Name</h3>
+    <h2>Total price - @Model.Cart.ComputeTotalPrice()</h2>
+    <h4>Products are :-</h4>
+    @foreach (var cartProductVariant in Model.Cart.CartProductVariants)
+    {
+        <div>
+            <span>
+            [@cartProductVariant.ProductVariant.ProductVariantName - @cartProductVariant.ProductVariantCount] ==>
+            @cartProductVariant.ProductVariant.ProductVariantPrice.ToString("c")
+            </span>
+        </div>
+        <div>
+            @using (Html.BeginForm("RemoveFromCart", "Cart"))
+            {
+                @Html.Hidden("productVariantKey", cartProductVariant.ProductVariant.Key)
+                @Html.HiddenFor(x => x.ReturnUrl)
+                <input class="btn btn-sm btn-warning"
+                       type="submit" value="Remove From Cart" />
+            }
+        </div>
+
+    }*@

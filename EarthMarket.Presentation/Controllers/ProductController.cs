@@ -3,6 +3,7 @@ using EarthMarket.DataAccess.Entities;
 using EarthMarket.DataAccess.Services;
 using EarthMarket.Presentation.Models;
 using EarthMarket.Presentation.Models.ViewModels;
+using EarthMarket.Shared.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,13 +50,13 @@ namespace EarthMarket.Presentation.Controllers
             };
             return View(productListViewModel);
         }
-        public PartialViewResult GetSingleProductCard(Guid productKey)
+        public PartialViewResult GetSingleProductCard(ProductDto product)
         {
-            var product = _marketService.GetProduct(productKey);
+            //var product = _marketService.GetProduct(productKey);
             ProductCardViewModel productCardViewModel = new ProductCardViewModel();
             if(product!= null)
             {
-                productCardViewModel.Product = product.ToProductDto();
+                productCardViewModel.Product = product;
             }
             return PartialView(productCardViewModel);
         }

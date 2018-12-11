@@ -146,6 +146,7 @@
     <Compile Include="Models\ProductVariantExtensions.cs" />
     <Compile Include="Models\UserExtensions.cs" />
     <Compile Include="Models\ViewModels\AdminIndexViewModel.cs" />
+    <Compile Include="Models\ViewModels\CartIndexProductCardViewModel.cs" />
     <Compile Include="Models\ViewModels\CartIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\CartSummaryViewModel.cs" />
     <Compile Include="Models\ViewModels\CartViewModel.cs" />
@@ -191,6 +192,7 @@
     <Content Include="Views\Authentication\AuthenticationLinks.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Product\GetSingleProductCard.cshtml" />
+    <Content Include="Views\Cart\GetCartIndexProductCard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

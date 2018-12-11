@@ -18,7 +18,7 @@ else
     <div>
         @foreach (var product in Model.Products)
         {
-            @Html.Action("GetSingleProductCard", "Product", new { productKey = product.Key });
+            @Html.Action("GetSingleProductCard", "Product", new { product = product });
         }
     </div>
 

@@ -18,10 +18,10 @@
             <div class=" row">
 
 
-                @foreach (var categoryProduct in category.Products)
+                @foreach (var product in category.Products)
                 {
                        
-                    @Html.Action("GetSingleProductCard", "Product", new { productKey= categoryProduct.Key });
+                    @Html.Action("GetSingleProductCard", "Product", new { product= product });
                 }
 
             </div>

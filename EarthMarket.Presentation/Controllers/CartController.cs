@@ -1,4 +1,5 @@
-﻿using EarthMarket.DataAccess.Entities;
+﻿using EarthMarket.Business.Core.Authentication;
+using EarthMarket.DataAccess.Entities;
 using EarthMarket.DataAccess.Services;
 using EarthMarket.Presentation.Models;
 using EarthMarket.Presentation.Models.ViewModels;
@@ -11,6 +12,7 @@ using System.Web.Mvc;
 
 namespace EarthMarket.Presentation.Controllers
 {
+    
     public class CartController : Controller
     {
         private readonly IMarketService _marketService;
@@ -19,6 +21,7 @@ namespace EarthMarket.Presentation.Controllers
         {
             this._marketService = marketService;
         }
+        [UserAuthenticationFilter]
         public ViewResult Index( string returnUrl)
         {
             Cart cart = GetCart();         
@@ -30,6 +33,7 @@ namespace EarthMarket.Presentation.Controllers
                
             });
         }
+        [UserAuthenticationFilter]
         public RedirectToRouteResult AddToCart(Guid productVariantKey,string returnUrl)
         {
             Cart cart = GetCart();
@@ -40,7 +44,7 @@ namespace EarthMarket.Presentation.Controllers
             }
             return RedirectToAction("Index", new { returnUrl });
         }
-
+        [UserAuthenticationFilter]
         public RedirectToRouteResult RemoveFromCart( Guid productVariantKey, string returnUrl)
         {
             Cart cart = GetCart();
@@ -94,6 +98,7 @@ namespace EarthMarket.Presentation.Controllers
 
         //    return cart;
         //}
+        [UserAuthenticationFilter]
         private Cart GetCart()  // use Guid userKey
         {
             Guid userKey;
@@ -157,12 +162,14 @@ namespace EarthMarket.Presentation.Controllers
             
         }
         [HttpGet]
+        [UserAuthenticationFilter]
         public ViewResult Checkout()
         {
             return View(new ShippingDetailsViewModel());
         }
 
         [HttpPost]
+        [UserAuthenticationFilter]
         public ViewResult Checkout(ShippingDetailsViewModel shippingDetailsViewModel)
         {
             Cart cart = GetCart();
@@ -199,7 +206,19 @@ namespace EarthMarket.Presentation.Controllers
 
             return View();
         }
-
+        public PartialViewResult GetCartIndexProductCard(CartProductVariantDto cartProductVariant, string returnUrl )
+        {
+            if(returnUrl == "")
+            {
+                returnUrl = "Home";
+            }
+            CartIndexProductCardViewModel cartIndexProductCardViewModel = new CartIndexProductCardViewModel
+            {
+                CartProductVariant = cartProductVariant,
+                ReturnUrl = returnUrl
+            };
+            return PartialView(cartIndexProductCardViewModel);
+        }
 
 
 
