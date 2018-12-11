@@ -9,6 +9,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace EarthMarket.DataAccess.Concrete
 {
@@ -76,20 +77,33 @@ namespace EarthMarket.DataAccess.Concrete
         {
             DbEntityEntry dbEntityEntry = _entitiesContext.Entry<T>(entity);
             _entitiesContext.Set<T>().Add(entity);
+            
+            Debug.WriteLine(_entitiesContext.Set<T>().Add(entity));
         }
         public virtual void Edit(T entity)
         {
             DbEntityEntry dbEntityEntry = _entitiesContext.Entry<T>(entity);
+
+            
+
             dbEntityEntry.State = EntityState.Modified;
+
+            Debug.WriteLine(_entitiesContext.Entry<T>(entity));
         }
         public virtual void Delete(T entity)
         {
-            DbEntityEntry dbEntityEntry = _entitiesContext.Entry<T>(entity);
+            DbEntityEntry dbEntityEntry = _entitiesContext.Entry<T>(entity);      
+
+
             dbEntityEntry.State = EntityState.Deleted;
+
+            Debug.WriteLine(_entitiesContext.Entry<T>(entity));
         }
         public virtual void Save()
         {
             _entitiesContext.SaveChanges();
+
+            Debug.WriteLine(_entitiesContext.SaveChanges());
         }
     }
 }

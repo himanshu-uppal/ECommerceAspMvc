@@ -8,7 +8,7 @@
             <h4 class="card-title">
             @Html.RouteLink(Model.Product.Name, new { Controller = "Product", Action = "GetProduct", productKey = Model.Product.Key })
             </h4>
-            <p class="desc">Some small description goes here</p>
+            <p class="desc">@Model.Product.Description</p>
             @*<div class="rating-wrap">
                     <div class="label-rating">132 reviews</div>
                     <div class="label-rating">154 orders </div>

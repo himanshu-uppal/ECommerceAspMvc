@@ -15,7 +15,8 @@
     
     <div class="form-group">
         <label>Password:</label>
-        @Html.TextBoxFor(lvm => lvm.Password, new { @class = "form-control" })
+        @Html.PasswordFor(lvm => lvm.Password, new { @class = "form-control" , placeholder = "Password" })
+        
     </div>
     
    

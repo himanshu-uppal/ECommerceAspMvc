@@ -5,11 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
 @if(Model.User!=null && Model.User.UserRoles.Contains("admin")){
-<div>You are admin!</div>
+<h1>Heyaa !! You are admin!</h1>
 }
 else{
-<div>You are not admin!</div>
+<h1>Oops !! You are not admin!</h1>
 }

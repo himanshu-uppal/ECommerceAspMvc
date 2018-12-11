@@ -14,5 +14,6 @@ namespace EarthMarket.Shared.DTOs
         public IEnumerable<string> Categories { get; set; }
         public IEnumerable<ProductVariantDto> ProductVariants { get; set; }
         public IEnumerable<string> ProductImages { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -30,7 +30,8 @@ namespace EarthMarket.Presentation.Models
                 ProductCountSold = product.ProductCountSold,
                 Categories = product.ProductCategories.Select(pc => pc.Category).Select(c => c.Name),
                 ProductVariants= productVariants,
-                ProductImages = productImages
+                ProductImages = productImages,
+                Description = product.Description
             };
         }
     }

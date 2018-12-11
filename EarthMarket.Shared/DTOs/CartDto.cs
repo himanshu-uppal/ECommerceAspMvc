@@ -12,18 +12,14 @@ namespace EarthMarket.Shared.DTOs
 
         public IEnumerable<CartProductVariantDto> CartProductVariants { get; set; }
 
-        public UserDto User { get; set; }
-       
+        public UserDto User { get; set; }       
 
         public double ComputeTotalPrice()
         {
-            
-
             double totalPrice = CartProductVariants.Sum(cpv => cpv.ProductVariant.ProductVariantPrice*cpv.ProductVariantCount);
 
             return totalPrice;
         }
-
 
     }
 }

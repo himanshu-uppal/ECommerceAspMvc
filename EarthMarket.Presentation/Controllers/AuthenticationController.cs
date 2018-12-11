@@ -69,9 +69,9 @@ namespace EarthMarket.Presentation.Controllers
         }
 
         [HttpGet]
-        public ViewResult Login()
-        {           
-            return View();
+        public ViewResult Login(LoginViewModel loginViewModel= null)
+        {              
+            return View(loginViewModel);
         }
 
         [HttpPost]
@@ -82,13 +82,15 @@ namespace EarthMarket.Presentation.Controllers
                 var userContext = _membershipService.ValidateUser(loginViewModel.Username, loginViewModel.Password);
                 if (!userContext.IsValid())
                 {
-                    return RedirectToAction("Login");
+                    
+                    return RedirectToAction("Login", new { loginViewModel });
                 }
                 TempData["userWithRoles"] = userContext.User;
                 Session["User"] = userContext.User.User; 
                 return RedirectToAction("Index", "Home" );  //pass userWithRoles here
 
             }
+
             return RedirectToAction("Login");
         }
 

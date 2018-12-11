@@ -6,10 +6,10 @@
 
 <h2>AuthenticationError</h2>
 
-<div>!!!! You are not Logged In !!!!</div>
+<h4>!!!! You are not Logged In !!!!</h4>
 
 <div>
-    @Html.ActionLink("Sign Up", "Register", "Authentication") &nbsp;&nbsp;
-    @Html.ActionLink("Log In", "Login", "Authentication")
+    @Html.ActionLink("Sign Up", "Register", "Authentication",null, new { @class= "btn btn-warning" }) &nbsp;&nbsp;
+    @Html.ActionLink("Log In", "Login", "Authentication",null, new { @class = "btn btn-success" })
 </div>
 

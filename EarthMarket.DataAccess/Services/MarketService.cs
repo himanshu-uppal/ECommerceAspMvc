@@ -7,6 +7,7 @@ using EarthMarket.DataAccess.Abstract;
 using EarthMarket.DataAccess.Core;
 using EarthMarket.DataAccess.Entities;
 using EarthMarket.DataAccess.Extensions;
+using System.Diagnostics;
 
 namespace EarthMarket.DataAccess.Services
 {
@@ -46,6 +47,9 @@ namespace EarthMarket.DataAccess.Services
         {
             var categories = _categoryRepository.All;
 
+            Debug.WriteLine("Fetching all categories  ");
+            Debug.WriteLine(_categoryRepository.All);
+
             return categories;
 
         }
@@ -53,11 +57,17 @@ namespace EarthMarket.DataAccess.Services
         {
             var categories = _categoryRepository.Paginate(pageIndex, pageSize, x => x.Key);
 
+            Debug.WriteLine("Fetching allcategories  ");
+            Debug.WriteLine(_categoryRepository.Paginate(pageIndex, pageSize, x => x.Key));
+
             return categories;
         }
         public IEnumerable<Product> GetAllProducts()
         {
             var products = _productRepository.All;
+
+            Debug.WriteLine("Fetching all products ");
+            Debug.WriteLine(_productRepository.All);
 
             return products;
 
@@ -71,17 +81,24 @@ namespace EarthMarket.DataAccess.Services
         {
             var product = _productRepository.GetSingle(Key);
 
+            Debug.WriteLine("Fetching  product with id -  "+ Key);
+            Debug.WriteLine(_productRepository.GetSingle(Key));
+
             return product;
 
         }
 
-        public IEnumerable<Product> SearchProducts(string searchText){
+        public IEnumerable<Product> SearchProducts(string searchText){            
+
             return _productRepository.GetAllProductsByNameOrDescription(searchText);
     }
 
         public IEnumerable<ProductVariant> GetAllProductVariants()
         {
             var productVariants = _productVariantRepository.All;
+
+            Debug.WriteLine("Fetching all product variants");
+            Debug.WriteLine(_productVariantRepository.All);
 
             return productVariants;
 
@@ -91,12 +108,19 @@ namespace EarthMarket.DataAccess.Services
         {
             var productVariant = _productVariantRepository.GetSingle(Key);
 
+            Debug.WriteLine("Fetching  product variant - "+ Key);
+            Debug.WriteLine(_productVariantRepository.GetSingle(Key));
+
+
             return productVariant;
 
         }
         public User GetUser(Guid Key)
         {
             var user = _userRepository.GetSingle(Key);
+
+            Debug.WriteLine("Fetching  user - " + Key);
+            Debug.WriteLine(_userRepository.GetSingle(Key));
 
             return user;
         }
@@ -111,7 +135,11 @@ namespace EarthMarket.DataAccess.Services
         public OperationResult<Cart> AddCart(Guid userKey,Cart cart)
         {
             var user = _userRepository.GetSingle(userKey);
-            if(user == null)
+
+            Debug.WriteLine("Fetching  user - " + userKey);
+            Debug.WriteLine(_userRepository.GetSingle(userKey));
+            
+            if (user == null)
             {
                 return new OperationResult<Cart>(false);
             }
@@ -119,9 +147,13 @@ namespace EarthMarket.DataAccess.Services
                 cart.Key = Guid.NewGuid();
                 _cartRepository.Add(cart);
 
+            Debug.WriteLine("Adding new cart");
+
             //will check whther cart exists or not, if exists then update it
-           
-            _cartRepository.Save();
+
+            _cartRepository.Save();           
+
+
             return new OperationResult<Cart>(true)
             {
                 Entity = cart
@@ -130,17 +162,28 @@ namespace EarthMarket.DataAccess.Services
         public OperationResult<CartProductVariant> AddProductVariantToCart(ProductVariant productVariant, Cart cart)
         {
             Cart verifyCart = _cartRepository.GetSingle(cart.Key);
-            if(verifyCart== null)
+
+            Debug.WriteLine("fetching cart - "+ cart.Key);
+            Debug.WriteLine(_cartRepository.GetSingle(cart.Key));
+
+            if (verifyCart== null)
             {
                 return new OperationResult<CartProductVariant>(false);
             }
             ProductVariant verifyProductVariant = _productVariantRepository.GetSingle(productVariant.Key);
-            if(verifyProductVariant == null)
+
+            Debug.WriteLine("fetching product variant - " + productVariant.Key);
+            Debug.WriteLine(_productVariantRepository.GetSingle(productVariant.Key));
+
+
+            if (verifyProductVariant == null)
             {
                 return new OperationResult<CartProductVariant>(false);
             }
             var productVariants = _cartProductVariantRepository.    //fetching all product variants of the cart
                 GetProductVariantsByCart(cart.Key);
+
+           
 
             CartProductVariant cartProductVariant = null;
             bool newProductVariant = true;
@@ -165,20 +208,33 @@ namespace EarthMarket.DataAccess.Services
 
                 _cartProductVariantRepository.Add(cartProductVariant); //save CartProductVariant
 
+                Debug.WriteLine("Adding new Cart Product Variant ");
+           
+
             }
             else
             {
                 // increment count for the product variant in cart
                 cartProductVariant = _cartProductVariantRepository.
                     GetCartProductVariant(cart.Key, productVariant.Key);
+
+                Debug.WriteLine("Fetching product variant - " + productVariant.Key  + " of cart -  " + cart.Key);
+                Debug.WriteLine(_cartProductVariantRepository.
+                    GetCartProductVariant(cart.Key, productVariant.Key));
+
+
                 cartProductVariant.ProductVariantCount = cartProductVariant.ProductVariantCount + 1;
                 _cartProductVariantRepository.Edit(cartProductVariant); //modify CartProductVariant
+
+                Debug.WriteLine("Updating cart" + cart.Key);
 
 
             }
 
             _cartProductVariantRepository.Save();
             cart.CartProductVariants.Add(cartProductVariant);
+
+            Debug.WriteLine("Adding Cart Product Variants to cart" + cart.Key);
             //_cartRepository.Edit(cart);  //doubt whether to do this or not
             //_cartRepository.Save();      //doubt whether to do this or not
 
@@ -194,11 +250,20 @@ namespace EarthMarket.DataAccess.Services
         public OperationResult<Cart> RemoveProductVariantFromCart(ProductVariant productVariant, Cart cart)
         {
             Cart verifyCart = _cartRepository.GetSingle(cart.Key);
+
+            Debug.WriteLine("fetching cart - " + cart.Key);
+            Debug.WriteLine(_cartRepository.GetSingle(cart.Key));
+
             if (verifyCart == null)
             {
                 return new OperationResult<Cart>(false);
             }
             ProductVariant verifyProductVariant = _productVariantRepository.GetSingle(productVariant.Key);
+
+            Debug.WriteLine("fetching product Variant - " + productVariant.Key);
+            Debug.WriteLine(_productVariantRepository.GetSingle(productVariant.Key));
+
+
             if (verifyProductVariant == null)
             {
                 return new OperationResult<Cart>(false);
@@ -237,12 +302,16 @@ namespace EarthMarket.DataAccess.Services
                     //decerement product variant count
                     cartProductVariant.ProductVariantCount = cartProductVariant.ProductVariantCount - 1;
                     _cartProductVariantRepository.Edit(cartProductVariant); //modify CartProductVariant
+
+                    Debug.WriteLine("Updating cart - " + cart.Key);
+                    
                 }
                 else
                 {
                     //remove product variant from cart
                     _cartProductVariantRepository.Delete(cartProductVariant);
-                        
+                    Debug.WriteLine("Deleting - " + cart.Key);
+
                 }              
 
             }
@@ -265,6 +334,9 @@ namespace EarthMarket.DataAccess.Services
             //have to update product count sold in product and category when placing order
            
             Cart verifyCart = _cartRepository.GetSingle(cart.Key);
+
+            Debug.WriteLine("fetching cart - " + cart.Key);
+            Debug.WriteLine(_cartRepository.GetSingle(cart.Key));
 
             //not valid cart
             if (verifyCart == null)
@@ -292,7 +364,7 @@ namespace EarthMarket.DataAccess.Services
         };
             _orderRepository.Add(order);
 
-
+            Debug.WriteLine("Adding new order");
             
 
             ICollection<OrderProductVariant> orderProductVariants = new List<OrderProductVariant>();
@@ -300,6 +372,11 @@ namespace EarthMarket.DataAccess.Services
             foreach (var cartProductVariant in cart.CartProductVariants)
             {
                 ProductVariant verifyProductVariant = _productVariantRepository.GetSingle(cartProductVariant.ProductVariant.Key);
+
+                Debug.WriteLine("fetching product variant - " + cartProductVariant.ProductVariant.Key);
+                Debug.WriteLine(_productVariantRepository.GetSingle(cartProductVariant.ProductVariant.Key));
+
+
                 if (verifyProductVariant != null)
                 {
                     OrderProductVariant orderProductVariant = new OrderProductVariant
@@ -310,6 +387,8 @@ namespace EarthMarket.DataAccess.Services
                         Order = order
                     };
                     orderProductVariants.Add(orderProductVariant);
+
+                   
 
                     
                 }               
@@ -328,16 +407,22 @@ namespace EarthMarket.DataAccess.Services
                 foreach (var orderProductVariant in orderProductVariants)
                 {
                     _orderProductVariantRepository.Add(orderProductVariant);
+
+                    Debug.WriteLine("Adding order product variant");
+
                     //incrementing count of products sold in category and product
                     var orderProduct = orderProductVariant.ProductVariant.Product;
                     orderProduct.ProductCountSold = orderProduct.ProductCountSold + orderProductVariant.ProductVariantCount;
                     _productRepository.Edit(orderProduct);
 
-                    foreach(var productCategory in orderProduct.ProductCategories)
+                    Debug.WriteLine("Updating product");
+
+                    foreach (var productCategory in orderProduct.ProductCategories)
                     {
                         productCategory.Category.ProductCountSold = productCategory.Category.ProductCountSold + 
                             orderProductVariant.ProductVariantCount;
                         _categoryRepository.Edit(productCategory.Category);
+                        Debug.WriteLine("Updating category");
                     }
                 }
 
@@ -356,6 +441,9 @@ namespace EarthMarket.DataAccess.Services
         {
             Cart verifyCart = _cartRepository.GetSingle(cart.Key);
 
+            Debug.WriteLine("fetching cart - " + cart.Key);
+            Debug.WriteLine(_cartRepository.GetSingle(cart.Key));
+
             //not valid cart
             if (verifyCart == null)
             {
@@ -363,10 +451,14 @@ namespace EarthMarket.DataAccess.Services
             }
             var cartProductVariants = _cartProductVariantRepository.GetCartProductVariantsByCart(cart.Key);
 
+            Debug.WriteLine("fetching cart product variants- " + cart.Key);
+            Debug.WriteLine(_cartProductVariantRepository.GetCartProductVariantsByCart(cart.Key));
+
             //removing associated cart product variants
-            foreach(var cartProductVariant in cartProductVariants)
+            foreach (var cartProductVariant in cartProductVariants)
             {
-                _cartProductVariantRepository.Delete(cartProductVariant);                
+                _cartProductVariantRepository.Delete(cartProductVariant);
+                Debug.WriteLine("Delteing cart product variant");
             }
             _cartProductVariantRepository.Save();
             _cartRepository.Delete(cart);
@@ -376,7 +468,10 @@ namespace EarthMarket.DataAccess.Services
 
         public IEnumerable<Order> GetAllOrdersByUser(User user)
         {
-           return _orderRepository.GetAll().Where(o => o.User.Key == user.Key);
+            Debug.WriteLine("fetching orders of user- " + user.Key);
+            Debug.WriteLine(_orderRepository.GetAll().Where(o => o.User.Key == user.Key));
+
+            return _orderRepository.GetAll().Where(o => o.User.Key == user.Key);
         }
     }
 }
