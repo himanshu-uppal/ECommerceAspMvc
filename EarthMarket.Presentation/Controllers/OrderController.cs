@@ -79,5 +79,14 @@ namespace EarthMarket.Presentation.Controllers
             };
             return PartialView(orderIndexProductCardViewModel);
         }
+
+        public PartialViewResult GetOrderDetailsCard(OrderDto order)
+        {
+            OrderDetailsViewModel orderDetailsViewModel = new OrderDetailsViewModel();
+            orderDetailsViewModel.Order = order;
+            
+            return PartialView(orderDetailsViewModel);
+        }
+       
     }
 }

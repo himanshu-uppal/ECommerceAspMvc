@@ -195,6 +195,7 @@
     <Content Include="Views\Product\GetSingleProductCard.cshtml" />
     <Content Include="Views\Cart\GetCartIndexProductCard.cshtml" />
     <Content Include="Views\Order\GetOrderIndexProductCard.cshtml" />
+    <Content Include="Views\Order\GetOrderDetailsCard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

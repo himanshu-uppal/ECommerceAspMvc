@@ -1,0 +1,11 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.OrderDetailsViewModel
+
+<h3>-----Order details-----</h3>
+<div>Total Amount Paid - <strong>@Model.Order.OrderTotalPrice.ToString("c")</strong></div>
+<div>
+    <h5>Products Ordered</h5>
+    @foreach (var orderProductVariant in Model.Order.OrderProductVariants)
+    {
+        @Html.Action("GetOrderIndexProductCard", "Order", new { orderProductVariant = orderProductVariant })
+    }
+</div>
