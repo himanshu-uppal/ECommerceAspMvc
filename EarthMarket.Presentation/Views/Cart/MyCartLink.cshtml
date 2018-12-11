@@ -1,0 +1,16 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.AuthenticationCheckViewModel
+
+
+@{
+    ViewBag.Title = "MyCartLink";
+
+}
+@if (Model.User != null)
+{
+    @Html.ActionLink("My Cart", "Index", "Cart");
+    // @Html.RouteLink("My Orders", new { Controller = "Order", Action = "GetMyOrders", userKey = Model.User.Key })
+
+
+}
+
+

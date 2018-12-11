@@ -22,7 +22,7 @@ namespace EarthMarket.Presentation.Controllers
             this._marketService = marketService;
         }
         [UserAuthenticationFilter]
-        public ViewResult Index( string returnUrl)
+        public ViewResult Index( string returnUrl = null)
         {
             Cart cart = GetCart();         
           
@@ -218,6 +218,25 @@ namespace EarthMarket.Presentation.Controllers
                 ReturnUrl = returnUrl
             };
             return PartialView(cartIndexProductCardViewModel);
+        }
+
+        public PartialViewResult MyCartLink()
+        {
+            AuthenticationCheckViewModel myCartLinkViewModel = new AuthenticationCheckViewModel
+            {
+                User = null
+            };
+            if ((User)Session["User"] != null)
+            {
+                var sessionUser = (User)Session["User"];
+                if (sessionUser != null)
+                {
+                    myCartLinkViewModel.User = sessionUser.ToUserDto();
+                }
+
+            }
+
+            return PartialView(myCartLinkViewModel);
         }
 
 
