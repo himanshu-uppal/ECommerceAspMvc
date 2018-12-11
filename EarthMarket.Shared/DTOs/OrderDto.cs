@@ -9,7 +9,7 @@ namespace EarthMarket.Shared.DTOs
     public class OrderDto
     {
         public IEnumerable<OrderProductVariantDto> OrderProductVariants { get; set; }
-        public float OrderTotalPrice { get; set; }
+        public double OrderTotalPrice { get; set; }
         public UserDto User { get; set; }
     }
 }

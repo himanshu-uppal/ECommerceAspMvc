@@ -3,6 +3,7 @@ using EarthMarket.DataAccess.Entities;
 using EarthMarket.DataAccess.Services;
 using EarthMarket.Presentation.Models;
 using EarthMarket.Presentation.Models.ViewModels;
+using EarthMarket.Shared.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,6 +70,14 @@ namespace EarthMarket.Presentation.Controllers
             }
 
             return PartialView(myOrdersLinkViewModel);
+        }
+        public PartialViewResult GetOrderIndexProductCard(OrderProductVariantDto orderProductVariant)
+        {           
+            OrderIndexProductCardViewModel orderIndexProductCardViewModel = new OrderIndexProductCardViewModel
+            {
+                OrderProductVariant = orderProductVariant
+            };
+            return PartialView(orderIndexProductCardViewModel);
         }
     }
 }

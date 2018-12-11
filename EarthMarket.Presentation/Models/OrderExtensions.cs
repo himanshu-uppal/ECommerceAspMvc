@@ -15,6 +15,7 @@ namespace EarthMarket.Presentation.Models
             return new OrderDto
             {
                 User = order.User.ToUserDto(),
+                OrderTotalPrice = order.OrderTotalPrice,
                 OrderProductVariants = order.OrderProductVariants.Select(o=>o.ToOrderProductVariantDto())
             };
 

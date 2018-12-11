@@ -1,0 +1,21 @@
+﻿@model EarthMarket.Presentation.Models.ViewModels.OrderIndexProductCardViewModel
+
+<tr>
+    <td data-th="Product">
+        <div class="row">
+            <div class="col-sm-2 hidden-xs">
+                <img class="img-responsive" src="@Url.Content(Model.OrderProductVariant.ProductVariant.ProductVariantImages.First())" alt="Product Image" width="100%">
+            </div>
+            <div class="col-sm-10">
+                <h4 class="nomargin">@Model.OrderProductVariant.ProductVariant.ProductVariantName</h4>
+
+            </div>
+        </div>
+    </td>
+    <td data-th="Price">@Model.OrderProductVariant.ProductVariant.ProductVariantPrice.ToString("c")</td>
+    <td data-th="Quantity">
+        @Model.OrderProductVariant.ProductVariantCount
+    </td>
+    <td data-th="Subtotal" class="text-center">@Model.OrderProductVariant.GetOrderProductSubTotal().ToString("c")</td>
+    
+</tr>

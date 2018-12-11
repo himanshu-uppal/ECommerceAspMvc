@@ -156,6 +156,7 @@
     <Compile Include="Models\ViewModels\AuthenticationCheckViewModel.cs" />
     <Compile Include="Models\ViewModels\MyOrdersListViewModel.cs" />
     <Compile Include="Models\ViewModels\OrderDetailsViewModel.cs" />
+    <Compile Include="Models\ViewModels\OrderIndexProductCardViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductCardViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductDetailsViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductListViewModel.cs" />
@@ -193,6 +194,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Product\GetSingleProductCard.cshtml" />
     <Content Include="Views\Cart\GetCartIndexProductCard.cshtml" />
+    <Content Include="Views\Order\GetOrderIndexProductCard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

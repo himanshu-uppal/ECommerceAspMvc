@@ -287,8 +287,9 @@ namespace EarthMarket.DataAccess.Services
             Order order = new Order
             {
                 Key = Guid.NewGuid(),
-                User = cart.User
-            };
+                User = cart.User,
+                OrderTotalPrice = cart.CartProductVariants.Sum(cpv => cpv.ProductVariant.Price * cpv.ProductVariantCount)
+        };
             _orderRepository.Add(order);
             
 

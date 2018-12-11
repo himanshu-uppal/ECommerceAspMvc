@@ -6,9 +6,40 @@
 }
 
 <h2>Hi, @Model.Order.User.Name . Your Order is :-</h2>
+<table id="cart" class="table table-hover table-condensed">
+    <thead>
+        <tr>
+            <th style="width:50%">Product</th>
+            <th style="width:10%">Price</th>
+            <th style="width:8%">Quantity</th>
+            <th style="width:22%" class="text-center">Subtotal</th>           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var orderProductVariant in Model.Order.OrderProductVariants)
+        {
 
-@foreach(var orderProductVariant in Model.Order.OrderProductVariants)
-{
-<div>@orderProductVariant.ProductVariant - @orderProductVariant.ProductVariantCount</div>
-}
+            @Html.Action("GetOrderIndexProductCard", "Order", new { orderProductVariant = orderProductVariant })
+
+        }
+
+    </tbody>
+    <tfoot>
+        <tr class="visible-xs">
+            <td class="text-center"><strong>Total @Model.Order.OrderTotalPrice.ToString("c")</strong></td>
+        </tr>
+        <tr>
+            <td>
+                
+            </td>
+            <td colspan="2" class="hidden-xs"></td>
+            <td class="hidden-xs text-center"><strong>Total @Model.Order.OrderTotalPrice.ToString("c")</strong></td>
+            <td>
+                
+
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
 

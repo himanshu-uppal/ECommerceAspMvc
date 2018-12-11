@@ -10,5 +10,12 @@ namespace EarthMarket.Shared.DTOs
     {
         public  ProductVariantDto ProductVariant { get; set; }
         public int ProductVariantCount { get; set; }
+
+        public double GetOrderProductSubTotal()
+        {
+            return ProductVariant.ProductVariantPrice * ProductVariantCount;
+        }
+
+
     }
 }

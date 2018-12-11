@@ -14,11 +14,15 @@ namespace EarthMarket.DataAccess.Entities
         [Key]
         public Guid Key { get; set; }
 
+        public double OrderTotalPrice { get; set; }
+
         public virtual ICollection<OrderProductVariant> OrderProductVariants { get; set; }
 
         [Required(ErrorMessage = "Please provide the User")]
         [Index]
         public virtual User User { get; set; }
+
+        
 
         public Order()
         {
