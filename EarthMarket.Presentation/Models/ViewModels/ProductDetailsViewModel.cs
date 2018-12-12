@@ -8,11 +8,14 @@ namespace EarthMarket.Presentation.Models.ViewModels
 {
     public class ProductDetailsViewModel
     {
-        public Guid Key { get; set; }
-        public string Name { get; set; }
-        public int ProductCountSold { get; set; }
-        public IEnumerable<string> Categories { get; set; }
-        public IEnumerable<ProductVariantDto> ProductVariants { get; set; }
-        public IEnumerable<string> ProductImages { get; set; }
+        //public Guid Key { get; set; }
+        //public string Name { get; set; }
+        //public int ProductCountSold { get; set; }
+        //public IEnumerable<string> Categories { get; set; }
+        //public IEnumerable<ProductVariantDto> ProductVariants { get; set; }
+        //public IEnumerable<string> ProductImages { get; set; }
+        //public string Description { get; set; }
+
+        public ProductDto Product { get; set; }
     }
 }

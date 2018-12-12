@@ -30,12 +30,15 @@ namespace EarthMarket.Presentation.Controllers
             var product = _marketService.GetProduct(productKey).ToProductDto();
             ProductDetailsViewModel productDetailsViewModel = new ProductDetailsViewModel
             {
-                Key = product.Key,
-                Name = product.Name,
-                ProductCountSold = product.ProductCountSold,
-                Categories = product.Categories,
-                ProductVariants = product.ProductVariants,
-                ProductImages = product.ProductImages
+                //Key = product.Key,
+                //Name = product.Name,
+                //ProductCountSold = product.ProductCountSold,
+                //Categories = product.Categories,
+                //ProductVariants = product.ProductVariants,
+                //ProductImages = product.ProductImages,
+                //Description = product.Description
+
+                Product = product
             };
             return View(productDetailsViewModel);
         }

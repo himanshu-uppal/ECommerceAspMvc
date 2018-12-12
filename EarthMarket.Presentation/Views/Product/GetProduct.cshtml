@@ -5,7 +5,213 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>GetProduct</h2>
+
+
+<div class="content-wrapper">
+    <div class="item-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-md-12">
+                    <div>
+                        <h1>@Model.Product.Name</h1>
+                    </div>
+                    <div class="product col-md-8 service-image-left">
+
+                        <center>
+                            <img id="item-display" src="@Url.Content(Model.Product.ProductImages.First())" alt="Image" width="300px" height="300px" />
+                        </center>
+                    </div>
+
+                    <div class="container service1-items col-sm-6 col-md-4 pull-left">
+                        <center>
+
+                            @foreach (var productImagePath in Model.Product.ProductImages)
+                            {
+                                <a id="item-2" class="service1-item">
+                                    <img src="@Url.Content(productImagePath)" alt="Image" width="150px" height="150px" />
+                                </a>
+
+                            }
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div>
+                        <br />
+                        <br />
+                        <div>
+                            <strong>Product Categories - </strong>  <br />
+                        </div>
+                        <div>
+                            @foreach (var category in Model.Product.Categories)
+                            {
+                                @Html.RouteLink(category, new { Controller = "Product", Action = "List", category = category }, new { @class = "btn btn-default" }) <span>&nbsp;&nbsp;</span>
+                            }
+
+
+                        </div>
+                    </div>
+
+                    <div class="product-desc">
+
+                        <br />
+                        <div>
+                            <strong>Product Description - </strong>  <br />
+                        </div>
+                        <div>
+                            @Model.Product.Description
+                            <br />
+                            <br />
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            @foreach (var productVariant in Model.Product.ProductVariants)
+            {
+
+                <div class="row">
+                    <div class="col-md-12 col-md-12">
+                        <div>
+                            <h1>@productVariant.ProductVariantName</h1>
+                        </div>
+                        <div class="product col-md-8 service-image-left">
+
+                            <center>
+                                <img id="item-display" src="@Url.Content(productVariant.ProductVariantImages.First())" alt="Image" width="300px" height="300px" />
+                            </center>
+                        </div>
+
+                        <div class="container service1-items col-sm-6 col-md-4 pull-left">
+                            <center>
+
+                                @foreach (var productVariantImagePath in productVariant.ProductVariantImages)
+                                {
+                                   
+                                    <a id="item-2" class="service1-item">
+                                        <img src="@Url.Content(productVariantImagePath)" alt="Image" width="150px" height="150px" />
+                                    </a>
+
+                                }
+                               
+                            </center>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div>
+                            <br />
+                            <br />
+                            <div>
+                                <strong>Product Categories - </strong>  <br />
+                            </div>
+                            <div>
+                                @foreach (var category in Model.Product.Categories)
+                                {
+                                    @Html.RouteLink(category, new { Controller = "Product", Action = "List", category = category }, new { @class = "btn btn-default" }) <span>&nbsp;&nbsp;</span>
+                                }
+
+
+                            </div>
+                        </div>
+                        <div>
+                            Product Price - <h3>@productVariant.ProductVariantPrice.ToString("c")</h3>
+                        </div>
+
+                        <div class="product-desc">
+
+                            <br />
+                            <div>
+                                <strong>Product Variant Specifications - </strong>  <br />
+                            </div>
+                            <div>
+                                <table class="table table-hover table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:50%">Product Specification</th>
+                                            <th style="width:50%">Product Specification Value</th>                                         
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var productVariantAttributeValue in productVariant.ProductVariantAttributeValues)
+                                        {
+                                           
+                                            <tr>
+                                                <td>@productVariantAttributeValue.Key</td>
+                                                <td>@productVariantAttributeValue.Value</td>
+
+                                            </tr>
+
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                              
+                                <br />
+
+                            </div>
+                        </div>
+
+                        <div class="btn-group cart">
+                            @using (Html.BeginForm("AddToCart", "Cart"))
+                            {
+                                @Html.Hidden("productVariantKey", productVariant.Key)
+                                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                                <input class="btn btn-success" type="submit" value="Add to Cart" />
+                            }
+
+                        </div>
+                        <hr>
+
+                    </div>
+                </div>
+
+
+            }
+        </div>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>GetProduct</h2>
 
 <div>
     <strong>@Model.Name</strong>
@@ -52,5 +258,5 @@
 
          </div>
              }
-    </div>
+    </div>*@
 

@@ -31,6 +31,16 @@ namespace EarthMarket.Presentation.Controllers
         {
             
             ICollection<string> roles = new List<string>();
+            if (string.IsNullOrEmpty(registerViewModel.Name))
+            {
+                ModelState.AddModelError("Name", "Please enter your name");
+                return View(registerViewModel);
+            }
+            if (!ModelState.IsValidField("Email"))
+            {
+                ModelState.AddModelError("Email", "Please enter a valid Email");
+                return View(registerViewModel);
+            }
             if (ModelState.IsValid)
             {
                 if (!string.Equals(registerViewModel.Password, registerViewModel.ConfirmPassword))

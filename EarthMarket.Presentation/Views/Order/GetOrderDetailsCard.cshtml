@@ -4,8 +4,6 @@
 <div>Total Amount Paid - <strong>@Model.Order.OrderTotalPrice.ToString("c")</strong></div>
 <div>
     <h5>Products Ordered</h5>
-    @foreach (var orderProductVariant in Model.Order.OrderProductVariants)
-    {
     <table class="table table-hover table-condensed">
         <thead>
             <tr>
@@ -16,9 +14,13 @@
             </tr>
         </thead>
         <tbody>
-            @Html.Action("GetOrderIndexProductCard", "Order", new { orderProductVariant = orderProductVariant })
+            @foreach (var orderProductVariant in Model.Order.OrderProductVariants)
+            {
+
+                @Html.Action("GetOrderIndexProductCard", "Order", new { orderProductVariant = orderProductVariant })
+
+
+            }
         </tbody>
     </table>
-
-    }
 </div>

@@ -20,7 +20,7 @@ namespace EarthMarket.DataAccess.Entities
         [Required(ErrorMessage = "Please provide the Email")]
         [Index(IsUnique = true)]        
         [MaxLength(50)]
-        //[EmailAddress(ErrorMessage ="Please enter valid Email address")]
+        [EmailAddress(ErrorMessage ="Please enter valid Email address")]
         public string Email { get; set; }
         [Required]
         public string HashedPassword { get; set; }

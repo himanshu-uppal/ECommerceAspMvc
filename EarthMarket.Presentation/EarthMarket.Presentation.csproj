@@ -130,6 +130,7 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -187,7 +188,6 @@
     <Content Include="Views\Cart\Completed.cshtml" />
     <Content Include="Views\Order\GetMyOrders.cshtml" />
     <Content Include="Views\Order\MyOrdersLink.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\AuthenticationError.cshtml" />
     <Content Include="Views\Shared\AuthorizationError.cshtml" />
     <Content Include="Views\Authentication\AuthenticationLinks.cshtml" />
@@ -197,6 +197,8 @@
     <Content Include="Views\Order\GetOrderIndexProductCard.cshtml" />
     <Content Include="Views\Order\GetOrderDetailsCard.cshtml" />
     <Content Include="Views\Cart\MyCartLink.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
