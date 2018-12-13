@@ -2,6 +2,7 @@
 using EarthMarket.Shared.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -23,7 +24,15 @@ namespace EarthMarket.Presentation.Models
 
             foreach(var productVariantAttributeValue in productVariantAttributeValues)
             {
-                aDictionaryOfAttributeAndValue.Add(productVariantAttributeValue.AttributeName, productVariantAttributeValue.AttributeValue);
+                try
+                {
+                    aDictionaryOfAttributeAndValue.Add(productVariantAttributeValue.AttributeName, productVariantAttributeValue.AttributeValue);
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine("Duplicate Attribute");
+                }
+                
             }
             if (null != productVariant.ProductVariantImages)
             {
