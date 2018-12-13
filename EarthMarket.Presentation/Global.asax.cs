@@ -17,5 +17,7 @@ namespace EarthMarket.Presentation
             EFConfig.Initialize();
             AutofacConfig.Initialize();
         }
+
+            
     }
 }

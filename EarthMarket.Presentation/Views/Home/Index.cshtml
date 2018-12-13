@@ -16,13 +16,18 @@
 
             <h3>@category.Name</h3>
             <div class=" row">
-
-
-                @foreach (var product in category.Products)
+                @if(@category.Products != null){
+                foreach (var product in category.Products)
                 {
-                       
-                    @Html.Action("GetSingleProductCard", "Product", new { product= product });
+                    if (product != null)
+                    {
+                        @Html.Action("GetSingleProductCard", "Product", new { product = product });
+                    }
+
                 }
+
+                }
+
 
             </div>
         }

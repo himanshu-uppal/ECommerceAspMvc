@@ -1,8 +1,9 @@
-namespace EarthMarket.DataAccess.Migrations
+﻿namespace EarthMarket.DataAccess.Migrations
 {
     using EarthMarket.DataAccess.Concrete;
     using EarthMarket.DataAccess.Entities;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -16,197 +17,7 @@ namespace EarthMarket.DataAccess.Migrations
 
         protected override void Seed(EarthMarket.DataAccess.Concrete.EFDbContext context)
         {
-            ////Adding categories
-
-            //Category category1 = new Category { Key = Guid.NewGuid(), Name = "category1", ProductCountSold = 3 };
-            //Category category2 = new Category { Key = Guid.NewGuid(), Name = "category2", ProductCountSold = 6 };
-            //Category category3 = new Category { Key = Guid.NewGuid(), Name = "category3", ProductCountSold = 9 };
-            //Category category4 = new Category { Key = Guid.NewGuid(), Name = "category4", ProductCountSold = 12 };
-            //Category category5 = new Category { Key = Guid.NewGuid(), Name = "category5", ProductCountSold = 15 };
-
-            //context.Categories.AddOrUpdate(category => category.Name, category1, category2, category3, category4, category5);
-
-            ////Adding Products
-
-            //Product product1 = new Product { Key = Guid.NewGuid(), Name = "product1", Description = "product1 description1", ProductCountSold = 1 };
-            //Product product2 = new Product { Key = Guid.NewGuid(), Name = "product2", Description = "product2 description1", ProductCountSold = 2 };
-            //Product product3 = new Product { Key = Guid.NewGuid(), Name = "product3", Description = "product3 description1", ProductCountSold = 3 };
-            //Product product4 = new Product { Key = Guid.NewGuid(), Name = "product4", Description = "product4 description1", ProductCountSold = 4 };
-            //Product product5 = new Product { Key = Guid.NewGuid(), Name = "product5", Description = "product5 description1", ProductCountSold = 5 };
-
-            //Product product6 = new Product { Key = Guid.NewGuid(), Name = "product6", Description = "product6 description2", ProductCountSold = 1 };
-            //Product product7 = new Product { Key = Guid.NewGuid(), Name = "product7", Description = "product7 description2", ProductCountSold = 2 };
-            //Product product8 = new Product { Key = Guid.NewGuid(), Name = "product8", Description = "product8 description2", ProductCountSold = 3 };
-            //Product product9 = new Product { Key = Guid.NewGuid(), Name = "product9", Description = "product9 description2", ProductCountSold = 4 };
-            //Product product10 = new Product { Key = Guid.NewGuid(), Name = "product10", Description = "product10 description2", ProductCountSold = 5 };
-
-            //Product product11 = new Product { Key = Guid.NewGuid(), Name = "product11", Description = "product11 description3", ProductCountSold = 1 };
-            //Product product12 = new Product { Key = Guid.NewGuid(), Name = "product12", Description = "product12 description3", ProductCountSold = 2 };
-            //Product product13 = new Product { Key = Guid.NewGuid(), Name = "product13", Description = "product13 description3", ProductCountSold = 3 };
-            //Product product14 = new Product { Key = Guid.NewGuid(), Name = "product14", Description = "product14 description3", ProductCountSold = 4 };
-            //Product product15 = new Product { Key = Guid.NewGuid(), Name = "product15", Description = "product15 description3", ProductCountSold = 5 };
-
-            //Product product16 = new Product { Key = Guid.NewGuid(), Name = "product16", Description = "product16 description4", ProductCountSold = 1 };
-            //Product product17 = new Product { Key = Guid.NewGuid(), Name = "product17", Description = "product17 description4", ProductCountSold = 1 };
-            //Product product18 = new Product { Key = Guid.NewGuid(), Name = "product18", Description = "product18 description4", ProductCountSold = 2 };
-            //Product product19 = new Product { Key = Guid.NewGuid(), Name = "product19", Description = "product19 description4", ProductCountSold = 4 };
-            //Product product20 = new Product { Key = Guid.NewGuid(), Name = "product20", Description = "product20 description4", ProductCountSold = 5 };
-
-            //context.Products.AddOrUpdate(product => product.Name, product1, product2, product3, product4, product5, product6, product7, product8, product9,
-            //    product10, product11, product12, product13, product14, product15, product16, product17, product18, product19, product20);
-
-
-            ////Adding Relationship in Category and Product
-
-            //product1.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product1, Category = category1 });
-            //product2.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product2, Category = category2 });
-            //product3.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product3, Category = category3 });
-            //product4.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product4, Category = category4 });
-            //product5.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product5, Category = category5 });
-
-            //product6.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product6, Category = category1 });
-            //product7.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product7, Category = category2 });
-            //product8.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product8, Category = category3 });
-            //product9.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product9, Category = category4 });
-            //product10.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product10, Category = category5 });
-
-            //product11.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product11, Category = category1 });
-            //product12.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product12, Category = category2 });
-            //product13.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product13, Category = category3 });
-            //product14.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product14, Category = category4 });
-            //product15.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product15, Category = category5 });
-
-            //product16.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product16, Category = category1 });
-            //product17.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product17, Category = category1 });
-            //product18.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product18, Category = category2 });
-            //product19.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product19, Category = category4 });
-            //product20.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product20, Category = category5 });
-
-
-            ////Adding Attributes
-            //EarthMarket.DataAccess.Entities.Attribute attribute1 = new EarthMarket.DataAccess.Entities.Attribute { Key = Guid.NewGuid(), Name = "size" };
-            //EarthMarket.DataAccess.Entities.Attribute attribute2 = new EarthMarket.DataAccess.Entities.Attribute { Key = Guid.NewGuid(), Name = "color" };
-            //EarthMarket.DataAccess.Entities.Attribute attribute3 = new EarthMarket.DataAccess.Entities.Attribute { Key = Guid.NewGuid(), Name = "material" };
-
-            //context.Attributes.AddOrUpdate(attribute => attribute.Name, attribute1, attribute2, attribute3);
-
-            ////Adding Values
-            //Value value1 = new Value { Key = Guid.NewGuid(), Name = "medium" };
-            //Value value2 = new Value { Key = Guid.NewGuid(), Name = "large" };
-            //Value value3 = new Value { Key = Guid.NewGuid(), Name = "small" };
-            //Value value4 = new Value { Key = Guid.NewGuid(), Name = "blue" };
-            //Value value5 = new Value { Key = Guid.NewGuid(), Name = "yellow" };
-            //Value value6 = new Value { Key = Guid.NewGuid(), Name = "cotton" };
-
-            //context.Values.AddOrUpdate(value => value.Name, value1, value2, value3, value4, value5);
-
-            ////Adding Attribute and Value in AttributeValue
-            //AttributeValue attributeValue1SizeMedium = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute1, Value = value1 };
-            //AttributeValue attributeValue2SizeLarge = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute1, Value = value2 };
-            //AttributeValue attributeValue3ColorBlue = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute2, Value = value4 };
-            //AttributeValue attributeValue4ColorYellow = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute2, Value = value5 };
-            //AttributeValue attributeValue5MaterialCotton = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute3, Value = value6 };
-
-            //context.AttributeValues.
-            //    AddOrUpdate(
-            //    attributeValue1SizeMedium, attributeValue2SizeLarge, attributeValue3ColorBlue, attributeValue4ColorYellow, attributeValue5MaterialCotton
-            //    );
-
-            ////Adding Product Variant           
-            //ProductVariant productVariant1 = new ProductVariant { Key = Guid.NewGuid(), Product = product7, Price = 100 };
-            //ProductVariant productVariant2 = new ProductVariant { Key = Guid.NewGuid(), Product = product7, Price = 200 };
-            //ProductVariant productVariant3 = new ProductVariant { Key = Guid.NewGuid(), Product = product7, Price = 100 };
-            //ProductVariant productVariant4 = new ProductVariant { Key = Guid.NewGuid(), Product = product8, Price = 200 };
-            //ProductVariant productVariant5 = new ProductVariant { Key = Guid.NewGuid(), Product = product9, Price = 100 };
-
-            //context.ProductVariants.AddOrUpdate(productVariant1, productVariant2, productVariant3, productVariant4, productVariant5);
-
-            ////AddingProductVariant in products
-
-            //product7.ProductVariants.Add(productVariant1);
-            //product7.ProductVariants.Add(productVariant2);
-            //product7.ProductVariants.Add(productVariant3);
-            //product8.ProductVariants.Add(productVariant4);
-            //product9.ProductVariants.Add(productVariant5);
-
-            //context.Products.AddOrUpdate(product7, product8, product9);
-
-            ////Adding Relationship in ProductVariant and AttributValue
-            //productVariant1.ProductVariantAttributeValues.
-            //    Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue1SizeMedium });
-            //productVariant1.ProductVariantAttributeValues.
-            //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue3ColorBlue });
-            //productVariant1.ProductVariantAttributeValues.
-            //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue5MaterialCotton });
-            //productVariant2.ProductVariantAttributeValues.
-            //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue2SizeLarge });
-            //productVariant2.ProductVariantAttributeValues.
-            //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue4ColorYellow });
-            //productVariant3.ProductVariantAttributeValues.
-            //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue1SizeMedium });
-            //productVariant3.ProductVariantAttributeValues.
-            //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue4ColorYellow });
-            //productVariant3.ProductVariantAttributeValues.
-            //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue5MaterialCotton });
-            //productVariant4.ProductVariantAttributeValues.
-            //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue1SizeMedium });
-            //productVariant4.ProductVariantAttributeValues.
-            //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue3ColorBlue });
-            //productVariant5.ProductVariantAttributeValues.
-            //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue1SizeMedium });
-            //productVariant5.ProductVariantAttributeValues.
-            //   Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue5MaterialCotton });
-
-            //context.ProductVariants.AddOrUpdate(productVariant1, productVariant2, productVariant3, productVariant4, productVariant5);
-
-
-
-
-            ////////Adding cart
-
-            //////Cart cart1 = new Cart { Key = Guid.NewGuid(), User = user1 };
-
-            //////context.Carts.AddOrUpdate(cart1);
-
-            ////////Adding CartProductVariant 
-
-            //////CartProductVariant cartProductVariant1 = new CartProductVariant
-            //////{
-            //////    Key = Guid.NewGuid(),
-            //////    Cart = cart1,
-            //////    ProductVariant = productVariant1
-            //////};
-            //////CartProductVariant cartProductVariant2 = new CartProductVariant
-            //////{
-            //////    Key = Guid.NewGuid(),
-            //////    Cart = cart1,
-            //////    ProductVariant = productVariant2
-            //////};
-
-            //////context.CartProductVariants.AddOrUpdate(cartProductVariant1, cartProductVariant2);
-
-
-            //////Adding User
-            //// User user = new User { Key = Guid.NewGuid(), Name = "user" ,
-            ////     HashedPassword = "Sgo+n+Q4gOC9DSpi2T4Rqicm2fr3W3A+zsEHDX8OyWM=",Salt= "1nSv3rqWbhVCm8054/MZAg==" };
-
-            //// User admin = new User
-            //// {
-            ////     Key = Guid.NewGuid(),
-            ////     Name = "admin",
-            ////     HashedPassword = "Sgo+n+Q4gOC9DSpi2T4Rqicm2fr3W3A+zsEHDX8OyWM=",
-            ////     Salt = "1nSv3rqWbhVCm8054/MZAg=="
-            //// };
-
-            //// User both = new User
-            //// {
-            ////     Key = Guid.NewGuid(),
-            ////     Name = "both",
-            ////     HashedPassword = "Sgo+n+Q4gOC9DSpi2T4Rqicm2fr3W3A+zsEHDX8OyWM=",
-            ////     Salt = "1nSv3rqWbhVCm8054/MZAg=="
-            //// };
-
-            //// context.Users.AddOrUpdate(user,admin,both);
+            ////STATIC DATA
 
             ////Adding Roles
 
@@ -216,83 +27,306 @@ namespace EarthMarket.DataAccess.Migrations
             //context.Roles.AddOrUpdate(role1, role2);
 
 
-            //// //Adding Relationship in user and roles
 
-            //// //Adding userRoles
+            ////Adding categories
 
-            //// UserRole userRole1 = new UserRole { Key = Guid.NewGuid(),User = user,Role = role1 };
-            //// UserRole userRole2 = new UserRole { Key = Guid.NewGuid(), User = admin, Role = role2 };
-            //// UserRole userRole3 = new UserRole { Key = Guid.NewGuid(), User = both, Role = role1 };
-            //// UserRole userRole4 = new UserRole { Key = Guid.NewGuid(), User = both, Role = role2 };
+            //Category category1 = new Category { Key = Guid.NewGuid(), Name = "Mens Fashion", ProductCountSold = 1 };
+            //Category category2 = new Category { Key = Guid.NewGuid(), Name = "Womens Fashion", ProductCountSold = 2 };
+            //Category category3 = new Category { Key = Guid.NewGuid(), Name = "Computers", ProductCountSold = 3 };
+            //Category category4 = new Category { Key = Guid.NewGuid(), Name = "Electronics", ProductCountSold = 4 };
+            //Category category5 = new Category { Key = Guid.NewGuid(), Name = "Household Items", ProductCountSold = 5 };
+            //Category category6 = new Category { Key = Guid.NewGuid(), Name = "Luggage and Travel", ProductCountSold = 7 };
+            //Category category7 = new Category { Key = Guid.NewGuid(), Name = "Sports and Outdoor", ProductCountSold = 8 };
+            //Category category8 = new Category { Key = Guid.NewGuid(), Name = "Toys and games", ProductCountSold = 8 };
+            //Category category9 = new Category { Key = Guid.NewGuid(), Name = "Fashion", ProductCountSold = 6 };
 
-            //// context.UserRoles.AddOrUpdate(userRole1, userRole2, userRole3, userRole4);
+            //context.Categories.AddOrUpdate(category1, category2, category3, category4,
+            //category5, category6, category7, category8, category9);
 
+            ////Adding Attributes
+            //EarthMarket.DataAccess.Entities.Attribute attribute1 = new EarthMarket.DataAccess.Entities.Attribute
+            //{ Key = Guid.NewGuid(), Name = "Color" };
 
+            //EarthMarket.DataAccess.Entities.Attribute attribute2 = new EarthMarket.DataAccess.Entities.Attribute
+            //{ Key = Guid.NewGuid(), Name = "Size" };
 
-            ////Adding Product Image
+            //EarthMarket.DataAccess.Entities.Attribute attribute3 = new EarthMarket.DataAccess.Entities.Attribute
+            //{ Key = Guid.NewGuid(), Name = "Material" };
 
-            //ProductImage productImage1 = new ProductImage { Key = Guid.NewGuid(), Product = product1, ImagePath = "~/Images/image1.jpg" };
-            //ProductImage productImage2 = new ProductImage { Key = Guid.NewGuid(), Product = product2, ImagePath = "~/Images/image2.jpg" };
-            //ProductImage productImage3 = new ProductImage { Key = Guid.NewGuid(), Product = product3, ImagePath = "~/Images/image3.jpg" };
-            //ProductImage productImage4 = new ProductImage { Key = Guid.NewGuid(), Product = product4, ImagePath = "~/Images/image4.jpg" };
-            //ProductImage productImage5 = new ProductImage { Key = Guid.NewGuid(), Product = product5, ImagePath = "~/Images/image1.jpg" };
-            //ProductImage productImage6 = new ProductImage { Key = Guid.NewGuid(), Product = product6, ImagePath = "~/Images/image2.jpg" };
-            //ProductImage productImage7 = new ProductImage { Key = Guid.NewGuid(), Product = product7, ImagePath = "~/Images/image3.jpg" };
-            //ProductImage productImage8 = new ProductImage { Key = Guid.NewGuid(), Product = product8, ImagePath = "~/Images/image4.jpg" };
-            //ProductImage productImage9 = new ProductImage { Key = Guid.NewGuid(), Product = product9, ImagePath = "~/Images/image1.jpg" };
-            //ProductImage productImage10 = new ProductImage { Key = Guid.NewGuid(), Product = product10, ImagePath = "~/Images/image2.jpg" };
-            //ProductImage productImage11 = new ProductImage { Key = Guid.NewGuid(), Product = product11, ImagePath = "~/Images/default.jpg" };
-            //ProductImage productImage12 = new ProductImage { Key = Guid.NewGuid(), Product = product12, ImagePath = "~/Images/default.jpg" };
-            //ProductImage productImage13 = new ProductImage { Key = Guid.NewGuid(), Product = product13, ImagePath = "~/Images/default.jpg" };
-            //ProductImage productImage14 = new ProductImage { Key = Guid.NewGuid(), Product = product14, ImagePath = "~/Images/default.jpg" };
-            //ProductImage productImage15 = new ProductImage { Key = Guid.NewGuid(), Product = product15, ImagePath = "~/Images/default.jpg" };
-            //ProductImage productImage16 = new ProductImage { Key = Guid.NewGuid(), Product = product16, ImagePath = "~/Images/default.jpg" };
-            //ProductImage productImage17 = new ProductImage { Key = Guid.NewGuid(), Product = product17, ImagePath = "~/Images/default.jpg" };
-            //ProductImage productImage18 = new ProductImage { Key = Guid.NewGuid(), Product = product18, ImagePath = "~/Images/default.jpg" };
-            //ProductImage productImage19 = new ProductImage { Key = Guid.NewGuid(), Product = product19, ImagePath = "~/Images/default.jpg" };
-            //ProductImage productImage20 = new ProductImage { Key = Guid.NewGuid(), Product = product20, ImagePath = "~/Images/default.jpg" };
+            //EarthMarket.DataAccess.Entities.Attribute attribute4 = new EarthMarket.DataAccess.Entities.Attribute
+            //{ Key = Guid.NewGuid(), Name = "Capacity" };
 
-            //ProductImage productImage21 = new ProductImage { Key = Guid.NewGuid(), Product = product1, ImagePath = "~/Images/image2.jpg" };
-            //ProductImage productImage22 = new ProductImage { Key = Guid.NewGuid(), Product = product2, ImagePath = "~/Images/image3.jpg" };
-            //ProductImage productImage23 = new ProductImage { Key = Guid.NewGuid(), Product = product3, ImagePath = "~/Images/image4.jpg" };
-            //ProductImage productImage24 = new ProductImage { Key = Guid.NewGuid(), Product = product4, ImagePath = "~/Images/image1.jpg" };
-            //ProductImage productImage25 = new ProductImage { Key = Guid.NewGuid(), Product = product5, ImagePath = "~/Images/image2.jpg" };
+            //EarthMarket.DataAccess.Entities.Attribute attribute5 = new EarthMarket.DataAccess.Entities.Attribute
+            //{ Key = Guid.NewGuid(), Name = "Weight" };
+
+            //context.Attributes.AddOrUpdate(attribute => attribute.Name, attribute1, attribute2, attribute3, attribute4, attribute5);
 
 
-            //context.ProductImages.AddOrUpdate(productImage1, productImage2, productImage3, productImage4, productImage5, productImage6,
-            //    productImage7, productImage8, productImage17, productImage18, productImage9, productImage10, productImage11, productImage12,
-            //    productImage13, productImage14, productImage15, productImage16, productImage19, productImage20, productImage21, productImage22,
-            //productImage23, productImage24, productImage25);
+            ////Adding Values
+            //Value value1 = new Value { Key = Guid.NewGuid(), Name = "Red" };
+            //Value value2 = new Value { Key = Guid.NewGuid(), Name = "Yellow" };
+            //Value value3 = new Value { Key = Guid.NewGuid(), Name = "Brown" };
+            //Value value4 = new Value { Key = Guid.NewGuid(), Name = "Dark Borown" };
+            //Value value5 = new Value { Key = Guid.NewGuid(), Name = "Blue" };
+            //Value value6 = new Value { Key = Guid.NewGuid(), Name = "6" };
+            //Value value7 = new Value { Key = Guid.NewGuid(), Name = "7" };
+            //Value value8 = new Value { Key = Guid.NewGuid(), Name = "8" };
+            //Value value9 = new Value { Key = Guid.NewGuid(), Name = "9" };
+            //Value value10 = new Value { Key = Guid.NewGuid(), Name = "Small" };
+            //Value value11 = new Value { Key = Guid.NewGuid(), Name = "Medium" };
+            //Value value12 = new Value { Key = Guid.NewGuid(), Name = "Large" };
+            //Value value13 = new Value { Key = Guid.NewGuid(), Name = "Black" };
+            //Value value14 = new Value { Key = Guid.NewGuid(), Name = "Plastic" };
+            //Value value15 = new Value { Key = Guid.NewGuid(), Name = "Matty" };
+            //Value value16 = new Value { Key = Guid.NewGuid(), Name = "Cotton" };
+            //Value value17 = new Value { Key = Guid.NewGuid(), Name = "16GB" };
+            //Value value18 = new Value { Key = Guid.NewGuid(), Name = "32GB" };
+            //Value value19 = new Value { Key = Guid.NewGuid(), Name = "126GB" };
+            //Value value20 = new Value { Key = Guid.NewGuid(), Name = "1lb" };
+            //Value value21 = new Value { Key = Guid.NewGuid(), Name = "1.5lb" };
+            //Value value22 = new Value { Key = Guid.NewGuid(), Name = "2lb" };
+            //Value value23 = new Value { Key = Guid.NewGuid(), Name = "2.5lb" };
 
-            ////Adding ProductVariantImage
+
+            //context.Values.AddOrUpdate(value => value.Name, value1, value2, value3, value4, value5, value6,
+            //value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17, value18,
+            //value19, value20, value21, value22, value23);
 
 
-            //ProductVariantImage productVariantImage1 = new ProductVariantImage
-            //{ Key = Guid.NewGuid(), ProductVariant = productVariant1, ImagePath = "~/Images/image5.jpg" };
-            //ProductVariantImage productVariantImage2 = new ProductVariantImage
-            //{ Key = Guid.NewGuid(), ProductVariant = productVariant2, ImagePath = "~/Images/image6.jpg" };
-            //ProductVariantImage productVariantImage3 = new ProductVariantImage
-            //{ Key = Guid.NewGuid(), ProductVariant = productVariant3, ImagePath = "~/Images/image7.jpg" };
-            //ProductVariantImage productVariantImage4 = new ProductVariantImage
-            //{ Key = Guid.NewGuid(), ProductVariant = productVariant4, ImagePath = "~/Images/image8.jpg" };
-            //ProductVariantImage productVariantImage5 = new ProductVariantImage
-            //{ Key = Guid.NewGuid(), ProductVariant = productVariant5, ImagePath = "~/Images/default.jpg" };
 
-            //ProductVariantImage productVariantImage6 = new ProductVariantImage
-            //{ Key = Guid.NewGuid(), ProductVariant = productVariant1, ImagePath = "~/Images/image6.jpg" };
-            //ProductVariantImage productVariantImage7 = new ProductVariantImage
-            //{ Key = Guid.NewGuid(), ProductVariant = productVariant2, ImagePath = "~/Images/image7.jpg" };
-            //ProductVariantImage productVariantImage8 = new ProductVariantImage
-            //{ Key = Guid.NewGuid(), ProductVariant = productVariant3, ImagePath = "~/Images/image8.jpg" };
-            //ProductVariantImage productVariantImage9 = new ProductVariantImage
-            //{ Key = Guid.NewGuid(), ProductVariant = productVariant4, ImagePath = "~/Images/image5.jpg" };
-            //ProductVariantImage productVariantImage10 = new ProductVariantImage
-            //{ Key = Guid.NewGuid(), ProductVariant = productVariant5, ImagePath = "~/Images/image5.jpg" };
+            ////Adding Attribute and Value in AttributeValue
+            //AttributeValue attributeValue1 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute1, Value = value1 };
+            //AttributeValue attributeValue2 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute1, Value = value2 };
+            //AttributeValue attributeValue3 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute1, Value = value3 };
+            //AttributeValue attributeValue4 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute1, Value = value4 };
+            //AttributeValue attributeValue5 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute1, Value = value5 };
+            //AttributeValue attributeValue6 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute2, Value = value6 };
+            //AttributeValue attributeValue7 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute2, Value = value7 };
+            //AttributeValue attributeValue8 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute2, Value = value8 };
+            //AttributeValue attributeValue9 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute2, Value = value9 };
+            //AttributeValue attributeValue10 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute2, Value = value10 };
+            //AttributeValue attributeValue11 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute2, Value = value11 };
+            //AttributeValue attributeValue12 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute2, Value = value12 };
+            //AttributeValue attributeValue13 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute1, Value = value13 };
+            //AttributeValue attributeValue14 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute3, Value = value14 };
+            //AttributeValue attributeValue15 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute3, Value = value15 };
+            //AttributeValue attributeValue16 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute3, Value = value16 };
+            //AttributeValue attributeValue17 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute4, Value = value17 };
+            //AttributeValue attributeValue18 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute4, Value = value18 };
+            //AttributeValue attributeValue19 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute4, Value = value19 };
+            //AttributeValue attributeValue20 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute5, Value = value20 };
+            //AttributeValue attributeValue21 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute5, Value = value21 };
+            //AttributeValue attributeValue22 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute5, Value = value22 };
+            //AttributeValue attributeValue23 = new AttributeValue { Key = Guid.NewGuid(), Attribute = attribute5, Value = value23 };
 
-            //context.ProductVariantImages.AddOrUpdate(productVariantImage1, productVariantImage2, productVariantImage3,
-            //    productVariantImage4, productVariantImage5, productVariantImage6, productVariantImage7,
-            //    productVariantImage8, productVariantImage9, productVariantImage10);
+            //context.AttributeValues.
+            //    AddOrUpdate(
+            //    attributeValue1, attributeValue2, attributeValue3, attributeValue4, attributeValue5, attributeValue6, attributeValue7,
+            //attributeValue8, attributeValue9, attributeValue10, attributeValue11, attributeValue12, attributeValue13, attributeValue14,
+            //attributeValue15, attributeValue16, attributeValue17, attributeValue18, attributeValue9, attributeValue20, attributeValue21,
+            //attributeValue22, attributeValue23
+            //    );
 
+
+            ////Adding Products
+
+            //Product product1 = new Product
+            //{
+            //    Key = Guid.NewGuid(),
+            //    Name = "Legendary Whitetails Men's Buck Camp Flannel Shirt",
+            //    Description = "100% Cotton",
+            //    ProductCountSold = 1
+            //};
+
+
+            //Product product2 = new Product
+            //{
+            //    Key = Guid.NewGuid(),
+            //    Name = "Timberland Men's White Ledge Mid Waterproof Ankle Boot",
+            //    Description = "00% Leather",
+            //    ProductCountSold = 2
+            //};
+
+
+
+            //Product product3 = new Product
+            //{
+            //    Key = Guid.NewGuid(),
+            //    Name = "Clarks Men's Bushacre 2 Chukka Boot",
+            //    Description = "100% Leather Imported ",
+
+            //    ProductCountSold = 4
+            //};
+
+
+
+            //Product product4 = new Product
+            //{
+            //    Key = Guid.NewGuid(),
+            //    Name = "SUUNTO Core All Black – Military",
+            //    Description = "An altimeter tracks your vertical movement, a barometer tells ts",
+            //    ProductCountSold = 5
+            //};
+
+
+
+            //Product product5 = new Product
+            //{
+            //    Key = Guid.NewGuid(),
+            //    Name = "Samsung 860 EVO 1TB 2.5 Inch SATA III Internal SSD (MZ-76E1T0B/AM)",
+            //    Description = "Powered by Samsung V-NAND Technology. Optimized Performance for Everyday Computing",
+            //    ProductCountSold = 7
+            //};
+
+            //context.Products.AddOrUpdate(product => product.Name, product1, product2, product3, product4, product5);
+
+
+            //// CREATING COLLECTION OF DATA
+
+            //List<Category> categories = new List<Category>();
+            //categories.AddRange(new List<Category>{category1, category2, category3, category4,
+            // category5, category6, category7, category8, category9 });
+
+
+            //List<Product> products = new List<Product>();
+            //products.AddRange(new List<Product> { product1, product2, product3, product4, product5 });
+
+            //List<EarthMarket.DataAccess.Entities.Attribute> attributes = new List<EarthMarket.DataAccess.Entities.Attribute>();
+            //attributes.Add(attribute1);
+            //attributes.Add(attribute2);
+            //attributes.Add(attribute3);
+            //attributes.Add(attribute4);
+            //attributes.Add(attribute5);
+
+            //List<Value> values = new List<Value>();
+            //values.AddRange(new List<Value>{value1, value2, value3, value4, value5, value6,
+            //value7, value8, value9, value10, value11, value12, value13, value14, value15, value16, value17, value18,
+            //value19, value20, value21, value22, value23 });
+
+
+            //List<AttributeValue> attributeValues = new List<AttributeValue>();
+            //attributeValues.AddRange(new List<AttributeValue>{attributeValue1, attributeValue2, attributeValue3, attributeValue4, attributeValue5, attributeValue6, attributeValue7,
+            //attributeValue8, attributeValue9, attributeValue10, attributeValue11, attributeValue12, attributeValue13, attributeValue14,
+            //attributeValue15, attributeValue16, attributeValue17, attributeValue18, attributeValue9, attributeValue20, attributeValue21,
+            //attributeValue22, attributeValue23 });
+
+            ////DYNAMIC DATA
+
+            //Random random = new Random();
+            //int randomNumber;
+            //int randomTimesNumber;
+
+            ////Adding Relationship in Category and Product Randomly
+
+            //Category category;
+            //foreach (var product in products)
+            //{
+            //    randomTimesNumber = random.Next(1, 4);
+            //    for (int i = 0; i < randomTimesNumber; i++)
+            //    {
+            //        randomNumber = random.Next(0, categories.Count());
+            //        category = categories.ElementAt(randomNumber);
+            //        product.ProductCategories.Add(new ProductCategory { Key = Guid.NewGuid(), Product = product, Category = category });
+            //        context.Products.AddOrUpdate(product);
+            //    }
+            //}
+
+
+            ////Adding Product Variant  Randomly 
+
+            //int randomPriceNumber;
+            //double price;
+            //List<double> prices = new List<double> { 1000, 2000, 3000, 4000, 5000, 100, 200, 300, 400, 500, 600, 700, 800.900, 1100, 1200, 1300 };
+
+            //List<ProductVariant> productVariants = new List<ProductVariant>();
+
+            //foreach (var product in products)
+            //{
+            //    randomTimesNumber = random.Next(1, 3);
+            //    for (int i = 0; i < randomTimesNumber; i++)
+            //    {
+            //        randomPriceNumber = random.Next(0, prices.Count());
+            //        price = prices.ElementAt(randomPriceNumber);
+            //        ProductVariant productVariant = new ProductVariant { Key = Guid.NewGuid(), Product = product, Price = price };
+            //        context.ProductVariants.AddOrUpdate(productVariant);
+            //        productVariants.Add(productVariant);
+            //    }
+            //}
+
+
+            ////Adding Relationship in ProductVariant and AttributValue Randomly 
+
+            //AttributeValue attributeValue;
+
+            //foreach (var productVariant in productVariants)
+            //{
+            //    randomTimesNumber = random.Next(1, 3);
+            //    for (int i = 0; i < randomTimesNumber; i++)
+            //    {
+            //        randomNumber = random.Next(0, attributeValues.Count());
+            //        attributeValue = attributeValues.ElementAt(randomNumber);
+            //        productVariant.ProductVariantAttributeValues.
+            //            Add(new VariantAttributeValue { Key = Guid.NewGuid(), AttributeValue = attributeValue });
+            //        context.ProductVariants.AddOrUpdate(productVariant);
+            //    }
+            //}
+
+            ////Adding Product Image Randomly
+
+            //string productImageName;
+
+            //List<string> productImagesStrings = new List<string>();
+
+            //productImagesStrings.AddRange(new List<string> {"image1", "image2", "image3", "image4", "image5", "image6", "image7", "image8" });
+
+            //List<ProductImage> productImages = new List<ProductImage>();
+
+            //foreach(var product in products)
+            //{
+            //    randomTimesNumber = random.Next(1, 3);
+            //    for (int i = 0; i < randomTimesNumber; i++)
+            //    {
+            //        randomNumber = random.Next(0, productImagesStrings.Count());
+            //        productImageName = productImagesStrings.ElementAt(randomNumber);
+            //        ProductImage productImage = new ProductImage { Key = Guid.NewGuid(),
+            //            Product = product, ImagePath = "~/Images/"+ productImageName+".jpg" };
+
+            //        context.ProductImages.AddOrUpdate(productImage);
+            //    }
+
+
+            //     }
+
+            ////Adding ProductVariantImage Randomly
+
+            //string productVariantImageName;
+
+            //List<string> productVariantImagesStrings = new List<string>();
+
+            //productVariantImagesStrings.AddRange(new List<string> { "image1", "image2", "image3", "image4", "image5", "image6", "image7", "image8" });
+
+            //List<ProductImage> productVariantImages = new List<ProductImage>();
+
+            //foreach (var productVariant in productVariants)
+            //{
+            //    randomTimesNumber = random.Next(1, 3);
+            //    for (int i = 0; i < randomTimesNumber; i++)
+            //    {
+            //        randomNumber = random.Next(0, productVariantImagesStrings.Count());
+            //        productVariantImageName = productVariantImagesStrings.ElementAt(randomNumber);
+            //        ProductVariantImage productVariantImage = new ProductVariantImage
+            //        {
+            //            Key = Guid.NewGuid(),
+            //            ProductVariant = productVariant,
+            //            ImagePath = "~/Images/" + productVariantImageName + ".jpg"
+            //        };
+                   
+            //        context.ProductVariantImages.AddOrUpdate(productVariantImage);
+            //    }
+
+
+            //}            
+            
 
         }
     }

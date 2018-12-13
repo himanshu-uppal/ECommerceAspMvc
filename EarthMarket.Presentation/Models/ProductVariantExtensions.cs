@@ -32,7 +32,7 @@ namespace EarthMarket.Presentation.Models
 
             foreach(var productVariantAttributeValue in productVariantAttributeValues)
             {
-                productVariantName = productVariantName + " " + productVariantAttributeValue.AttributeValue;
+                productVariantName = productVariantName + " " + "(" + productVariantAttributeValue.AttributeValue + ")";
             }
 
             return new ProductVariantDto

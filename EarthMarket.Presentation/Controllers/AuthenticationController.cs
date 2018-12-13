@@ -29,6 +29,15 @@ namespace EarthMarket.Presentation.Controllers
         [HttpPost]
         public ActionResult Register(RegisterViewModel registerViewModel,string returnUrl,string[] rolesChecked)
         {
+            var allRoles = _membershipService.GetAllRoles().ToList();
+            registerViewModel.Roles = allRoles.Select(r => r.Name);
+
+            if (rolesChecked == null)
+            {
+                ModelState.AddModelError("", "Please choose a Role !!");
+                return View(registerViewModel);
+
+            }
             
             ICollection<string> roles = new List<string>();
             if (string.IsNullOrEmpty(registerViewModel.Name))

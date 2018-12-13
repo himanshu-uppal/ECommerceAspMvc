@@ -156,6 +156,10 @@
     <Compile Include="Migrations\201812111012512_added email address validation edit 1.Designer.cs">
       <DependentUpon>201812111012512_added email address validation edit 1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812120759320_added email valiatin.cs" />
+    <Compile Include="Migrations\201812120759320_added email valiatin.Designer.cs">
+      <DependentUpon>201812120759320_added email valiatin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMarketService.cs" />
@@ -227,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812111012512_added email address validation edit 1.resx">
       <DependentUpon>201812111012512_added email address validation edit 1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812120759320_added email valiatin.resx">
+      <DependentUpon>201812120759320_added email valiatin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
