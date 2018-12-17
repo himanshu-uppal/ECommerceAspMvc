@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace EarthMarket.Business.Services
 {
+    //interface for memberships , users , roles
     public interface IMembershipService
     {
         ValidUserContext ValidateUser(string username, string password);

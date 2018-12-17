@@ -10,7 +10,7 @@ namespace EarthMarket.Business.Services
 {
     public class ValidUserContext
     {
-
+        //to see 
         public IPrincipal Principal { get; set; }
         public UserWithRoles User { get; set; }
 

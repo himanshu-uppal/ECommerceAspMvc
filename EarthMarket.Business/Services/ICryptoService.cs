@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace EarthMarket.Business.Services
 {
+    // interface for Encrypting passwords
     public interface ICryptoService
     {
         string GenerateSalt();

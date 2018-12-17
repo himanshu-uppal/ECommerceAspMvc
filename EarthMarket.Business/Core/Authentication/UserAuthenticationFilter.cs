@@ -9,24 +9,31 @@ using System.Web.Mvc.Filters;
 
 namespace EarthMarket.Business.Core.Authentication
 {
+    //Custom Authentication Filter to check whether the user is authenticated to access the functionality meant to be used by only authenticated users
     public class UserAuthenticationFilter : ActionFilterAttribute, IAuthenticationFilter
     {
         public void OnAuthentication(AuthenticationContext filterContext)
         {
-           
+            //if the current session's user value is not null and has something it           
             if ((User)filterContext.HttpContext.Session["User"] != null)
             {
+                //accessing the key of the user stored in session object
                 var userKey = ((User)filterContext.HttpContext.Session["User"]).Key;
+
+                //if user key fetched is null or empty
                 if (string.IsNullOrEmpty(Convert.ToString(userKey)))
                 {
+                    //set the result to Unauthorized
                     filterContext.Result = new HttpUnauthorizedResult();
 
                 }
-                
+                  
+                // !!! check whether the user key is valid or not and then check whether the user is valid or not !!!                
 
             }
             else
             {
+                //set the result to Unauthorized
                 filterContext.Result = new HttpUnauthorizedResult();
             }
             //Check Session is Empty Then set as Result is HttpUnauthorizedResult 
@@ -47,6 +54,7 @@ namespace EarthMarket.Business.Core.Authentication
             {
                 filterContext.Result = new ViewResult
                 {
+                    //AuthenticationError is the view to show error messages to user
                     ViewName = "AuthenticationError"
                 };
             }
